@@ -1,0 +1,65 @@
+  [1m[35m (100.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (108.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAlternativas (20161107124255)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "codigo" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161107124255"]]
+  [1m[35m (98.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCriterios (20161107124455)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "criterios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "codigo" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161107124455"]]
+  [1m[35m (116.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-07 12:49:14 UTC], ["updated_at", 2016-11-07 12:49:14 UTC]]
+  [1m[35m (93.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/alternativas" for 127.0.0.1 at 2016-11-07 10:49:41 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AlternativasController#index as HTML
+  Rendering alternativas/index.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas"[0m
+  Rendered alternativas/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 855ms (Views: 842.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/criterios" for 127.0.0.1 at 2016-11-07 10:49:52 -0200
+Processing by CriteriosController#index as HTML
+  Rendering criterios/index.html.erb within layouts/application
+  [1m[36mCriterio Load (0.8ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  Rendered criterios/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 97ms (Views: 86.3ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2016-11-08 07:51:49 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (14.9ms)
+Completed 200 OK in 93ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/criterios" for 127.0.0.1 at 2016-11-08 07:52:04 -0200
+Processing by CriteriosController#index as HTML
+  Rendering criterios/index.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  Rendered criterios/index.html.erb within layouts/application (51.7ms)
+Completed 200 OK in 674ms (Views: 585.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/alternativas" for 127.0.0.1 at 2016-11-08 07:52:18 -0200
+Processing by AlternativasController#index as HTML
+  Rendering alternativas/index.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas"[0m
+  Rendered alternativas/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 105ms (Views: 67.7ms | ActiveRecord: 0.7ms)
+
+

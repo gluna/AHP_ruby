@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grupo Criterios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Peso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupo_criterios.each do |grupo_criterio| %>
+      <tr>
+        <td><%= grupo_criterio.nome %></td>
+        <td><%= grupo_criterio.peso %></td>
+        <td><%= link_to 'Show', grupo_criterio %></td>
+        <td><%= link_to 'Edit', edit_grupo_criterio_path(grupo_criterio) %></td>
+        <td><%= link_to 'Destroy', grupo_criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grupo Criterio', new_grupo_criterio_path %>

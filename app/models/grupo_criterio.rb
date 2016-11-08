@@ -1,0 +1,2 @@
+class GrupoCriterio < ApplicationRecord
+end
