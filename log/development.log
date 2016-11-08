@@ -230,3 +230,29 @@ Processing by ProjetosController#new as HTML
 Completed 200 OK in 48ms (Views: 35.3ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-08 16:00:05 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (54.4ms)
+Completed 200 OK in 811ms (Views: 757.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-08 16:14:41 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 582ms (Views: 496.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-08 16:58:18 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 2399ms (Views: 2397.8ms | ActiveRecord: 0.2ms)
+
+
