@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projetos
   resources :grupo_criterios
   resources :criterios
   resources :alternativas
