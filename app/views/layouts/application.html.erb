@@ -26,13 +26,14 @@
                 </div>
             </div>
         </div>
+
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <!--<li class="text-center user-image-back">
+                    <li class="text-center user-image-back">
                         <img src=<%= image_path("find_user.png") %> class="img-responsive" />
-                    </li>-->
+                    </li>
 
                     <li>
                         <%= link_to 'Projetos', projetos_path %>
@@ -110,7 +111,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                      <% yield %>
+                      <%= yield %>
                     </div>
                 </div>
                  <!-- /. ROW  -->
