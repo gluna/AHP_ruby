@@ -21,5 +21,17 @@
 <% end %>
 <%= link_to 'New Alternativa', new_alternativa_path(projeto_id: @projeto.id) %>
 <br/><br/>
+<% @projeto.criterios.each do |criterio| %>
+  <tr>
+    <td><%= criterio.nome %></td>
+    <td><%= criterio.codigo %></td>
+    <td><%= link_to 'Show', criterio %></td>
+    <td><%= link_to 'Edit', edit_criterio_path(criterio) %></td>
+    <td><%= link_to 'Destroy', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<%= link_to 'New Criterio', new_criterio_path(projeto_id: @projeto.id) %>
+<br/><br/>
+
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>

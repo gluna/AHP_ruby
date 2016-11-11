@@ -1012,3 +1012,426 @@ Processing by ProjetosController#index as HTML
 Completed 200 OK in 84ms (Views: 81.7ms | ActiveRecord: 0.3ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Addprojetotoalternativa (20161110211711)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161110211711"]]
+  [1m[35m (51.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddProjetoToAlternativa (20161110213038)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "alternativas" ADD "projeto_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_alternativas_on_projeto_id" ON "alternativas" ("projeto_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161110213038"]]
+  [1m[35m (117.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-11-10 19:33:31 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 358ms (Views: 338.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/new" for 127.0.0.1 at 2016-11-10 19:33:35 -0200
+Processing by ProjetosController#new as HTML
+  Rendering projetos/new.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (117.2ms)
+  Rendered projetos/new.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 199ms (Views: 181.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-10 19:33:56 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 46ms (Views: 42.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/new" for 127.0.0.1 at 2016-11-10 19:34:20 -0200
+Processing by ProjetosController#new as HTML
+  Rendering projetos/new.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (5.6ms)
+  Rendered projetos/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 74ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projetos" for 127.0.0.1 at 2016-11-10 19:34:45 -0200
+Processing by ProjetosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FYrg9QpHqQuA1aMoD4JloErttAvqXYuVcYrwXyqUoOHqLjn9yczTvvb65/26pGgJhTTwWPstWzDwPYR2XGmnEQ==", "projeto"=>{"nome"=>"projeto de teste", "descricao"=>"descricao do projeto de teste"}, "commit"=>"Create Projeto"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "projeto de teste"], ["descricao", "descricao do projeto de teste"], ["created_at", 2016-11-10 21:34:45 UTC], ["updated_at", 2016-11-10 21:34:45 UTC]]
+  [1m[35m (117.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projetos/1
+Completed 302 Found in 130ms (ActiveRecord: 118.4ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-10 19:34:45 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  Rendered projetos/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 50ms (Views: 37.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-10 19:34:48 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 60ms (Views: 56.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-10 20:33:03 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  Rendered projetos/_form_alternativa.html.erb (17.4ms)
+  Rendered projetos/show.html.erb within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(alternativa) do |f| %>
+    2:   <% if alternativa.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(alternativa.errors.count, "error") %> prohibited this alternativa from being saved:</h2>
+  
+app/views/projetos/_form_alternativa.html.erb:1:in `_app_views_projetos__form_alternativa_html_erb___1281752693481524176_69959665820920'
+app/views/projetos/show.html.erb:13:in `_app_views_projetos_show_html_erb___3633764701088868868_69959615716880'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.5ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.8ms)
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-10 20:42:54 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  Rendered projetos/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/projetos/1/edit" for 127.0.0.1 at 2016-11-10 20:42:57 -0200
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.7ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/edit.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (21.7ms)
+  Rendered projetos/edit.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 73ms (Views: 69.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-10 20:43:14 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 54ms (Views: 50.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-11 08:22:39 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-11 08:55:15 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 49ms (Views: 46.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-11 08:55:40 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:15:05 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.7ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (64.8ms)
+Completed 200 OK in 110ms (Views: 105.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:15:10 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-11 09:15:14 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:16:42 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 58ms (Views: 54.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:17:02 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 68ms (Views: 63.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:17:24 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 54ms (Views: 51.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/alternativas/1/edit" for 127.0.0.1 at 2016-11-11 09:20:31 -0200
+Processing by AlternativasController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering alternativas/edit.html.erb within layouts/application
+  Rendered alternativas/_form.html.erb (4.2ms)
+  Rendered alternativas/edit.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 60ms (Views: 55.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/alternativas/1" for 127.0.0.1 at 2016-11-11 09:20:37 -0200
+Processing by AlternativasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oWUpbYk1joDdQtyy5/1jVozILQc27LWYZONqL7oCprTQdBjRL6N3ro5yqQ3jxnVUz/spmhsM0tDuqC4s9M0d2A==", "alternativa"=>{"nome"=>"alt-1 teste", "codigo"=>"alt1"}, "commit"=>"Update Alternativa", "id"=>"1"}
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "alternativas" SET "nome" = ?, "updated_at" = ? WHERE "alternativas"."id" = ?[0m  [["nome", "alt-1 teste"], ["updated_at", 2016-11-11 11:20:37 UTC], ["id", 1]]
+  [1m[35m (163.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/alternativas/1
+Completed 302 Found in 190ms (ActiveRecord: 165.1ms)
+
+
+Started GET "/alternativas/1" for 127.0.0.1 at 2016-11-11 09:20:37 -0200
+Processing by AlternativasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering alternativas/show.html.erb within layouts/application
+  Rendered alternativas/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 60ms (Views: 56.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/alternativas" for 127.0.0.1 at 2016-11-11 09:20:40 -0200
+Processing by AlternativasController#index as HTML
+  Rendering alternativas/index.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas"[0m
+  Rendered alternativas/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 52ms (Views: 48.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-11 09:20:42 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 65ms (Views: 62.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:20:44 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:21:46 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:54:25 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/alternativas/new?projeto_id=1" for 127.0.0.1 at 2016-11-11 09:54:30 -0200
+Processing by AlternativasController#new as HTML
+  Parameters: {"projeto_id"=>"1"}
+  Rendering alternativas/new.html.erb within layouts/application
+  Rendered alternativas/_form.html.erb (3.7ms)
+  Rendered alternativas/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/alternativas" for 127.0.0.1 at 2016-11-11 09:54:38 -0200
+Processing by AlternativasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RurGoR4tf+O1TPIKke8+VLBdQjiMLZOx2zg0SIyeYZgLPl7EwBjb9v3S5+pMaJE33bCDv289mkQ8IY0F04S5DQ==", "alternativa"=>{"nome"=>"teste 2", "codigo"=>"tst"}, "commit"=>"Create Alternativa"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "alternativas" ("nome", "codigo", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "teste 2"], ["codigo", "tst"], ["created_at", 2016-11-11 11:54:38 UTC], ["updated_at", 2016-11-11 11:54:38 UTC]]
+  [1m[35m (203.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/alternativas/2
+Completed 302 Found in 216ms (ActiveRecord: 206.8ms)
+
+
+Started GET "/alternativas/2" for 127.0.0.1 at 2016-11-11 09:54:38 -0200
+Processing by AlternativasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering alternativas/show.html.erb within layouts/application
+  Rendered alternativas/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-11 09:54:40 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 09:54:42 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 82ms (Views: 77.5ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddProjetoToCriterio (20161111115924)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "criterios" ADD "projeto_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_criterios_on_projeto_id" ON "criterios" ("projeto_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161111115924"]]
+  [1m[35m (126.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-11-11 21:03:36 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (133.3ms)
+Started GET "/" for 127.0.0.1 at 2016-11-11 21:03:38 -0200
+Processing by ProjetosController#index as HTML
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 616ms (Views: 614.3ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 1227ms (Views: 1160.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-11 21:03:48 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (87.7ms)
+Completed 200 OK in 175ms (Views: 131.8ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+[0m

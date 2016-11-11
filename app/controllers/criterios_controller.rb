@@ -69,6 +69,6 @@ class CriteriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def criterio_params
-      params.require(:criterio).permit(:nome, :codigo)
+      params.require(:criterio).permit(:nome, :codigo, :projeto_id)
     end
 end
