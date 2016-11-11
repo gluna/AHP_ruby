@@ -10,5 +10,16 @@
   <%= @projeto.descricao %>
 </p>
 
+<% @projeto.alternativas.each do |alternativa| %>
+  <tr>
+    <td><%= alternativa.nome %></td>
+    <td><%= alternativa.codigo %></td>
+    <td><%= link_to 'Show', alternativa %></td>
+    <td><%= link_to 'Edit', edit_alternativa_path(alternativa) %></td>
+    <td><%= link_to 'Destroy', alternativa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<%= link_to 'New Alternativa', new_alternativa_path(projeto_id: @projeto.id) %>
+<br/><br/>
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
