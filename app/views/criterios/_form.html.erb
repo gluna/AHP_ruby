@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :projeto_id, value: params[:projeto_id] %>
   <div class="field">
     <%= f.label :nome %>
     <%= f.text_field :nome %>
@@ -19,6 +20,11 @@
   <div class="field">
     <%= f.label :codigo %>
     <%= f.text_field :codigo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :criterio_id %>
+    <%= f.text_field :criterio_id %>
   </div>
 
   <div class="actions">

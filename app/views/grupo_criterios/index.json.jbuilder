@@ -1,1 +1,0 @@
-json.array! @grupo_criterios, partial: 'grupo_criterios/grupo_criterio', as: :grupo_criterio

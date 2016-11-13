@@ -15,9 +15,10 @@
     <td><%= alternativa.nome %></td>
     <td><%= alternativa.codigo %></td>
     <td><%= link_to 'Show', alternativa %></td>
-    <td><%= link_to 'Edit', edit_alternativa_path(alternativa) %></td>
+    <td><%= link_to 'Edit', edit_alternativa_path(alternativa, projeto_id: @projeto.id) %></td>
     <td><%= link_to 'Destroy', alternativa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <br/>
 <% end %>
 <%= link_to 'New Alternativa', new_alternativa_path(projeto_id: @projeto.id) %>
 <br/><br/>
@@ -26,9 +27,10 @@
     <td><%= criterio.nome %></td>
     <td><%= criterio.codigo %></td>
     <td><%= link_to 'Show', criterio %></td>
-    <td><%= link_to 'Edit', edit_criterio_path(criterio) %></td>
+    <td><%= link_to 'Edit', edit_criterio_path(criterio, projeto_id: @projeto.id) %></td>
     <td><%= link_to 'Destroy', criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <br/>
 <% end %>
 <%= link_to 'New Criterio', new_criterio_path(projeto_id: @projeto.id) %>
 <br/><br/>
