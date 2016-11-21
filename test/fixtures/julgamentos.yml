@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  projeto: one
+  criterio: 
+  alternativa: one
+  alternativa: one
+  valor: 1.5
+
+two:
+  usuario: two
+  projeto: two
+  criterio: 
+  alternativa: two
+  alternativa: two
+  valor: 1.5

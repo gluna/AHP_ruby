@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Julgamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Projeto</th>
+      <th>Criterio</th>
+      <th>Alternativa</th>
+      <th>Alternativa</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @julgamentos.each do |julgamento| %>
+      <tr>
+        <td><%= julgamento.usuario %></td>
+        <td><%= julgamento.projeto %></td>
+        <td><%= julgamento.criterio %></td>
+        <td><%= julgamento.alternativa %></td>
+        <td><%= julgamento.alternativa %></td>
+        <td><%= julgamento.valor %></td>
+        <td><%= link_to 'Show', julgamento %></td>
+        <td><%= link_to 'Edit', edit_julgamento_path(julgamento) %></td>
+        <td><%= link_to 'Destroy', julgamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Julgamento', new_julgamento_path %>

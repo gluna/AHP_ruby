@@ -1,0 +1,1 @@
+json.partial! "julgamentos/julgamento", julgamento: @julgamento

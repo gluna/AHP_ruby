@@ -1,0 +1,1 @@
+json.array! @julgamentos, partial: 'julgamentos/julgamento', as: :julgamento

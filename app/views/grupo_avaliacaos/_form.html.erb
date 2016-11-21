@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<%= f.hidden_field :projeto_id, value: params[:projeto_id] %>
   <div class="field">
     <%= f.label :nome %>
     <%= f.text_field :nome %>
@@ -19,11 +20,6 @@
   <div class="field">
     <%= f.label :peso %>
     <%= f.text_field :peso %>
-  </div>
-
-  <div class="field">
-    <%= f.label :projeto_id %>
-    <%= f.text_field :projeto_id %>
   </div>
 
   <div class="field">
