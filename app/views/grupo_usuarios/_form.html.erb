@@ -1,0 +1,27 @@
+<%= form_for(grupo_usuario) do |f| %>
+  <% if grupo_usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grupo_usuario.errors.count, "error") %> prohibited this grupo_usuario from being saved:</h2>
+
+      <ul>
+      <% grupo_usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grupo_avaliacao_id %>
+    <%= f.text_field :grupo_avaliacao_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :usuario_id %>
+    <%= f.text_field :usuario_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

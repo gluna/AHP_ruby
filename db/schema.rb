@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113225247) do
+ActiveRecord::Schema.define(version: 20161121173639) do
 
   create_table "alternativas", force: :cascade do |t|
     t.string   "nome"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20161113225247) do
     t.integer  "criterio_id"
     t.index ["criterio_id"], name: "index_criterios_on_criterio_id"
     t.index ["projeto_id"], name: "index_criterios_on_projeto_id"
+  end
+
+  create_table "grupo_avaliacaos", force: :cascade do |t|
+    t.string   "nome"
+    t.float    "peso"
+    t.integer  "projeto_id"
+    t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["projeto_id"], name: "index_grupo_avaliacaos_on_projeto_id"
   end
 
   create_table "grupo_criterios", force: :cascade do |t|

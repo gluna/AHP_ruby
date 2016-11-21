@@ -1,0 +1,1 @@
+json.array! @grupo_usuarios, partial: 'grupo_usuarios/grupo_usuario', as: :grupo_usuario

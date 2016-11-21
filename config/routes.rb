@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :grupo_usuarios
+  resources :grupo_avaliacaos
   devise_for :usuarios
   resources :projetos
   resources :criterios

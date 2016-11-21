@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @grupo_avaliacao.nome %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @grupo_avaliacao.peso %>
+</p>
+
+<p>
+  <strong>Projeto:</strong>
+  <%= @grupo_avaliacao.projeto %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @grupo_avaliacao.ativo %>
+</p>
+
+<%= link_to 'Edit', edit_grupo_avaliacao_path(@grupo_avaliacao) %> |
+<%= link_to 'Back', grupo_avaliacaos_path %>

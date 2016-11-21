@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grupo Avaliacaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Peso</th>
+      <th>Projeto</th>
+      <th>Ativo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupo_avaliacaos.each do |grupo_avaliacao| %>
+      <tr>
+        <td><%= grupo_avaliacao.nome %></td>
+        <td><%= grupo_avaliacao.peso %></td>
+        <td><%= grupo_avaliacao.projeto %></td>
+        <td><%= grupo_avaliacao.ativo %></td>
+        <td><%= link_to 'Show', grupo_avaliacao %></td>
+        <td><%= link_to 'Edit', edit_grupo_avaliacao_path(grupo_avaliacao) %></td>
+        <td><%= link_to 'Destroy', grupo_avaliacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grupo Avaliacao', new_grupo_avaliacao_path %>

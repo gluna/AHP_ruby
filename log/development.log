@@ -3336,3 +3336,609 @@ Processing by ProjetosController#index as HTML
 Completed 200 OK in 166ms (Views: 111.4ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:13:04 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 33ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:13:04 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 1778ms (Views: 1764.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:13:11 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:13:11 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:13:16 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5IFY0dRsv3FsF3aDe5iau552YAN+4XXkh06rbrrnyRlwuiO8XaczszE4VP/TbM1+I2jaHTIkolzLnVve/JuBMA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-21 17:13:17 UTC], ["last_sign_in_at", 2016-11-15 19:50:54 UTC], ["sign_in_count", 5], ["updated_at", 2016-11-21 17:13:17 UTC], ["id", 1]]
+  [1m[35m (109.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 428ms (ActiveRecord: 110.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:13:17 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 43ms (Views: 30.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:13:20 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 46.7ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGrupoAvaliacaos (20161121173639)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "grupo_avaliacaos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "peso" float, "projeto_id" integer, "ativo" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_grupo_avaliacaos_on_projeto_id" ON "grupo_avaliacaos" ("projeto_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121173639"]]
+  [1m[35m (165.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_criterio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_criterio_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grupo_avaliacaos_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grupo_avaliacaos_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_usuarios_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_usuarios_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_usuarios_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_usuarios_on_email' AND type='index'
+[0m
+Started GET "/projetos/new" for 127.0.0.1 at 2016-11-21 15:37:10 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/new.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (66.4ms)
+  Rendered projetos/new.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 1104ms (Views: 1068.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projetos/new" for 127.0.0.1 at 2016-11-21 15:37:11 -0200
+Processing by ProjetosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/new.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (1.7ms)
+  Rendered projetos/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/projetos" for 127.0.0.1 at 2016-11-21 15:37:18 -0200
+Processing by ProjetosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UZo2uWIWkMUQU5bpAkB+mc+wvYh90iT8wQtiXukZ03xFDdq92NmGjF4c30RvAw4j0DE0+9P4bA5+KPG8tgTE8w==", "projeto"=>{"nome"=>"projeto 2", "descricao"=>"teste"}, "commit"=>"Create Projeto"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "projeto 2"], ["descricao", "teste"], ["created_at", 2016-11-21 17:37:18 UTC], ["updated_at", 2016-11-21 17:37:18 UTC]]
+  [1m[35m (269.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projetos/2
+Completed 302 Found in 277ms (ActiveRecord: 271.2ms)
+
+
+Started GET "/projetos/2" for 127.0.0.1 at 2016-11-21 15:37:18 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 2]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 2]]
+  Rendered projetos/show.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 98ms (Views: 72.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:37:20 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:37:21 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:37:22 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:37:26 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:37:29 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:37:31 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:37:32 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/2" for 127.0.0.1 at 2016-11-21 15:37:36 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 2]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 2]]
+  Rendered projetos/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/usuarios/sign_out" for 127.0.0.1 at 2016-11-21 15:37:44 -0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S3qdUWu1c7Art+sNADXpofBP8Xk/+s1+CEYpUBHIfQRf7XFV0Xpl+WX4oqBtdpkb7854CpHQhYy3ZbqyTtVqiw=="}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:37:44 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:37:44 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:37:49 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nQ+DCTjf03AI45XiMly8nl0cQCkhA9Bxf9uEFPy+MLK8mJ2AzZzmJaeElD3kNuDqC9JqBElsoSpKIzIAhD/q3g==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-21 17:37:49 UTC], ["last_sign_in_at", 2016-11-21 17:13:17 UTC], ["sign_in_count", 6], ["updated_at", 2016-11-21 17:37:49 UTC], ["id", 1]]
+  [1m[35m (72.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 271ms (ActiveRecord: 73.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:37:50 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:37:52 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 44ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:38:16 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 302ms (Views: 271.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:38:18 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 82ms (Views: 78.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:38:20 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 65ms (Views: 60.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:38:42 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 303ms (Views: 273.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:38:46 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 76ms (Views: 72.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/projetos/2" for 127.0.0.1 at 2016-11-21 15:38:54 -0200
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9zWMjbXQqOUfaALIeTjog8cmL5QzxxXAO7RywVySn3C2amNTcgyeUPtlv0w/uuAkNh4WgKbci0V2VPf41GA3IQ==", "id"=>"2"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[31mDELETE FROM "projetos" WHERE "projetos"."id" = ?[0m  [["id", 2]]
+  [1m[35m (116.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projetos
+Completed 302 Found in 127ms (ActiveRecord: 118.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:38:54 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:38:56 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/usuarios/sign_out" for 127.0.0.1 at 2016-11-21 15:38:59 -0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RrpsmmKiYOW9aqSgSwNSl5pG87b9vBD1aEepJd7ZnpQH5YNEpX5WUFlnGSQNgVowa37KominjnAlpywcVis2xQ=="}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:39:00 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:39:00 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 58ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 15:39:04 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1eqXoilXUaz0jn3qNHz6quc//W3VGSgdibUL8DTX4DXzSlJ1J904PNQuTEBvxmBqvuYvxe0xIycdnLR7JdVMZg==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-21 17:39:05 UTC], ["last_sign_in_at", 2016-11-21 17:37:49 UTC], ["sign_in_count", 7], ["updated_at", 2016-11-21 17:39:05 UTC], ["id", 1]]
+  [1m[35m (185.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 376ms (ActiveRecord: 186.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:39:05 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 15:39:11 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-21 15:39:16 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 78ms (Views: 73.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:39:20 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos/new" for 127.0.0.1 at 2016-11-21 15:39:21 -0200
+Processing by ProjetosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/new.html.erb within layouts/application
+  Rendered projetos/_form.html.erb (3.8ms)
+  Rendered projetos/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/projetos" for 127.0.0.1 at 2016-11-21 15:39:25 -0200
+Processing by ProjetosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nc/qhlpOKcshzcnGLW5hQpTFkLa4RXvaDJ9p2XhwN/Ojr3EgIBJKPF06ppay7TuIcIcA2RC/UpXw+KiWA5vmlw==", "projeto"=>{"nome"=>"projeto 2", "descricao"=>""}, "commit"=>"Create Projeto"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "projeto 2"], ["descricao", ""], ["created_at", 2016-11-21 17:39:25 UTC], ["updated_at", 2016-11-21 17:39:25 UTC]]
+  [1m[35m (230.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projetos/3
+Completed 302 Found in 236ms (ActiveRecord: 231.4ms)
+
+
+Started GET "/projetos/3" for 127.0.0.1 at 2016-11-21 15:39:25 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 3]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 3]]
+  Rendered projetos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 42ms (Views: 39.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:39:27 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:39:28 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-21 15:39:30 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:39:32 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 45ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos/3" for 127.0.0.1 at 2016-11-21 15:39:32 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 3]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 3]]
+  Rendered projetos/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-11-21 15:44:16 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 61ms (Views: 38.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-21 15:44:19 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (26.6ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    34: <% end %>
+    35: <%= link_to 'New Criterio', new_criterio_path(projeto_id: @projeto.id) %>
+    36: <br/><br/>
+    37: <% @grupo_avaliacaos.each do |grupo_avaliacao| %>
+    38:   <tr>
+    39:     <td><%= grupo_avaliacao.nome %></td>
+    40:     <td><%= grupo_avaliacao.peso %></td>
+  
+app/views/projetos/show.html.erb:37:in `_app_views_projetos_show_html_erb___3050682444079277674_69901343320440'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-21 15:45:06 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (22.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `grupo_avaliacaos' for #<Projeto:0x007f265c29bf60>
+Did you mean?  grupo_avaliacao
+               grupo_avaliacao=
+               grupo_avaliacao_ids
+               grupo_avaliacao_ids=):
+    34: <% end %>
+    35: <%= link_to 'New Criterio', new_criterio_path(projeto_id: @projeto.id) %>
+    36: <br/><br/>
+    37: <% @projeto.grupo_avaliacaos.each do |grupo_avaliacao| %>
+    38:   <tr>
+    39:     <td><%= grupo_avaliacao.nome %></td>
+    40:     <td><%= grupo_avaliacao.peso %></td>
+  
+app/views/projetos/show.html.erb:37:in `_app_views_projetos_show_html_erb___3050682444079277674_69901365859300'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.8ms)
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-21 15:45:43 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mGrupoAvaliacao Load (0.1ms)[0m  [1m[34mSELECT "grupo_avaliacaos".* FROM "grupo_avaliacaos" WHERE "grupo_avaliacaos"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 113ms (Views: 82.1ms | ActiveRecord: 3.5ms)
+
+
