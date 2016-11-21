@@ -4718,3 +4718,272 @@ Migrating to CreateJulgamentos (20161121185340)
             FROM sqlite_temp_master
             WHERE name='index_usuarios_on_email' AND type='index'
 [0m
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:02:13 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 1066ms (Views: 1034.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:02:14 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:02:16 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:02:16 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:02:16 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:07:21 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:07:53 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 17:07:53 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 61ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 17:08:09 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z/TuyoO4VgZgsehL4Nt6qkIFXlzikCGY74wDGZBMmjCbn5WhoOFQTNsaFPayeAzmSJ3n3CyOMwpIS6MSpcPaaA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 183ms (ActiveRecord: 0.7ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z/TuyoO4VgZgsehL4Nt6qkIFXlzikCGY74wDGZBMmjCbn5WhoOFQTNsaFPayeAzmSJ3n3CyOMwpIS6MSpcPaaA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 176ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-21 17:08:14 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TL0R0hBSmRkgrGGjNwrbRcOclW5nqDbJnXgZ4i/LIz8Y1mq5MwufU5sHnR5lqa0JyQQs7qm2JFs6v7npGkRjZw==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-21 19:08:14 UTC], ["last_sign_in_at", 2016-11-21 17:39:05 UTC], ["sign_in_count", 8], ["updated_at", 2016-11-21 19:08:14 UTC], ["id", 1]]
+  [1m[35m (128.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 326ms (ActiveRecord: 129.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:08:14 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/julgamentos" for 127.0.0.1 at 2016-11-21 17:08:31 -0200
+Processing by JulgamentosController#index as HTML
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/index.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos"[0m
+  Rendered julgamentos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 58ms (Views: 46.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/julgamentos" for 127.0.0.1 at 2016-11-21 17:09:13 -0200
+Processing by JulgamentosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/index.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos"[0m
+  Rendered julgamentos/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_julgamentos_path' for #<#<Class:0x007f4911593920>:0x00000003929688>
+Did you mean?  new_julgamento_path
+               new_julgamento_url):
+    52:                           <%= link_to 'Projetos', projetos_path %>
+    53:                       </li>
+    54:                       <li>
+    55:                           <%= link_to 'Julgamentos', new_julgamentos_path %>
+    56:                       </li>
+    57:                   </ul>
+    58:               </div>
+  
+app/views/layouts/application.html.erb:55:in `_app_views_layouts_application_html_erb__1098742469695670542_29790360'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+Started GET "/julgamentos" for 127.0.0.1 at 2016-11-21 17:09:44 -0200
+Processing by JulgamentosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/index.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos"[0m
+  Rendered julgamentos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 68ms (Views: 57.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/julgamentos/new" for 127.0.0.1 at 2016-11-21 17:09:50 -0200
+Processing by JulgamentosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  Rendered julgamentos/_form.html.erb (16.5ms)
+  Rendered julgamentos/new.html.erb within layouts/application (17.6ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `criterio' for #<Julgamento:0x007f4912eb7dc0>
+Did you mean?  criterio_id):
+    23: 
+    24:   <div class="field">
+    25:     <%= f.label :criterio %>
+    26:     <%= f.text_field :criterio %>
+    27:   </div>
+    28: 
+    29:   <div class="field">
+  
+app/views/julgamentos/_form.html.erb:26:in `block in _app_views_julgamentos__form_html_erb__74277537038705427_69975913919320'
+app/views/julgamentos/_form.html.erb:1:in `_app_views_julgamentos__form_html_erb__74277537038705427_69975913919320'
+app/views/julgamentos/new.html.erb:3:in `_app_views_julgamentos_new_html_erb___2148542720961234539_69975913890000'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+Started GET "/" for 127.0.0.1 at 2016-11-21 17:10:01 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/julgamentos/new" for 127.0.0.1 at 2016-11-21 17:10:04 -0200
+Processing by JulgamentosController#new as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  Rendered julgamentos/_form.html.erb (15.9ms)
+  Rendered julgamentos/new.html.erb within layouts/application (17.2ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `criterio' for #<Julgamento:0x000000034a8640>
+Did you mean?  criterio_id):
+    23: 
+    24:   <div class="field">
+    25:     <%= f.label :criterio %>
+    26:     <%= f.text_field :criterio %>
+    27:   </div>
+    28: 
+    29:   <div class="field">
+  
+app/views/julgamentos/_form.html.erb:26:in `block in _app_views_julgamentos__form_html_erb__74277537038705427_24241060'
+app/views/julgamentos/_form.html.erb:1:in `_app_views_julgamentos__form_html_erb__74277537038705427_24241060'
+app/views/julgamentos/new.html.erb:3:in `_app_views_julgamentos_new_html_erb___2148542720961234539_27462220'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.0ms)
+Started GET "/julgamentos/new" for 127.0.0.1 at 2016-11-21 17:10:50 -0200
+Processing by JulgamentosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  Rendered julgamentos/_form.html.erb (18.7ms)
+  Rendered julgamentos/new.html.erb within layouts/application (19.8ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `alternativa_id' for #<Julgamento:0x007f49040dc808>
+Did you mean?  alternativa_2_id
+               alternativa_1_id
+               alternativa_2_id?
+               alternativa_2_id=
+               alternativa_1_id?
+               alternativa_1_id=
+               alternativa
+               alternativa=):
+    28: 
+    29:   <div class="field">
+    30:     <%= f.label :alternativa_id %>
+    31:     <%= f.text_field :alternativa_id %>
+    32:   </div>
+    33: 
+    34:   <div class="field">
+  
+app/views/julgamentos/_form.html.erb:31:in `block in _app_views_julgamentos__form_html_erb__74277537038705427_69975788818180'
+app/views/julgamentos/_form.html.erb:1:in `_app_views_julgamentos__form_html_erb__74277537038705427_69975788818180'
+app/views/julgamentos/new.html.erb:3:in `_app_views_julgamentos_new_html_erb___2148542720961234539_69975788714260'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.2ms)
+Started GET "/julgamentos/new" for 127.0.0.1 at 2016-11-21 17:11:34 -0200
+Processing by JulgamentosController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  Rendered julgamentos/_form.html.erb (4.7ms)
+  Rendered julgamentos/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 78ms (Views: 75.8ms | ActiveRecord: 0.2ms)
+
+
