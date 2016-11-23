@@ -13,9 +13,26 @@ class JulgamentosController < ApplicationController
   end
 
   # GET /julgamentos/new
+  #def new
+  #  @julgamento = Julgamento.new
+  #end
+
+  # GET /julgamentos/new
   def new
-    @julgamento = Julgamento.new
+
+    Criterio.each do |criterio|
+      Altrenativas.each do |alternativa_1|
+        Alternativa.each do |alternativa_2|
+          @julgamentos = Julgamento.find_by(:projeto_id => params[:projeto_id], :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2)
+          if @julamentos.to_i = 0
+              @julgamento = Julgamento.new
+          end
+        end
+      end
+    end
+
   end
+
 
   # GET /julgamentos/1/edit
   def edit
