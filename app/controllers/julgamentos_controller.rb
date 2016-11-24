@@ -19,20 +19,29 @@ class JulgamentosController < ApplicationController
 
   # GET /julgamentos/new
   def new
+    @projeto = Projeto.find(params[:projeto_id])
 
-    Criterio.each do |criterio|
-      Altrenativas.each do |alternativa_1|
-        Alternativa.each do |alternativa_2|
-          @julgamentos = Julgamento.find_by(:projeto_id => params[:projeto_id], :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2)
-          if @julamentos.to_i = 0
-              @julgamento = Julgamento.new
+    @criterios = @projeto.criterios.all
+    @alternativas1 = @projeto.alternativas.all
+    @alternativas2 = @projeto.alternativas.all
+
+    @criterios.each do |criterio|
+      @alternativas1.each do |alternativa_1|
+        @alternativas2.each do |alternativa_2|
+          #@julgamentos = Julgamento.find_by(:projeto_id => @projeto.id, :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2)
+          if Julgamento.find_by(:projeto_id => @projeto.id, :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2) == nil
+            @julgamento = Julgamento.new
+            @julgamento.projeto_id = @projeto.id
+            @julgamento.usuario_id = current_usuario.id
+            @julgamento.criterio_id = criterio.id
+            @julgamento.alternativa_1_id = alternativa_1.id
+            @julgamento.alternativa_2_id = alternativa_2.id
+            @julgamento.save
           end
         end
       end
     end
-
   end
-
 
   # GET /julgamentos/1/edit
   def edit

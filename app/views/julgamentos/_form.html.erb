@@ -21,10 +21,13 @@
     <%= f.text_field :projeto_id %>
   </div>--><%= f.hidden_field :projeto_id, value: params[:projeto_id] %>
 
-  <% @julgamentos = Julgamento.find_by_usuario_id(current_usuario.id) %>
+  <% @julgamentos = Julgamento.where(:usuario_id => current_usuario.id) %>
 
+  <%= @julgamentos.each do |j| %>
+    <%= j.criterio.nome %></br>
+  <% end %>
 
-  <div class="field">
+  <!--<div class="field">
     <%= f.label :criterio_id %>
     <%= f.text_field :criterio_id %>
   </div>
@@ -46,5 +49,5 @@
 
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div>-->
 <% end %>
