@@ -27,8 +27,9 @@ class JulgamentosController < ApplicationController
 
     @criterios.each do |criterio|
       @alternativas1.each do |alternativa_1|
+
         @alternativas2.each do |alternativa_2|
-          #@julgamentos = Julgamento.find_by(:projeto_id => @projeto.id, :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2)
+
           if Julgamento.find_by(:projeto_id => @projeto.id, :usuario_id => current_usuario.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2) == nil
             @julgamento = Julgamento.new
             @julgamento.projeto_id = @projeto.id
@@ -38,9 +39,12 @@ class JulgamentosController < ApplicationController
             @julgamento.alternativa_2_id = alternativa_2.id
             @julgamento.save
           end
+
         end
+
       end
     end
+    @julgamentos = Julgamento.where(:projeto_id => @projeto.id, :usuario_id => current_usuario.id)
   end
 
   # GET /julgamentos/1/edit

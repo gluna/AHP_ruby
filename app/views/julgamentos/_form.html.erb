@@ -1,53 +1,27 @@
-<%= form_for(julgamento) do |f| %>
-  <% if julgamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(julgamento.errors.count, "error") %> prohibited this julgamento from being saved:</h2>
+<%= form_tag new_julgamento_path do %>
 
-      <ul>
-      <% julgamento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+
+  <table>
+    <% @cri = '' %>
+    <% @julgamentos.each do |j| %>
+      <% if j.criterio.nome != @cri %>
+          <tr><%= j.criterio.nome %></tr>
+          <tr><td></td>
+      <% else %>
+        <tr>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <td><%= j.alternativa_1.nome %></td>
+      </tr>
+      <tr>
+        <td><%= j.alternativa_2.nome %></td>
+      </tr>
+    <% end %>
+  </table>
 
-  <!--<div class="field">
-    <%= f.label :usuario_id %>
-    <%= f.text_field :usuario_id %>
-  </div>--><%= f.hidden_field :usuario_id, value: current_usuario.id %>
-
-  <!--<div class="field">
-    <%= f.label :projeto_id %>
-    <%= f.text_field :projeto_id %>
-  </div>--><%= f.hidden_field :projeto_id, value: params[:projeto_id] %>
-
-  <% @julgamentos = Julgamento.where(:usuario_id => current_usuario.id) %>
-
-  <%= @julgamentos.each do |j| %>
-    <%= j.criterio.nome %></br>
-  <% end %>
-
-  <!--<div class="field">
-    <%= f.label :criterio_id %>
-    <%= f.text_field :criterio_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :alternativa_1_id %>
-    <%= f.text_field :alternativa_1_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :alternativa_2_id %>
-    <%= f.text_field :alternativa_2_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :valor %>
-    <%= f.text_field :valor %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>-->
 <% end %>
