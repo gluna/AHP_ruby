@@ -45,6 +45,11 @@ class JulgamentosController < ApplicationController
       end
     end
     @julgamentos = Julgamento.where(:projeto_id => @projeto.id, :usuario_id => current_usuario.id)
+    #@julgamento = Julgamento.new
+  end
+
+  def update_all
+    Julgamento.update(params[:j].keys, params[:j].values)
   end
 
   # GET /julgamentos/1/edit
@@ -101,4 +106,5 @@ class JulgamentosController < ApplicationController
     def julgamento_params
       params.require(:julgamento).permit(:usuario_id, :projeto_id, :criterio, :alternativa_id, :alternativa_id, :valor)
     end
+
 end

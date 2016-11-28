@@ -1,27 +1,17 @@
-<%= form_tag new_julgamento_path do %>
+<%= form_for :julgamento, :url => update_all_path, :html => { :method => :put } do %>
 
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-</style>
-
-  <table>
     <% @cri = '' %>
     <% @julgamentos.each do |j| %>
+      <%= fields_for "j[]", j do |f| %>
       <% if j.criterio.nome != @cri %>
-          <tr><%= j.criterio.nome %></tr>
-          <tr><td></td>
-      <% else %>
-        <tr>
+          <br/>
+          <h2><%= j.criterio.nome %><h2/>
       <% end %>
-      <td><%= j.alternativa_1.nome %></td>
-      </tr>
-      <tr>
-        <td><%= j.alternativa_2.nome %></td>
-      </tr>
+      <%= j.alternativa_1.nome %> - <%= j.alternativa_2.nome %> : <%= f.text_field :valor  %>
+      </br>
+      <% @cri = j.criterio.nome %>
     <% end %>
-  </table>
+    <% end %>
+    <%= submit_tag %>
 
 <% end %>

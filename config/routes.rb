@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :criterios
   resources :alternativas
 
+  match 'julgamento/all' => 'julgamentos#update_all', :as => :update_all, :via => :put
+
   root 'projetos#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
