@@ -12344,3 +12344,639 @@ Completed 200 OK in 1097ms (Views: 1009.1ms | ActiveRecord: 1.9ms)
 Completed 200 OK in 375ms (Views: 370.4ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-28 15:16:08 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 33ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-28 15:16:08 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 788ms (Views: 772.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-11-28 15:16:15 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xtNRTI/moZSenzTNuXRhdRV++E5PKjaQqigVaFzjq1e7/6r4QaPAc1bZhTa3sbIRL03vFeho7BR8U5nuP1Qguw==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.9ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-28 17:16:15 UTC], ["last_sign_in_at", 2016-11-27 21:39:37 UTC], ["sign_in_count", 16], ["updated_at", 2016-11-28 17:16:15 UTC], ["id", 1]]
+  [1m[35m (89.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 434ms (ActiveRecord: 91.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-28 15:16:15 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 90ms (Views: 53.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projetos/1" for 127.0.0.1 at 2016-11-28 15:16:17 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mGrupoAvaliacao Load (0.2ms)[0m  [1m[34mSELECT "grupo_avaliacaos".* FROM "grupo_avaliacaos" WHERE "grupo_avaliacaos"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (114.0ms)
+Completed 200 OK in 191ms (Views: 147.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/julgamentos/new?projeto_id=1" for 127.0.0.1 at 2016-11-28 15:16:18 -0200
+Processing by JulgamentosController#new as HTML
+  Parameters: {"projeto_id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ?[0m  [["projeto_id", 1], ["usuario_id", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered julgamentos/_form.html.erb (29.9ms)
+  Rendered julgamentos/new.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 190ms (Views: 73.0ms | ActiveRecord: 4.1ms)
+
+
+Started DELETE "/usuarios/sign_out" for 127.0.0.1 at 2016-11-28 15:16:27 -0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UBQO6SgIcxrGH9LMh5l6EZ23DZP+emlFObdmVksW1+o9p8Rivy3H8lVDP8YBj8rgTwZDgbL4KZE4rMk2ya1now=="}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-28 15:16:28 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-11-28 15:16:28 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 15:22:04 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 15:22:04 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 307ms (Views: 294.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 172.20.7.223 at 2016-11-28 15:22:21 -0200
+Cannot render console from 172.20.7.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.7.223 at 2016-11-28 15:22:21 -0200
+Cannot render console from 172.20.7.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:29:36 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 87ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:29:42 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"17tj5/ervQTSlqj81rhTn41VfPsvb8yzHziSf4UgpUtkezuj+6XuxsXzLlxFEN57u5d3hgyQW9HmyXmDLofJbA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 189ms (ActiveRecord: 0.8ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"17tj5/ervQTSlqj81rhTn41VfPsvb8yzHziSf4UgpUtkezuj+6XuxsXzLlxFEN57u5d3hgyQW9HmyXmDLofJbA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 184ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:29:46 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D9x9BfVJMulMPswaHQ63ni6jbz4qn9SfJEi2LO702dq8HCVB+UdhK1tbSrqOpjp6GGFkQwlgQ/3duV3QRVO1/Q==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-28 18:29:46 UTC], ["last_sign_in_at", 2016-11-28 17:16:15 UTC], ["current_sign_in_ip", "172.20.6.10"], ["sign_in_count", 17], ["updated_at", 2016-11-28 18:29:46 UTC], ["id", 1]]
+  [1m[35m (233.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://172.20.6.10:3000/
+Completed 302 Found in 431ms (ActiveRecord: 234.8ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:29:46 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 55ms (Views: 44.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/projetos/1" for 172.20.6.10 at 2016-11-28 16:29:50 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mGrupoAvaliacao Load (0.2ms)[0m  [1m[34mSELECT "grupo_avaliacaos".* FROM "grupo_avaliacaos" WHERE "grupo_avaliacaos"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  Rendered projetos/show.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 93ms (Views: 85.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/julgamentos/new?projeto_id=1" for 172.20.6.10 at 2016-11-28 16:29:51 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JulgamentosController#new as HTML
+  Parameters: {"projeto_id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 2 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 1 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 1 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 6 AND "julgamentos"."alternativa_1_id" = 4 AND "julgamentos"."alternativa_2_id" = 4 LIMIT ?[0m  [["projeto_id", 1], ["usuario_id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ?[0m  [["projeto_id", 1], ["usuario_id", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered julgamentos/_form.html.erb (23.5ms)
+  Rendered julgamentos/new.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 102ms (Views: 67.7ms | ActiveRecord: 4.2ms)
+
+
+Started DELETE "/usuarios/sign_out" for 172.20.6.10 at 2016-11-28 16:43:27 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1ZSCpnqW7iniVIjEKPxx0f+siw/XFynSb5KcSUDfZadNn/XyCg/Lwvc/3U3LshjdG9Ot4cfo+g3+tDa2TslruQ=="}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://172.20.6.10:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:43:27 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:43:27 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:51:26 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 16:51:31 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yxruobvnJW21mPZL5RK39fYpdvZsL4IvdTlziH3NdUxB8Xhon2U8AFRk14dxJqPWjERmUpN7Rwlgopze4VKHZQ==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-11-28 18:51:31 UTC], ["last_sign_in_at", 2016-11-28 18:29:46 UTC], ["last_sign_in_ip", "172.20.6.10"], ["sign_in_count", 18], ["updated_at", 2016-11-28 18:51:31 UTC], ["id", 1]]
+  [1m[35m (65.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://172.20.6.10:3000/
+Completed 302 Found in 256ms (ActiveRecord: 65.6ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:51:31 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:51:55 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 49.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:52:32 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.1ms)
+
+
+  
+SyntaxError (/home/gustavo/mestrado/AHP/AHP_ruby/app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...urrent_usuario.email, :class => "navbar-link" );@output_buff...
+...                               ^):
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:54:24 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/gustavo/mestrado/AHP/AHP_ruby/app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...urrent_usuario.email, :class => "navbar-link" );@output_buff...
+...                               ^):
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.6ms)
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:54:28 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/gustavo/mestrado/AHP/AHP_ruby/app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...urrent_usuario.email, :class => "navbar-link" );@output_buff...
+...                               ^):
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.1ms)
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:54:48 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 49ms (Views: 46.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:56:49 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:56:50 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:56:51 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 16:56:51 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 60ms (Views: 56.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 17:01:33 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 17:07:47 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/usuarios/sign_out" for 172.20.6.10 at 2016-11-28 17:08:25 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+qze+bDbB08AUKpZWu1hGuugOQjYMpLEaqnf9LsuP9Z33+a0yPKcrPfCWcPEPelH7H5MVgcW08NI+oPfKM85LA=="}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://172.20.6.10:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 172.20.6.10 at 2016-11-28 17:08:25 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:08:25 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:14:48 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:15:49 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:16:38 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:18:51 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:20:16 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:21:19 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:22:00 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:26:01 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:26:57 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:27:14 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:28:03 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:29:25 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:29:38 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:31:05 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 56ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:31:24 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 172.20.6.10 at 2016-11-28 17:31:43 -0200
+Cannot render console from 172.20.6.10! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
