@@ -1,4 +1,4 @@
-<%= form_for :julgamentoCriterios, :url => julgamento_criterios_update_all_path, :html => { :method => :put } do %>
+<%= form_for :julgamento_criterio, :url => julgamento_criterio_update_all_path, :html => { :method => :put } do %>
 
   <% @julgamento_criterios.each do |jc| %>
     <%= fields_for "jc[]", jc do |fv| %>

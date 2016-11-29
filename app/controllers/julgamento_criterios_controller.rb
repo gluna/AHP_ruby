@@ -35,6 +35,10 @@ class JulgamentoCriteriosController < ApplicationController
     @julgamento_criterios = JulgamentoCriterio.where(:projeto_id => @projeto.id)
   end
 
+  def update_all
+    JulgamentoCriterio.update(params[:jc].keys, params[:jc].values)
+  end
+
   # GET /julgamento_criterios/1/edit
   def edit
   end
@@ -90,7 +94,4 @@ class JulgamentoCriteriosController < ApplicationController
       params.require(:julgamento_criterio).permit(:projeto_id, :criterio_1_id, :criterio_2_id, :valor)
     end
 
-    def update_all
-      JulgamentoCriterio.update(params[:jc].keys, params[:jc].values)
-    end
 end

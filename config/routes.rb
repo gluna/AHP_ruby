@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :criterios
   resources :alternativas
 
-  match 'julgamento_criterios/all' => 'julgamentocriterios#update_all', :as => :julgamento_criterios_update_all, :via => :put
+  match 'julgamento_criterio/all' => 'julgamento_criterios#update_all', :as => :julgamento_criterio_update_all, :via => :put
   match 'julgamento/all' => 'julgamentos#update_all', :as => :julgamento_update_all, :via => :put
 
   root 'projetos#index'
