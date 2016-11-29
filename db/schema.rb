@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121185340) do
+ActiveRecord::Schema.define(version: 20161129104820) do
 
   create_table "alternativas", force: :cascade do |t|
     t.string   "nome"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20161121185340) do
     t.datetime "updated_at",         null: false
     t.index ["grupo_avaliacao_id"], name: "index_grupo_usuarios_on_grupo_avaliacao_id"
     t.index ["usuario_id"], name: "index_grupo_usuarios_on_usuario_id"
+  end
+
+  create_table "julgamento_criterios", force: :cascade do |t|
+    t.integer  "projeto_id"
+    t.integer  "criterio_1_id"
+    t.integer  "criterio_2_id"
+    t.float    "valor"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["criterio_1_id"], name: "index_julgamento_criterios_on_criterio_1_id"
+    t.index ["criterio_2_id"], name: "index_julgamento_criterios_on_criterio_2_id"
+    t.index ["projeto_id"], name: "index_julgamento_criterios_on_projeto_id"
   end
 
   create_table "julgamentos", force: :cascade do |t|

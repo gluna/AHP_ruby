@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Julgamento Criterios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Projeto</th>
+      <th>Criterio 1</th>
+      <th>Criterio 2</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @julgamento_criterios.each do |julgamento_criterio| %>
+      <tr>
+        <td><%= julgamento_criterio.projeto %></td>
+        <td><%= julgamento_criterio.criterio_1 %></td>
+        <td><%= julgamento_criterio.criterio_2 %></td>
+        <td><%= julgamento_criterio.valor %></td>
+        <td><%= link_to 'Show', julgamento_criterio %></td>
+        <td><%= link_to 'Edit', edit_julgamento_criterio_path(julgamento_criterio) %></td>
+        <td><%= link_to 'Destroy', julgamento_criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Julgamento Criterio', new_julgamento_criterio_path %>

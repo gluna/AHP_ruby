@@ -39,13 +39,10 @@ class JulgamentosController < ApplicationController
             @julgamento.alternativa_2_id = alternativa_2.id
             @julgamento.save
           end
-
         end
-
       end
     end
     @julgamentos = Julgamento.where(:projeto_id => @projeto.id, :usuario_id => current_usuario.id)
-    #@julgamento = Julgamento.new
   end
 
   def update_all

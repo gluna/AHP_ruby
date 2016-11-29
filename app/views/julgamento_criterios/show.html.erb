@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Projeto:</strong>
+  <%= @julgamento_criterio.projeto %>
+</p>
+
+<p>
+  <strong>Criterio 1:</strong>
+  <%= @julgamento_criterio.criterio_1 %>
+</p>
+
+<p>
+  <strong>Criterio 2:</strong>
+  <%= @julgamento_criterio.criterio_2 %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @julgamento_criterio.valor %>
+</p>
+
+<%= link_to 'Edit', edit_julgamento_criterio_path(@julgamento_criterio) %> |
+<%= link_to 'Back', julgamento_criterios_path %>

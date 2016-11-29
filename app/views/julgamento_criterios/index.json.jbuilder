@@ -1,0 +1,1 @@
+json.array! @julgamento_criterios, partial: 'julgamento_criterios/julgamento_criterio', as: :julgamento_criterio

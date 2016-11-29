@@ -1,0 +1,1 @@
+json.partial! "julgamento_criterios/julgamento_criterio", julgamento_criterio: @julgamento_criterio

@@ -1,0 +1,11 @@
+<%= form_for :julgamentoCriterios, :url => julgamento_criterios_update_all_path, :html => { :method => :put } do %>
+
+  <% @julgamento_criterios.each do |jc| %>
+    <%= fields_for "jc[]", jc do |fv| %>
+        <%= jc.criterio_1.nome %> - <%= jc.criterio_2.nome %> : <%= fv.text_field :valor  %>
+      </br>
+    <% end %>
+  <% end %>
+  <%= submit_tag %>
+
+<% end %>
