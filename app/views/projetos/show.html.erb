@@ -34,22 +34,12 @@
 <% end %>
 <%= link_to 'New Criterio', new_criterio_path(projeto_id: @projeto.id) %>
 <br/><br/>
-<% @projeto.grupo_avaliacaos.each do |grupo_avaliacao| %>
-  <tr>
-    <td><%= grupo_avaliacao.nome %></td>
-    <td><%= grupo_avaliacao.peso %></td>
-    <td><%= grupo_avaliacao.ativo %></td>
-    <td><%= link_to 'Show', grupo_avaliacao %></td>
-    <td><%= link_to 'Edit', edit_grupo_avaliacao_path(grupo_avaliacao) %></td>
-    <td><%= link_to 'Destroy', grupo_avaliacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-  <br/>
-<% end %>
-<%= link_to 'New Grupo Avaliacao', new_grupo_avaliacao_path(projeto_id: @projeto.id) %>
-<br/><br/>
 <%= link_to 'Julgamentos', new_julgamento_path(projeto_id: @projeto.id) %>
 <br/><br/>
 <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) %>
 <br/><br/>
+<%= link_to 'Prioridade_Relativa', prioridade_relativa_criterio_path(projeto_id: @projeto.id) %>
+<br/><br/>
+
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
