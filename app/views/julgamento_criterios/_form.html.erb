@@ -1,6 +1,7 @@
-<%= form_for :julgamento_criterio, :url => julgamento_criterio_update_all_path, :html => { :method => :put } do %>
+<%= form_for :julgamento_criterio, :url => julgamento_criterio_update_all_path(:projeto_id => @julgamento_criterios.first.projeto_id), :html => { :method => :put } do %>
 
   <% @julgamento_criterios.each do |jc| %>
+
     <%= fields_for "jc[]", jc do |fv| %>
         <%= jc.criterio_1.nome %> - <%= jc.criterio_2.nome %> : <%= fv.text_field :valor  %>
       </br>
