@@ -72,19 +72,4 @@ class CriteriosController < ApplicationController
       params.require(:criterio).permit(:nome, :codigo, :projeto_id, :criterio_id)
     end
 
-    def prioridade_relativa
-      @criterios = Criterio.all
-
-      @criterios.each do |c|
-          @julgamentos = Julgamento_Criterio.where(:projeto_id => params[:projeto_id], :criterio_1 => c.id)
-
-          @total = 0
-          @count = 0
-          @julgamentos.each do |j|
-            @total = @total+(j.valor/@julgamentos.sum(:valor))
-          end
-          c.prioridad
-      end
-
-    end
 end

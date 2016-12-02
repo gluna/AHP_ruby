@@ -29,7 +29,6 @@ class JulgamentoCriteriosController < ApplicationController
             @julgamento_criterio.criterio_2_id = c2.id
             @julgamento_criterio.save
           end
-
       end
     end
     @julgamento_criterios = JulgamentoCriterio.where(:projeto_id => @projeto.id)
@@ -37,6 +36,7 @@ class JulgamentoCriteriosController < ApplicationController
 
   def update_all
     JulgamentoCriterio.update(params[:jc].keys, params[:jc].values)
+    prioridade_relativa
   end
 
   # GET /julgamento_criterios/1/edit
@@ -93,5 +93,22 @@ class JulgamentoCriteriosController < ApplicationController
     def julgamento_criterio_params
       params.require(:julgamento_criterio).permit(:projeto_id, :criterio_1_id, :criterio_2_id, :valor)
     end
+
+    def prioridade_relativa
+      @criterios = Criterio.all
+
+      @criterios.each do |c|
+          @julgamentos = JulgamentoCriterio.where(:projeto_id => params[:projeto_id], :criterio_1 => c.id)
+
+          total = 0
+          count = 0
+          @julgamentos.each do |j|
+            total = total+(j.valor/@julgamentos.sum(:valor))
+          end
+          c.update(:prioridade => total)
+      end
+
+    end
+
 
 end
