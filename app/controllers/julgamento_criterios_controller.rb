@@ -97,15 +97,18 @@ class JulgamentoCriteriosController < ApplicationController
     def prioridade_relativa
       @criterios = Criterio.all
 
-      @criterios.each do |c|
-          @julgamentos = JulgamentoCriterio.where(:projeto_id => params[:projeto_id], :criterio_1 => c.id)
+      @criterios.each do |c1|
+
+          @julgamentos1 = JulgamentoCriterio.where(:projeto_id => params[:projeto_id], :criterio_1 => c1.id)
 
           total = 0
-          count = 0
-          @julgamentos.each do |j|
-            total = total+(j.valor/@julgamentos.sum(:valor))
+          @julgamentos1.each do |j|
+            @julgamentos2 = JulgamentoCriterio.where(:projeto_id => params[:projeto_id], :criterio_2 => j.criterio_2_id)
+            total = total+j.valor/@julgamentos2.sum(:valor)
           end
-          c.update(:prioridade => total)
+
+          c1.update(:prioridade => (total/@julgamentos1.size))
+
       end
 
     end
