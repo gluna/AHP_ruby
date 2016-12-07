@@ -47,6 +47,7 @@ class JulgamentosController < ApplicationController
 
   def update_all
     Julgamento.update(params[:j].keys, params[:j].values)
+    prioridade_relativa
   end
 
   # GET /julgamentos/1/edit
@@ -102,6 +103,40 @@ class JulgamentosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def julgamento_params
       params.require(:julgamento).permit(:usuario_id, :projeto_id, :criterio, :alternativa_id, :alternativa_id, :valor)
+    end
+
+    def prioridade_relativa
+      @criterios = Criterio.all
+
+      @criterios.each do |c1|
+
+        @alternativas = Alternativa.all
+
+        @alternativas.each do |a|
+          @julgamentos1 = Julgamento.where(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa_1 => a.id)
+
+          total = 0
+          @julgamentos1.each do |j|
+            @julgamentos2 = Julgamento.where(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa_2 => j.alternativa_2_id)
+            total = total+(j.valor/@julgamentos2.sum(:valor))
+          end
+
+          prioridade = total/@julgamentos1.size
+
+          if PrioridadeRelativa.find_by(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa => a.id) == nil
+            @prioridaderelativa = PrioridadeRelativa.new
+            @prioridaderelativa.projeto_id = params[:projeto_id]
+            @prioridaderelativa.criterio_id = c1.id
+            @prioridaderelativa.alternativa_id = a.id
+            @prioridaderelativa.valor = prioridade
+
+          else
+            @prioridaderelativa = PrioridadeRelativa.find_by(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa_1 => a.id)
+            @prioridaderelativa.update(:valor => prioridade)
+          end
+
+        end
+      end
     end
 
 end

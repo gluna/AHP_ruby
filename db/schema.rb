@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201120828) do
+ActiveRecord::Schema.define(version: 20161207114401) do
 
   create_table "alternativas", force: :cascade do |t|
     t.string   "nome"
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(version: 20161201120828) do
     t.index ["criterio_id"], name: "index_julgamentos_on_criterio_id"
     t.index ["projeto_id"], name: "index_julgamentos_on_projeto_id"
     t.index ["usuario_id"], name: "index_julgamentos_on_usuario_id"
+  end
+
+  create_table "prioridade_relativas", force: :cascade do |t|
+    t.integer  "projeto_id"
+    t.integer  "alternativa_id"
+    t.integer  "criterio_id"
+    t.float    "valor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["alternativa_id"], name: "index_prioridade_relativas_on_alternativa_id"
+    t.index ["criterio_id"], name: "index_prioridade_relativas_on_criterio_id"
+    t.index ["projeto_id"], name: "index_prioridade_relativas_on_projeto_id"
   end
 
   create_table "projetos", force: :cascade do |t|
