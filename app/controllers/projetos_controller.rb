@@ -61,6 +61,20 @@ class ProjetosController < ApplicationController
     end
   end
 
+  def resultado
+    @projeto = Projeto.find(params[:projeto_id])
+    @alternativas = @projeto.alternativas.all
+    @criterios = @projeto.criterios.all
+    @alternativas.each do |a|
+      prioridade = 0
+      @criterios.each do |c|
+        @pr = PrioridadeRelativa.find_by(:alternativa => a.id, :criterio => c.id)
+        prioridade = prioridade+(@pr.valor*c.prioridade)
+      end
+      a.update(:prioridade_global => prioridade)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_projeto

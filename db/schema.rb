@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207114401) do
+ActiveRecord::Schema.define(version: 20161211213259) do
 
   create_table "alternativas", force: :cascade do |t|
     t.string   "nome"
     t.string   "codigo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "projeto_id"
+    t.float    "prioridade_global"
     t.index ["projeto_id"], name: "index_alternativas_on_projeto_id"
   end
 

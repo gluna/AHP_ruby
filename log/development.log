@@ -29992,3 +29992,1233 @@ No template found for JulgamentosController#update_all, rendering head :no_conte
 Completed 204 No Content in 1908ms (ActiveRecord: 1531.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-12-11 17:35:41 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 56ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-12-11 17:35:41 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (89.8ms)
+Completed 200 OK in 2333ms (Views: 2301.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-12-11 17:37:14 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PQ5Q+sX4Z8QqwPK8gfo3goTxAUTbGu2If8UJUo0pYQQuljiYJ/+kpicE/XZ1lHg8GLM/5SVtPt7WgH3aZxViNg==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-12-11 19:37:14 UTC], ["last_sign_in_at", 2016-12-07 19:06:43 UTC], ["sign_in_count", 29], ["updated_at", 2016-12-11 19:37:14 UTC], ["id", 1]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 430ms (ActiveRecord: 88.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-11 17:37:14 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 86ms (Views: 52.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 17:37:21 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (1.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (112.5ms)
+Completed 200 OK in 194ms (Views: 154.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/julgamento_criterios/new?projeto_id=4" for 127.0.0.1 at 2016-12-11 17:37:23 -0200
+Processing by JulgamentoCriteriosController#new as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (1.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.5ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mJulgamentoCriterio Load (0.3ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 13 AND "julgamento_criterios"."criterio_2_id" = 13 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.4ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 13 AND "julgamento_criterios"."criterio_2_id" = 14 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.3ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 13 AND "julgamento_criterios"."criterio_2_id" = 15 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.3ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 14 AND "julgamento_criterios"."criterio_2_id" = 13 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.2ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 14 AND "julgamento_criterios"."criterio_2_id" = 14 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.2ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 14 AND "julgamento_criterios"."criterio_2_id" = 15 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.2ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 15 AND "julgamento_criterios"."criterio_2_id" = 13 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.2ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 15 AND "julgamento_criterios"."criterio_2_id" = 14 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.2ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? AND "julgamento_criterios"."criterio_1_id" = 15 AND "julgamento_criterios"."criterio_2_id" = 15 LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  Rendering julgamento_criterios/new.html.erb within layouts/application
+  [1m[36mJulgamentoCriterio Load (0.3ms)[0m  [1m[34mSELECT  "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ? ORDER BY "julgamento_criterios"."id" ASC LIMIT ?[0m  [["projeto_id", 4], ["LIMIT", 1]]
+  [1m[36mJulgamentoCriterio Load (0.3ms)[0m  [1m[34mSELECT "julgamento_criterios".* FROM "julgamento_criterios" WHERE "julgamento_criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered julgamento_criterios/_form.html.erb (39.6ms)
+  Rendered julgamento_criterios/new.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 193ms (Views: 111.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-11 17:37:26 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 56ms (Views: 49.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 17:37:28 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.4ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/julgamentos/new?projeto_id=4" for 127.0.0.1 at 2016-12-11 17:37:29 -0200
+Processing by JulgamentosController#new as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (1.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.4ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.5ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.1ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 13 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 14 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 8 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 9 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.3ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 10 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 8 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 9 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 10 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? AND "julgamentos"."criterio_id" = 15 AND "julgamentos"."alternativa_1_id" = 11 AND "julgamentos"."alternativa_2_id" = 11 LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  Rendering julgamentos/new.html.erb within layouts/application
+  [1m[36mJulgamento Load (0.2ms)[0m  [1m[34mSELECT  "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ? ORDER BY "julgamentos"."id" ASC LIMIT ?[0m  [["projeto_id", 4], ["usuario_id", 1], ["LIMIT", 1]]
+  [1m[36mJulgamento Load (0.4ms)[0m  [1m[34mSELECT "julgamentos".* FROM "julgamentos" WHERE "julgamentos"."projeto_id" = ? AND "julgamentos"."usuario_id" = ?[0m  [["projeto_id", 4], ["usuario_id", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered julgamentos/_form.html.erb (120.0ms)
+  Rendered julgamentos/new.html.erb within layouts/application (121.2ms)
+Completed 200 OK in 278ms (Views: 157.4ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-11 18:01:02 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 56ms (Views: 50.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:01:05 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 81ms (Views: 73.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-11 18:19:20 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 71ms (Views: 45.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:19:22 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.5ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (128.0ms)
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 3.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `resultado_projeto_path' for #<#<Class:0x007fc7fc5bd3a0>:0x007fc81012a568>):
+    38: <br/><br/>
+    39: <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) %>
+    40: <br/><br/>
+    41: <%= link_to 'Resultados', resultado_projeto_path(projeto_id: @projeto.id) %>
+    42: <br/><br/>
+    43: <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+    44: <%= link_to 'Back', projetos_path %>
+  
+app/views/projetos/show.html.erb:41:in `_app_views_projetos_show_html_erb___1550846399714442206_70248619923960'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.0ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.7ms)
+Started GET "/" for 127.0.0.1 at 2016-12-11 18:19:55 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 466ms (Views: 425.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:19:57 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (170.4ms)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `resultado_projeto_path' for #<#<Class:0x0000000298d378>:0x007f9a411a6110>):
+    38: <br/><br/>
+    39: <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) %>
+    40: <br/><br/>
+    41: <%= link_to 'Resultados', resultado_projeto_path(projeto_id: @projeto.id) %>
+    42: <br/><br/>
+    43: <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+    44: <%= link_to 'Back', projetos_path %>
+  
+app/views/projetos/show.html.erb:41:in `_app_views_projetos_show_html_erb__2936277514305487793_70150246972680'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.5ms)
+Started GET "/" for 127.0.0.1 at 2016-12-11 18:24:52 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 441ms (Views: 402.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:24:54 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (157.3ms)
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `resultado_projeto_path' for #<#<Class:0x000000024d2950>:0x007fa69d0a25d0>):
+    38: <br/><br/>
+    39: <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) %>
+    40: <br/><br/>
+    41: <%= link_to 'Resultados', resultado_projeto_path(projeto_id: @projeto.id) %>
+    42: <br/><br/>
+    43: <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+    44: <%= link_to 'Back', projetos_path %>
+  
+app/views/projetos/show.html.erb:41:in `_app_views_projetos_show_html_erb__2580240595750218517_70176787996520'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.0ms)
+Started GET "/" for 127.0.0.1 at 2016-12-11 18:53:53 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 57ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-12-11 18:53:53 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (79.9ms)
+Completed 200 OK in 571ms (Views: 537.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-12-11 18:54:02 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jA1HDYYLGgpnNZcKwn9Icu3PR8dE1PPq7Qgk/JRCb2AlC9SdQxReKBVPdGJzsnsuaOrukzrGaC5QrsmUqTllyA==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-12-11 20:54:02 UTC], ["last_sign_in_at", 2016-12-11 19:37:14 UTC], ["sign_in_count", 30], ["updated_at", 2016-12-11 20:54:02 UTC], ["id", 1]]
+  [1m[35m (87.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 387ms (ActiveRecord: 90.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-11 18:54:02 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 108ms (Views: 72.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:54:05 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (201.4ms)
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `resultado_projeto' for #<#<Class:0x007f3ca1b12d00>:0x007f3ca804b9d8>
+Did you mean?  resultado_projeto_url
+               resultado_projeto_path):
+    38: <br/><br/>
+    39: <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) %>
+    40: <br/><br/>
+    41: <%= link_to 'Resultados', resultado_projeto(projeto_id: @projeto.id) %>
+    42: <br/><br/>
+    43: <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+    44: <%= link_to 'Back', projetos_path %>
+  
+app/views/projetos/show.html.erb:41:in `_app_views_projetos_show_html_erb___227468233242125007_69949246792220'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.7ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.2ms)
+Started GET "/" for 127.0.0.1 at 2016-12-11 18:54:47 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:54:49 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 64ms (Views: 58.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 18:54:51 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  Rendered projetos/resultado.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 59ms (Views: 54.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-11 18:54:59 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 76ms (Views: 72.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-11 18:55:00 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 61ms (Views: 57.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:19:20 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (88.2ms)
+Completed 200 OK in 156ms (Views: 128.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:19:37 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mPrioridadeRelativa Load (0.4ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 86ms (Views: 77.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:23:16 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 82ms (Views: 78.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:27:12 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  Rendered projetos/resultado.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Class:0x007f3ca9516e58>):
+    1: <h3>Prioridade dos criterios</h3>
+    2: <% Criterio.each do |c|%>
+    3:   <%= c.nome%> : <%= c.priodidade%>
+    4: <% end %>
+    5: </br></br>
+  
+app/views/projetos/resultado.html.erb:2:in `_app_views_projetos_resultado_html_erb___2826140892709387827_69949193555540'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.1ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:27:31 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (1.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  Rendered projetos/resultado.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Criterios):
+    1: <h3>Prioridade dos criterios</h3>
+    2: <% Criterios.each do |c|%>
+    3:   <%= c.nome%> : <%= c.priodidade%>
+    4: <% end %>
+    5: </br></br>
+  
+app/views/projetos/resultado.html.erb:2:in `_app_views_projetos_resultado_html_erb___2826140892709387827_69949247525280'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.5ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.2ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:28:17 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  Rendered projetos/resultado.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `priodidade' for #<Criterio:0x007f3ca8945520>
+Did you mean?  prioridade
+               prioridade?
+               prioridade=):
+    1: <h3>Prioridade dos criterios</h3>
+    2: <% @criterios = Criterio.all%>
+    3: <% @criterios.each do |c|%>
+    4:   <%= c.nome%> : <%= c.priodidade%>
+    5: <% end %>
+    6: </br></br>
+    7: <h3>Prioridade Relativa</h3>
+  
+app/views/projetos/resultado.html.erb:4:in `block in _app_views_projetos_resultado_html_erb___2826140892709387827_69949253690020'
+app/views/projetos/resultado.html.erb:3:in `_app_views_projetos_resultado_html_erb___2826140892709387827_69949253690020'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.8ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.2ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:28:55 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 123ms (Views: 113.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:29:21 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.6ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 106ms (Views: 97.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:29:43 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.5ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 80ms (Views: 72.9ms | ActiveRecord: 2.7ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPrioridadeGlobalToAlternativa (20161211213259)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "alternativas" ADD "prioridade_global" float[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161211213259"]]
+  [1m[35m (68.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_alternativas_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_criterio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_criterio_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_criterios_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grupo_avaliacaos_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grupo_avaliacaos_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grupo_usuarios_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grupo_usuarios_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grupo_usuarios_on_grupo_avaliacao_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grupo_usuarios_on_grupo_avaliacao_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamento_criterios_on_criterio_2_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamento_criterios_on_criterio_2_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamento_criterios_on_criterio_1_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamento_criterios_on_criterio_1_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamento_criterios_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamento_criterios_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamentos_on_alternativa_2_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamentos_on_alternativa_2_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamentos_on_alternativa_1_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamentos_on_alternativa_1_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamentos_on_criterio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamentos_on_criterio_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamentos_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamentos_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_julgamentos_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_julgamentos_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_prioridade_relativas_on_criterio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_prioridade_relativas_on_criterio_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_prioridade_relativas_on_alternativa_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_prioridade_relativas_on_alternativa_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_prioridade_relativas_on_projeto_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_prioridade_relativas_on_projeto_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_usuarios_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_usuarios_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_usuarios_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_usuarios_on_email' AND type='index'
+[0m
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:53:00 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 4.7ms)
+
+
+  
+LoadError (Unable to autoload constant Prioridade_Relativa, expected /home/gustavo/mestrado/AHP_ruby/app/models/prioridade_relativa.rb to define it):
+  
+app/controllers/projetos_controller.rb:71:in `block (2 levels) in resultado'
+app/controllers/projetos_controller.rb:70:in `block in resultado'
+app/controllers/projetos_controller.rb:68:in `resultado'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.7ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:53:41 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 3.3ms)
+
+
+  
+LoadError (Unable to autoload constant Prioridade_Relativa, expected /home/gustavo/mestrado/AHP_ruby/app/models/prioridade_relativa.rb to define it):
+  
+app/controllers/projetos_controller.rb:71:in `block (2 levels) in resultado'
+app/controllers/projetos_controller.rb:70:in `block in resultado'
+app/controllers/projetos_controller.rb:68:in `resultado'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.2ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.9ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:54:22 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 4.1ms)
+
+
+  
+LoadError (Unable to autoload constant Prioridade_Relativa, expected /home/gustavo/mestrado/AHP_ruby/app/models/prioridade_relativa.rb to define it):
+  
+app/controllers/projetos_controller.rb:71:in `block (2 levels) in resultado'
+app/controllers/projetos_controller.rb:70:in `block in resultado'
+app/controllers/projetos_controller.rb:68:in `resultado'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.8ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:54:49 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "alternativas" SET "prioridade_global" = ?, "updated_at" = ? WHERE "alternativas"."id" = ?[0m  [["prioridade_global", 0.30940698902428715], ["updated_at", 2016-12-11 21:54:49 UTC], ["id", 8]]
+  [1m[35m (70.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "alternativas" SET "prioridade_global" = ?, "updated_at" = ? WHERE "alternativas"."id" = ?[0m  [["prioridade_global", 0.19199715139899234], ["updated_at", 2016-12-11 21:54:49 UTC], ["id", 9]]
+  [1m[35m (115.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "alternativas" SET "prioridade_global" = ?, "updated_at" = ? WHERE "alternativas"."id" = ?[0m  [["prioridade_global", 0.09206171468632945], ["updated_at", 2016-12-11 21:54:49 UTC], ["id", 10]]
+  [1m[35m (71.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "alternativas" SET "prioridade_global" = ?, "updated_at" = ? WHERE "alternativas"."id" = ?[0m  [["prioridade_global", 0.4065341448903912], ["updated_at", 2016-12-11 21:54:49 UTC], ["id", 11]]
+  [1m[35m (80.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered projetos/resultado.html.erb within layouts/application (35.9ms)
+Completed 500 Internal Server Error in 469ms (ActiveRecord: 349.9ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Alternativas):
+    11: <% end %>
+    12: </br></br>
+    13: <h3>Prioridade Global</h3>
+    14: <% @alternativas = Alternativas.all%>
+    15: <% @alternativas.each do |p| %>
+    16:   <%= p.nome %> : <%= p.prioridade_global%>
+    17:   </br>
+  
+app/views/projetos/resultado.html.erb:14:in `_app_views_projetos_resultado_html_erb__4402458098803998328_27849280'
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/gustavo/.rvm/gems/ruby-2.3.0@rails50/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.4ms)
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-11 19:55:06 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.1ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.1ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas"[0m
+  Rendered projetos/resultado.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 338ms (Views: 313.6ms | ActiveRecord: 4.8ms)
+
+

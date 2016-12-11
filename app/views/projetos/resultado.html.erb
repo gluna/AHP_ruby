@@ -1,0 +1,18 @@
+<h3>Prioridade dos criterios</h3>
+<% @criterios = Criterio.all%>
+<% @criterios.each do |c|%>
+  <%= c.nome%> : <%= c.prioridade%></br>
+<% end %>
+</br></br>
+<h3>Prioridade Relativa</h3>
+<% @projeto.prioridade_relativas.each do |p| %>
+  <%= p.alternativa.nome %> - <%= p.criterio.nome%>: <%=p.valor%>
+  </br>
+<% end %>
+</br></br>
+<h3>Prioridade Global</h3>
+<% @alternativas = Alternativa.all%>
+<% @alternativas.each do |p| %>
+  <%= p.nome %> : <%= p.prioridade_global%>
+  </br>
+<% end %>
