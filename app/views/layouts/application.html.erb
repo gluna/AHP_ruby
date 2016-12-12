@@ -12,7 +12,7 @@
 
 </head>
 <body>
-
+<% if usuario_signed_in? %>
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -28,9 +28,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                       <% if usuario_signed_in? %>
-                        <li><a class="navbar-link">Logged in as <strong><%= current_usuario.email %></strong></a></li>
-                        <li><%= link_to 'Edit profile', edit_usuario_registration_path, :class => 'navbar-link' %></li>
-                        <li><%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                        <li><a class="navbar-link">Usuário: <strong><%= current_usuario.nome %></strong></a></li>
+                        <li><%= link_to 'Editar Usuário', edit_usuario_registration_path, :class => 'navbar-link' %></li>
+                        <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %></li>
                       <% else %>
                         <li><%= link_to "Sign up", new_usuario_registration_path, :class => 'navbar-link'  %> </li>
                         <li><%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %></li>
@@ -41,7 +41,6 @@
         </div>
 
         <!-- /. NAV TOP  -->
-        <% if usuario_signed_in? %>
           <nav class="navbar-default navbar-side" role="navigation">
               <div class="sidebar-collapse">
                   <ul class="nav" id="main-menu">
@@ -71,10 +70,10 @@
              <!-- /. PAGE INNER  -->
         </div>
          <!-- /. PAGE WRAPPER  -->
-        <% else %>
-          <%= yield %>
-        <% end %>
-        </div>
+      </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
      <!-- /. WRAPPER  -->
 </body>
 </html>
