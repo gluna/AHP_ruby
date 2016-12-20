@@ -30,7 +30,7 @@
                       <% if usuario_signed_in? %>
                         <li><a class="navbar-link">Usuário: <strong><%= current_usuario.nome %></strong></a></li>
                         <li><%= link_to 'Editar Usuário', edit_usuario_registration_path, :class => 'navbar-link' %></li>
-                        <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                        <li><%= link_to "SairT", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %></li>
                       <% else %>
                         <li><%= link_to "Sign up", new_usuario_registration_path, :class => 'navbar-link'  %> </li>
                         <li><%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %></li>
