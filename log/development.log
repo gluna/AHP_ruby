@@ -33442,3 +33442,188 @@ Processing by ProjetosController#index as HTML
 Completed 200 OK in 74ms (Views: 41.3ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-12-20 22:57:54 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-12-20 22:57:54 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 2097ms (Views: 2079.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2016-12-20 22:58:07 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y7mhSqgN2ExODFJfpF5qbdMo/sTp/r/XwSkqF6kee13GVRdN6+9MnI1s4uQBEqp87pqEssG+QwsbV4KS8+QwOQ==", "usuario"=>{"email"=>"gluna@uenf.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUsuario Load (27.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["email", "gluna@uenf.br"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "usuarios" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["current_sign_in_at", 2016-12-21 00:58:07 UTC], ["last_sign_in_at", 2016-12-14 19:37:41 UTC], ["sign_in_count", 40], ["updated_at", 2016-12-21 00:58:07 UTC], ["id", 1]]
+  [1m[35m (93.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 342ms (ActiveRecord: 122.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-20 22:58:07 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 109ms (Views: 66.8ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/usuarios/sign_out" for 127.0.0.1 at 2016-12-20 22:58:10 -0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/7xWSuTAkw2D/ncVjJB6Mf6O6/UnE1Lbhwy23B+fBID7FBuB0gPnODw3a6Ma0SWaYvCojrV/FQ0w0vhkh3lFFg=="}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-20 22:58:10 -0200
+Processing by ProjetosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2016-12-20 22:58:10 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_up" for 127.0.0.1 at 2016-12-20 22:58:17 -0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 99ms (Views: 97.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/usuarios" for 127.0.0.1 at 2016-12-20 22:58:29 -0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2lxKs3KpXQe8dd1JEji5PW3CvC07z/DjblhiKCRFMeplsG6XxKk2UixY1bZVpQuVvbhnXf82e7lrcPZxXAEiFw==", "usuario"=>{"email"=>"teste@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? LIMIT ?[0m  [["email", "teste@teste.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "usuarios" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@teste.com"], ["encrypted_password", "$2a$11$SsxhUe5chfCFuMThe.WelenGIVlQXQAjb4A6iAOGo/HJ65hWSM5eK"], ["created_at", 2016-12-21 00:58:29 UTC], ["updated_at", 2016-12-21 00:58:29 UTC]]
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "usuarios" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-12-21 00:58:30 UTC], ["last_sign_in_at", 2016-12-21 00:58:30 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2016-12-21 00:58:30 UTC], ["id", 2]]
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 409ms (ActiveRecord: 156.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-20 22:58:30 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 73ms (Views: 67.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/usuarios/edit" for 127.0.0.1 at 2016-12-20 22:58:34 -0200
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 52ms (Views: 50.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-20 22:58:38 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (2.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 68ms (Views: 60.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/projetos/4" for 127.0.0.1 at 2016-12-20 22:58:40 -0200
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projetos/show.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.4ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.3ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  Rendered projetos/show.html.erb within layouts/application (236.6ms)
+Completed 200 OK in 360ms (Views: 283.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/projeto/resultado?projeto_id=4" for 127.0.0.1 at 2016-12-20 22:59:07 -0200
+Processing by ProjetosController#resultado as HTML
+  Parameters: {"projeto_id"=>"4"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.5ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mCriterio Load (0.6ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios" WHERE "criterios"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 8 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 9 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 10 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 13 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 14 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPrioridadeRelativa Load (0.2ms)[0m  [1m[34mSELECT  "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."alternativa_id" = 11 AND "prioridade_relativas"."criterio_id" = 15 LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering projetos/resultado.html.erb within layouts/application
+  [1m[36mCriterio Load (0.2ms)[0m  [1m[34mSELECT "criterios".* FROM "criterios"[0m
+  [1m[36mPrioridadeRelativa Load (0.3ms)[0m  [1m[34mSELECT "prioridade_relativas".* FROM "prioridade_relativas" WHERE "prioridade_relativas"."projeto_id" = ?[0m  [["projeto_id", 4]]
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (10.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.1ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCriterio Load (0.1ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "alternativas".* FROM "alternativas" WHERE "alternativas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "criterios".* FROM "criterios" WHERE "criterios"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas"[0m
+  Rendered projetos/resultado.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 164ms (Views: 73.3ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-12-20 22:59:13 -0200
+Processing by ProjetosController#index as HTML
+  [1m[36mUsuario Load (2.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering projetos/index.html.erb within layouts/application
+  [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 100ms (Views: 90.0ms | ActiveRecord: 2.5ms)
+
+
