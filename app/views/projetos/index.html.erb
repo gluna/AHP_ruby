@@ -17,9 +17,9 @@
               <tr>
                 <td><%= projeto.nome %></td>
                 <td><%= projeto.descricao %></td>
-                <td><%= link_to 'Detalhe', projeto %></td>
-                <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
-                <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: 'Tem certeza de que quer excluir o projeto?' } %></td>
+                <td><%= link_to 'Detalhe', projeto, :class => "btn btn-primary" %></td>
+                <td><%= link_to 'Editar', edit_projeto_path(projeto), :class => "btn btn-warning" %></td>
+                <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: 'Tem certeza de que quer excluir o projeto?' }, :class => "btn btn-danger" %></td>
 
               </tr>
             <% end %>
