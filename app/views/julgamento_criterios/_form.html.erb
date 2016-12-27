@@ -1,12 +1,44 @@
-<%= form_for :julgamento_criterio, :url => julgamento_criterio_update_all_path(:projeto_id => @julgamento_criterios.first.projeto_id), :html => { :method => :put } do %>
+<%= form_for :julgamento_criterio, :url => julgamento_criterio_update_all_path(:projeto_id => @projeto.id), :html => { :method => :put } do %>
 
-  <% @julgamento_criterios.each do |jc| %>
+  <% @criterios1 = @projeto.criterios %>
+  <% @criterios2 = @projeto.criterios %>
+  <br/>
+    <div class="row">
+    <div class="col-md-8">
+      <table class="table table-striped table-bordered table-hover">
+        <tr>
+          <th></th>
+          <% @criterios1.each do |c1| %>
+            <th><%= c1.nome %></th>
+          <% end %>
+        </tr>
+        <% @criterios1.each do |c1| %>
+          <tr>
+            <th><%= c1.nome %></th>
+            <% @criterios2.each do |c2| %>
+              <% @jc = @julgamento_criterios.find_by(:criterio_1_id => c1.id, :criterio_2_id => c2.id) %>
+              <%= fields_for "j[]", @jc do |f| %>
+                <td><%= f.text_field :valor  %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 
-    <%= fields_for "jc[]", jc do |fv| %>
-        <%= jc.criterio_1.nome %> - <%= jc.criterio_2.nome %> : <%= fv.text_field :valor  %>
-      </br>
-    <% end %>
-  <% end %>
-  <%= submit_tag %>
+  <!-- <% @julgamento_criterios.each do |jc| %>
+    <div class="col-md-8">
+      <table>
+        <%= fields_for "jc[]", jc do |fv| %>
+            <%= jc.criterio_1.nome %> - <%= jc.criterio_2.nome %> : <%= fv.text_field :valor  %>
+          </br>
+        <% end %>
+      </table>
+    </div>
+  <% end %> -->
+  <br/>
+  <%= submit_tag "Salvar", :class => "btn btn-primary"%>
+  <%= link_to "Voltar",Projeto.find(params[:projeto_id]) ,:class => "btn btn-warning"%>
 
 <% end %>

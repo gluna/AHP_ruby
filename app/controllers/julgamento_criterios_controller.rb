@@ -35,7 +35,7 @@ class JulgamentoCriteriosController < ApplicationController
   end
 
   def update_all
-    JulgamentoCriterio.update(params[:jc].keys, params[:jc].values)
+    JulgamentoCriterio.update(params[:j].keys, params[:j].values)
     prioridade_relativa
   end
 
@@ -95,7 +95,7 @@ class JulgamentoCriteriosController < ApplicationController
     end
 
     def prioridade_relativa
-      @criterios = Criterio.all
+      @criterios = Criterio.where(:projeto_id => params[:projeto_id])
 
       @criterios.each do |c1|
 

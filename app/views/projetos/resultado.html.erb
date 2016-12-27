@@ -1,18 +1,52 @@
 <h3>Prioridade dos criterios</h3>
-<% @criterios = Criterio.all%>
-<% @criterios.each do |c|%>
-  <%= c.nome%> : <%= c.prioridade%></br>
-<% end %>
-</br></br>
+<% @criterios = @projeto.criterios%>
+<div class="row">
+<div class="col-md-6">
+  <table class="table table-striped table-bordered table-hover">
+    <% @criterios.each do |c|%>
+      <tr>
+        <td><%= c.nome%></td>
+        <td><%= c.prioridade%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+</br>
 <h3>Prioridade Relativa</h3>
-<% @projeto.prioridade_relativas.each do |p| %>
-  <%= p.alternativa.nome %> - <%= p.criterio.nome%>: <%=p.valor%>
-  </br>
-<% end %>
-</br></br>
+
+<div class="row">
+<div class="col-md-6">
+
+    <% @criterios.each do |c|%>
+      <table class="table table-striped table-bordered table-hover">
+        <caption><h4><%= c.nome%></h4></caption>
+        <% @prioridades_relativas = @projeto.prioridade_relativas.where(:criterio_id => c.id) %>
+        <% @prioridades_relativas.each do |pr| %>
+          <tr>
+            <td><%= pr.alternativa.nome %></td>
+            <td><%= pr.valor %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+
+</div>
+</div>
+<br/>
 <h3>Prioridade Global</h3>
-<% @alternativas = Alternativa.all%>
-<% @alternativas.each do |p| %>
-  <%= p.nome %> : <%= p.prioridade_global%>
-  </br>
-<% end %>
+<% @alternativas = @projeto.alternativas%>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped table-bordered table-hover">
+      <% @alternativas.each do |p| %>
+        <tr>
+          <td><%= p.nome %></td>
+          <td><%= p.prioridade_global%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<%= link_to "Voltar", @projeto ,:class => "btn btn-warning"%>

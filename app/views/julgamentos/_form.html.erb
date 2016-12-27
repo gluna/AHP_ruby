@@ -20,8 +20,8 @@
             <tr>
               <th><%= a1.nome %></th>
               <% @alternativas_2.each do |a2| %>
-                <% @jc = @julgamentos.where(:alternativa_1_id => a1.id, :alternativa_2_id => a2.id, :criterio_id => c.id) %>
-                <%= fields_for "j[]", @jc.first do |f| %>
+                <% @jc = @julgamentos.find_by(:alternativa_1_id => a1.id, :alternativa_2_id => a2.id, :criterio_id => c.id) %>
+                <%= fields_for "j[]", @jc do |f| %>
                   <td><%= f.text_field :valor  %></td>
                 <% end %>
               <% end %>
@@ -33,7 +33,7 @@
     </div>
     <br/>
   <% end %>
-<br/>
+<br/><br/>
   <!-- <% @projeto.criterios.each do |c| %>
 
     <h2><%= c.nome %><h2/>
@@ -51,4 +51,5 @@
 
 
   <%= submit_tag "Salvar", :class => "btn btn-primary"%>
+  <%= link_to "Voltar",Projeto.find(params[:projeto_id]) ,:class => "btn btn-warning"%>
 <% end %>

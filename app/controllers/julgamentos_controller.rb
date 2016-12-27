@@ -106,11 +106,11 @@ class JulgamentosController < ApplicationController
     end
 
     def prioridade_relativa
-      @criterios = Criterio.all
+      @criterios = Criterio.where(:projeto_id => params[:projeto_id])
 
       @criterios.each do |c1|
 
-        @alternativas = Alternativa.all
+        @alternativas = Alternativa.where(:projeto_id => params[:projeto_id])
 
         @alternativas.each do |a|
           @julgamentos1 = Julgamento.where(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa_1 => a.id)
