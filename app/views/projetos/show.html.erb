@@ -27,7 +27,7 @@
       <tr>
         <td><%= alternativa.nome %></td>
         <td><%= link_to 'Editar', edit_alternativa_path(alternativa, projeto_id: @projeto.id), :class => "btn btn-warning" %></td>
-        <td><%= link_to 'Excluir', alternativa, method: :destroy, data: { confirm: 'Tem certeza de que quer excluir a alternativa?' }, :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Excluir', alternativa, method: :delete, data: { confirm: 'Tem certeza de que quer excluir a alternativa?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
     <tr>
