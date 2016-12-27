@@ -1,17 +1,54 @@
-<%= form_for :julgamento, :url => julgamento_update_all_path(:projeto_id => @julgamentos.first.projeto_id), :html => { :method => :put } do %>
+<%= form_for :julgamento, :url => julgamento_update_all_path(:projeto_id => @projeto.id), :html => { :method => :put } do %>
 
-    <% @cri = '' %>
-    <% @julgamentos.each do |j| %>
+  <% @alternativas_1 = @projeto.alternativas %>
+  <% @alternativas_2 = @projeto.alternativas %>
+  <% @projeto.criterios.each do |c| %>
+    <div class="row">
+    <!-- <div class="col-md-3"></div> -->
+    <div class="col-md-8">
+
+
+      <table class="table table-striped table-bordered table-hover">
+        <caption><h3><%= c.nome %></h3></caption>
+        <tr>
+          <th></th>
+          <% @alternativas_1.each do |a| %>
+              <th><%= a.nome %></th>
+          <% end %>
+        </tr>
+          <% @alternativas_1.each do |a1| %>
+            <tr>
+              <th><%= a1.nome %></th>
+              <% @alternativas_2.each do |a2| %>
+                <% @jc = @julgamentos.where(:alternativa_1_id => a1.id, :alternativa_2_id => a2.id, :criterio_id => c.id) %>
+                <%= fields_for "j[]", @jc.first do |f| %>
+                  <td><%= f.text_field :valor  %></td>
+                <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+      </table>
+
+    </div>
+    </div>
+    <br/>
+  <% end %>
+<br/>
+  <!-- <% @projeto.criterios.each do |c| %>
+
+    <h2><%= c.nome %><h2/>
+    <% @jc = @julgamentos.where(:criterio_id => c.id) %>
+    <% @jc.each do |j| %>
+
       <%= fields_for "j[]", j do |f| %>
-      <% if j.criterio.nome != @cri %>
-          <br/>
-          <h2><%= j.criterio.nome %><h2/>
+        <%= j.alternativa_1.nome %> - <%= j.alternativa_2.nome %>: <%= f.text_field :valor  %>
+        <br/>
       <% end %>
-      <%= j.alternativa_1.nome %> - <%= j.alternativa_2.nome %> : <%= f.text_field :valor  %>
-      </br>
-      <% @cri = j.criterio.nome %>
-    <% end %>
-    <% end %>
-    <%= submit_tag %>
 
+    <% end %>
+    <br/>
+  <% end %> -->
+
+
+  <%= submit_tag "Salvar", :class => "btn btn-primary"%>
 <% end %>

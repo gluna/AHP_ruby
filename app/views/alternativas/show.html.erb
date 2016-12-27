@@ -10,5 +10,5 @@
   <%= @alternativa.codigo %>
 </p>
 
-<%= link_to 'Edit', edit_alternativa_path(@alternativa) %> |
-<%= link_to 'Back', alternativas_path %>
+<%= link_to 'Editar', edit_alternativa_path(@alternativa), :class => "btn btn-warning" %>
+<%= link_to 'Voltar', Projeto.find(@alternativa.projeto_id), :class => "btn btn-primary" %>

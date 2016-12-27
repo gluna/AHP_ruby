@@ -10,5 +10,5 @@
   <%= @criterio.codigo %>
 </p>
 
-<%= link_to 'Edit', edit_criterio_path(@criterio) %> |
-<%= link_to 'Back', criterios_path %>
+<%= link_to 'Editar', edit_criterio_path(@criterio), :class => "btn btn-warning" %>
+<%= link_to 'Voltar', Projeto.find(@criterio.projeto_id), :class => "btn btn-primary" %>

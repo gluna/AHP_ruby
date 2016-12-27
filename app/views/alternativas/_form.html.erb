@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-5">
 <%= form_for(alternativa) do |f| %>
   <% if alternativa.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +13,20 @@
     </div>
   <% end %>
   <%= f.hidden_field :projeto_id, value: params[:projeto_id] %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :nome %>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :codigo %>
-    <%= f.text_field :codigo %>
+    <%= f.text_field :codigo, :class => "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Salvar", :class => "btn btn-primary" %>
+    <%= link_to "Cancelar",Projeto.find(params[:projeto_id]) ,:class => "btn btn-danger"%>
   </div>
 <% end %>
+</div>
+</div>

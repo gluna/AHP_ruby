@@ -54,9 +54,10 @@ class AlternativasController < ApplicationController
   # DELETE /alternativas/1
   # DELETE /alternativas/1.json
   def destroy
+    @projeto = Projeto.find(@alternativa.projeto_id)
     @alternativa.destroy
     respond_to do |format|
-      format.html { redirect_to alternativas_url, notice: 'Alternativa was successfully destroyed.' }
+      format.html { redirect_to @projeto, notice: 'Alternativa was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

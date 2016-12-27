@@ -54,9 +54,10 @@ class CriteriosController < ApplicationController
   # DELETE /criterios/1
   # DELETE /criterios/1.json
   def destroy
+    @projeto = Projeto.find(@criterio.projeto_id)
     @criterio.destroy
     respond_to do |format|
-      format.html { redirect_to criterios_url, notice: 'Criterio was successfully destroyed.' }
+      format.html { redirect_to @projeto, notice: 'Criterio was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

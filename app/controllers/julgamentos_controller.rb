@@ -130,7 +130,7 @@ class JulgamentosController < ApplicationController
             @prioridaderelativa.save
 
           else
-            @prioridaderelativa = PrioridadeRelativa.find_by(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa_1 => a.id)
+            @prioridaderelativa = PrioridadeRelativa.find_by(:projeto_id => params[:projeto_id], :criterio => c1.id, :alternativa => a.id)
             @prioridaderelativa.valor = (total/@julgamentos1.size)
             @prioridaderelativa.save
           end
