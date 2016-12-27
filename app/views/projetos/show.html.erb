@@ -26,10 +26,8 @@
     <% @projeto.alternativas.each do |alternativa| %>
       <tr>
         <td><%= alternativa.nome %></td>
-        <!-- <td><%= alternativa.codigo %></td> -->
-        <!-- <td><%= link_to 'Show', alternativa, :class => "btn btn-primary" %></td> -->
         <td><%= link_to 'Editar', edit_alternativa_path(alternativa, projeto_id: @projeto.id), :class => "btn btn-warning" %></td>
-        <td><%= link_to 'Excluir', alternativa, method: :delete, data: { confirm: 'Tem certeza de que quer excluir a alternativa?' }, :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Excluir', alternativa, method: :destroy, data: { confirm: 'Tem certeza de que quer excluir a alternativa?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
     <tr>
@@ -52,8 +50,6 @@
         <% @projeto.criterios.each do |criterio| %>
           <tr>
             <td><%= criterio.nome %></td>
-            <!-- <td><%= criterio.codigo %></td>
-            <td><%= link_to 'Show', criterio, :class => "btn btn-primary"  %></td> -->
             <td><%= link_to 'Editar', edit_criterio_path(criterio, projeto_id: @projeto.id), :class => "btn btn-warning" %></td>
             <td><%= link_to 'Excluir', criterio, method: :delete, data: { confirm: 'Tem certeza de que quer excluir o critério?' }, :class => "btn btn-danger"  %></td>
           </tr>
@@ -73,6 +69,3 @@
 <%= link_to 'Julgamentos dos Criterios', new_julgamento_criterio_path(projeto_id: @projeto.id) , :class => "btn btn-primary" %>
 
 <%= link_to 'Resultados', resultado_projeto_path(projeto_id: @projeto.id) , :class => "btn btn-primary" %>
-
-<!-- <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %> -->
