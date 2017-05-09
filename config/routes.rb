@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :julgamento_criterios
   resources :julgamentos
   resources :grupo_usuarios
   resources :grupo_avaliacaos
-  devise_for :usuarios
   resources :projetos
   resources :criterios
   resources :alternativas
