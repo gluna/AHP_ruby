@@ -1,4 +1,5 @@
 class ProjetosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
 
   # GET /projetos
@@ -25,7 +26,7 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = Projeto.new(projeto_params)
-
+    @projeto.user = current_user
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }

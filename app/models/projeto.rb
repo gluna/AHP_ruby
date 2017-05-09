@@ -5,4 +5,5 @@ class Projeto < ApplicationRecord
   has_many :julgamentos
   has_many :julgamento_criterios
   has_many :prioridade_relativas
+  belongs_to :user
 end

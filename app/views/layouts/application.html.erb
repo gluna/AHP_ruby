@@ -28,7 +28,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                       <% if user_signed_in? %>
-                        <li><a class="navbar-link">Usuário: <strong><%= current_user.email %></strong></a></li>
+                        <li><a class="navbar-link">Usuário: <strong><%= current_user.nome %></strong></a></li>
                         <li><%= link_to 'Editar Usuário', edit_user_registration_path, :class => 'navbar-link' %></li>
                         <li><%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
                       <% else %>
