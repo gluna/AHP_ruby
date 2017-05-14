@@ -14,3 +14,7 @@
 //= require turbolinks
 //= require jquery_ujs
 //= require_tree .
+(function set_value(){
+  alert("teste");
+ }
+).
