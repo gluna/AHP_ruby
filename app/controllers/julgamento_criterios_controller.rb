@@ -37,6 +37,7 @@ class JulgamentoCriteriosController < ApplicationController
   def update_all
     JulgamentoCriterio.update(params[:j].keys, params[:j].values)
     prioridade_relativa
+    redirect_to new_julgamento_criterio_path(:projeto_id => params[:projeto_id])
   end
 
   # GET /julgamento_criterios/1/edit

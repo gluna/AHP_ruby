@@ -48,6 +48,7 @@ class JulgamentosController < ApplicationController
   def update_all
     Julgamento.update(params[:j].keys, params[:j].values)
     prioridade_relativa
+    redirect_to new_julgamento_path(:projeto_id => params[:projeto_id])
   end
 
   # GET /julgamentos/1/edit

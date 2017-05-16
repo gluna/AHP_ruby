@@ -28,16 +28,6 @@
     </div>
   </div>
 
-  <!-- <% @julgamento_criterios.each do |jc| %>
-    <div class="col-md-8">
-      <table>
-        <%= fields_for "jc[]", jc do |fv| %>
-            <%= jc.criterio_1.nome %> - <%= jc.criterio_2.nome %> : <%= fv.text_field :valor  %>
-          </br>
-        <% end %>
-      </table>
-    </div>
-  <% end %> -->
   <br/>
   <%= submit_tag "Salvar", :class => "btn btn-primary"%>
   <%= link_to "Voltar",Projeto.find(params[:projeto_id]) ,:class => "btn btn-warning"%>
