@@ -1,1 +1,0 @@
-json.partial! "grupo_avaliacaos/grupo_avaliacao", grupo_avaliacao: @grupo_avaliacao

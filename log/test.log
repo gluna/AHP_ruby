@@ -753,3 +753,572 @@
   [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-11 00:02:38.925943', '2017-05-11 00:02:38.925943', 980190962)[0m
   [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-11 00:02:38.925943', '2017-05-11 00:02:38.925943', 298486374)[0m
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:02.464040', '2017-05-20 13:43:02.464040', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:02.464040', '2017-05-20 13:43:02.464040', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:02.467655', '2017-05-20 13:43:02.467655', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:02.467655', '2017-05-20 13:43:02.467655', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:02.470637', '2017-05-20 13:43:02.470637', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:02.470637', '2017-05-20 13:43:02.470637', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.050018', '2017-05-20 13:43:03.050018', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.050018', '2017-05-20 13:43:03.050018', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.051917', '2017-05-20 13:43:03.051917', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.051917', '2017-05-20 13:43:03.051917', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.053597', '2017-05-20 13:43:03.053597', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.053597', '2017-05-20 13:43:03.053597', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.063384', '2017-05-20 13:43:03.063384', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.063384', '2017-05-20 13:43:03.063384', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.065109', '2017-05-20 13:43:03.065109', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.065109', '2017-05-20 13:43:03.065109', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.066749', '2017-05-20 13:43:03.066749', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.066749', '2017-05-20 13:43:03.066749', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.075873', '2017-05-20 13:43:03.075873', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.075873', '2017-05-20 13:43:03.075873', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.077669', '2017-05-20 13:43:03.077669', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.077669', '2017-05-20 13:43:03.077669', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.079421', '2017-05-20 13:43:03.079421', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.079421', '2017-05-20 13:43:03.079421', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.089210', '2017-05-20 13:43:03.089210', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.089210', '2017-05-20 13:43:03.089210', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.091004', '2017-05-20 13:43:03.091004', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.091004', '2017-05-20 13:43:03.091004', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.092756', '2017-05-20 13:43:03.092756', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.092756', '2017-05-20 13:43:03.092756', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.102521', '2017-05-20 13:43:03.102521', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.102521', '2017-05-20 13:43:03.102521', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.104417', '2017-05-20 13:43:03.104417', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.104417', '2017-05-20 13:43:03.104417', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.106666', '2017-05-20 13:43:03.106666', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.106666', '2017-05-20 13:43:03.106666', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.116629', '2017-05-20 13:43:03.116629', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.116629', '2017-05-20 13:43:03.116629', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.118376', '2017-05-20 13:43:03.118376', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.118376', '2017-05-20 13:43:03.118376', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.120134', '2017-05-20 13:43:03.120134', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.120134', '2017-05-20 13:43:03.120134', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.130432', '2017-05-20 13:43:03.130432', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.130432', '2017-05-20 13:43:03.130432', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.132143', '2017-05-20 13:43:03.132143', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.132143', '2017-05-20 13:43:03.132143', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.134157', '2017-05-20 13:43:03.134157', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.134157', '2017-05-20 13:43:03.134157', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.141581', '2017-05-20 13:43:03.141581', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.141581', '2017-05-20 13:43:03.141581', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.142910', '2017-05-20 13:43:03.142910', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.142910', '2017-05-20 13:43:03.142910', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.144631', '2017-05-20 13:43:03.144631', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.144631', '2017-05-20 13:43:03.144631', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.154001', '2017-05-20 13:43:03.154001', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.154001', '2017-05-20 13:43:03.154001', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.155789', '2017-05-20 13:43:03.155789', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.155789', '2017-05-20 13:43:03.155789', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.157514', '2017-05-20 13:43:03.157514', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.157514', '2017-05-20 13:43:03.157514', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.167228', '2017-05-20 13:43:03.167228', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.167228', '2017-05-20 13:43:03.167228', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.169024', '2017-05-20 13:43:03.169024', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.169024', '2017-05-20 13:43:03.169024', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.171139', '2017-05-20 13:43:03.171139', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.171139', '2017-05-20 13:43:03.171139', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.181419', '2017-05-20 13:43:03.181419', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.181419', '2017-05-20 13:43:03.181419', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.183215', '2017-05-20 13:43:03.183215', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.183215', '2017-05-20 13:43:03.183215', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.184933', '2017-05-20 13:43:03.184933', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.184933', '2017-05-20 13:43:03.184933', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.194647', '2017-05-20 13:43:03.194647', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.194647', '2017-05-20 13:43:03.194647', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.196447', '2017-05-20 13:43:03.196447', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.196447', '2017-05-20 13:43:03.196447', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.198159', '2017-05-20 13:43:03.198159', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.198159', '2017-05-20 13:43:03.198159', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.209096', '2017-05-20 13:43:03.209096', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.209096', '2017-05-20 13:43:03.209096', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.210392', '2017-05-20 13:43:03.210392', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.210392', '2017-05-20 13:43:03.210392', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.211665', '2017-05-20 13:43:03.211665', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.211665', '2017-05-20 13:43:03.211665', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.219349', '2017-05-20 13:43:03.219349', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.219349', '2017-05-20 13:43:03.219349', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.221185', '2017-05-20 13:43:03.221185', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.221185', '2017-05-20 13:43:03.221185', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.222945', '2017-05-20 13:43:03.222945', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.222945', '2017-05-20 13:43:03.222945', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.232705', '2017-05-20 13:43:03.232705', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.232705', '2017-05-20 13:43:03.232705', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.234442', '2017-05-20 13:43:03.234442', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.234442', '2017-05-20 13:43:03.234442', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.236324', '2017-05-20 13:43:03.236324', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.236324', '2017-05-20 13:43:03.236324', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.247231', '2017-05-20 13:43:03.247231', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.247231', '2017-05-20 13:43:03.247231', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.249011', '2017-05-20 13:43:03.249011', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.249011', '2017-05-20 13:43:03.249011', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.250727', '2017-05-20 13:43:03.250727', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.250727', '2017-05-20 13:43:03.250727', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.260505', '2017-05-20 13:43:03.260505', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.260505', '2017-05-20 13:43:03.260505', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.262266', '2017-05-20 13:43:03.262266', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.262266', '2017-05-20 13:43:03.262266', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.264016', '2017-05-20 13:43:03.264016', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.264016', '2017-05-20 13:43:03.264016', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.274777', '2017-05-20 13:43:03.274777', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.274777', '2017-05-20 13:43:03.274777', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.276488', '2017-05-20 13:43:03.276488', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.276488', '2017-05-20 13:43:03.276488', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.278111', '2017-05-20 13:43:03.278111', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.278111', '2017-05-20 13:43:03.278111', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.285687', '2017-05-20 13:43:03.285687', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.285687', '2017-05-20 13:43:03.285687', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.287003', '2017-05-20 13:43:03.287003', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.287003', '2017-05-20 13:43:03.287003', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.288250', '2017-05-20 13:43:03.288250', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.288250', '2017-05-20 13:43:03.288250', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.297468', '2017-05-20 13:43:03.297468', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.297468', '2017-05-20 13:43:03.297468', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.299281', '2017-05-20 13:43:03.299281', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.299281', '2017-05-20 13:43:03.299281', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.301061', '2017-05-20 13:43:03.301061', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.301061', '2017-05-20 13:43:03.301061', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.312651', '2017-05-20 13:43:03.312651', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.312651', '2017-05-20 13:43:03.312651', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.314426', '2017-05-20 13:43:03.314426', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.314426', '2017-05-20 13:43:03.314426', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.316192', '2017-05-20 13:43:03.316192', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.316192', '2017-05-20 13:43:03.316192', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.325950', '2017-05-20 13:43:03.325950', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.325950', '2017-05-20 13:43:03.325950', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.327770', '2017-05-20 13:43:03.327770', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.327770', '2017-05-20 13:43:03.327770', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.329476', '2017-05-20 13:43:03.329476', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.329476', '2017-05-20 13:43:03.329476', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.340039', '2017-05-20 13:43:03.340039', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.340039', '2017-05-20 13:43:03.340039', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.341811', '2017-05-20 13:43:03.341811', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.341811', '2017-05-20 13:43:03.341811', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.343539', '2017-05-20 13:43:03.343539', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.343539', '2017-05-20 13:43:03.343539', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.353447', '2017-05-20 13:43:03.353447', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.353447', '2017-05-20 13:43:03.353447', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.354778', '2017-05-20 13:43:03.354778', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.354778', '2017-05-20 13:43:03.354778', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.356000', '2017-05-20 13:43:03.356000', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.356000', '2017-05-20 13:43:03.356000', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.362969', '2017-05-20 13:43:03.362969', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.362969', '2017-05-20 13:43:03.362969', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.364373', '2017-05-20 13:43:03.364373', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.364373', '2017-05-20 13:43:03.364373', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.366167', '2017-05-20 13:43:03.366167', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.366167', '2017-05-20 13:43:03.366167', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.376728', '2017-05-20 13:43:03.376728', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.376728', '2017-05-20 13:43:03.376728', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.378488', '2017-05-20 13:43:03.378488', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.378488', '2017-05-20 13:43:03.378488', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.380248', '2017-05-20 13:43:03.380248', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.380248', '2017-05-20 13:43:03.380248', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.389957', '2017-05-20 13:43:03.389957', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.389957', '2017-05-20 13:43:03.389957', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.391743', '2017-05-20 13:43:03.391743', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.391743', '2017-05-20 13:43:03.391743', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.393476', '2017-05-20 13:43:03.393476', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.393476', '2017-05-20 13:43:03.393476', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.404399', '2017-05-20 13:43:03.404399', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.404399', '2017-05-20 13:43:03.404399', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.406370', '2017-05-20 13:43:03.406370', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.406370', '2017-05-20 13:43:03.406370', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.408144', '2017-05-20 13:43:03.408144', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.408144', '2017-05-20 13:43:03.408144', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.417982', '2017-05-20 13:43:03.417982', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.417982', '2017-05-20 13:43:03.417982', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.419785', '2017-05-20 13:43:03.419785', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.419785', '2017-05-20 13:43:03.419785', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.421406', '2017-05-20 13:43:03.421406', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.421406', '2017-05-20 13:43:03.421406', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.429082', '2017-05-20 13:43:03.429082', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.429082', '2017-05-20 13:43:03.429082', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.430352', '2017-05-20 13:43:03.430352', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.430352', '2017-05-20 13:43:03.430352', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.431577', '2017-05-20 13:43:03.431577', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.431577', '2017-05-20 13:43:03.431577', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.441040', '2017-05-20 13:43:03.441040', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.441040', '2017-05-20 13:43:03.441040', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.442844', '2017-05-20 13:43:03.442844', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.442844', '2017-05-20 13:43:03.442844', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.444584', '2017-05-20 13:43:03.444584', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.444584', '2017-05-20 13:43:03.444584', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.454269', '2017-05-20 13:43:03.454269', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.454269', '2017-05-20 13:43:03.454269', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.456060', '2017-05-20 13:43:03.456060', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.456060', '2017-05-20 13:43:03.456060', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.457761', '2017-05-20 13:43:03.457761', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.457761', '2017-05-20 13:43:03.457761', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.467636', '2017-05-20 13:43:03.467636', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.467636', '2017-05-20 13:43:03.467636', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.469870', '2017-05-20 13:43:03.469870', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.469870', '2017-05-20 13:43:03.469870', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.471828', '2017-05-20 13:43:03.471828', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.471828', '2017-05-20 13:43:03.471828', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.481610', '2017-05-20 13:43:03.481610', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.481610', '2017-05-20 13:43:03.481610', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.483403', '2017-05-20 13:43:03.483403', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.483403', '2017-05-20 13:43:03.483403', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.485142', '2017-05-20 13:43:03.485142', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.485142', '2017-05-20 13:43:03.485142', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.495306', '2017-05-20 13:43:03.495306', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.495306', '2017-05-20 13:43:03.495306', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.497536', '2017-05-20 13:43:03.497536', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.497536', '2017-05-20 13:43:03.497536', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.498932', '2017-05-20 13:43:03.498932', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.498932', '2017-05-20 13:43:03.498932', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.506260', '2017-05-20 13:43:03.506260', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.506260', '2017-05-20 13:43:03.506260', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.507590', '2017-05-20 13:43:03.507590', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.507590', '2017-05-20 13:43:03.507590', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.509310', '2017-05-20 13:43:03.509310', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.509310', '2017-05-20 13:43:03.509310', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.518983', '2017-05-20 13:43:03.518983', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.518983', '2017-05-20 13:43:03.518983', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.520752', '2017-05-20 13:43:03.520752', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.520752', '2017-05-20 13:43:03.520752', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.522451', '2017-05-20 13:43:03.522451', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.522451', '2017-05-20 13:43:03.522451', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.532182', '2017-05-20 13:43:03.532182', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.532182', '2017-05-20 13:43:03.532182', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.534006', '2017-05-20 13:43:03.534006', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.534006', '2017-05-20 13:43:03.534006', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.536216', '2017-05-20 13:43:03.536216', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.536216', '2017-05-20 13:43:03.536216', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.546142', '2017-05-20 13:43:03.546142', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.546142', '2017-05-20 13:43:03.546142', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.547916', '2017-05-20 13:43:03.547916', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.547916', '2017-05-20 13:43:03.547916', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.549655', '2017-05-20 13:43:03.549655', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.549655', '2017-05-20 13:43:03.549655', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.559294', '2017-05-20 13:43:03.559294', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.559294', '2017-05-20 13:43:03.559294', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.561060', '2017-05-20 13:43:03.561060', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.561060', '2017-05-20 13:43:03.561060', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.562846', '2017-05-20 13:43:03.562846', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.562846', '2017-05-20 13:43:03.562846', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.572987', '2017-05-20 13:43:03.572987', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.572987', '2017-05-20 13:43:03.572987', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.574305', '2017-05-20 13:43:03.574305', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.574305', '2017-05-20 13:43:03.574305', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.575549', '2017-05-20 13:43:03.575549', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.575549', '2017-05-20 13:43:03.575549', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.583038', '2017-05-20 13:43:03.583038', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.583038', '2017-05-20 13:43:03.583038', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.584614', '2017-05-20 13:43:03.584614', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.584614', '2017-05-20 13:43:03.584614', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.586348', '2017-05-20 13:43:03.586348', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.586348', '2017-05-20 13:43:03.586348', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.596101', '2017-05-20 13:43:03.596101', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.596101', '2017-05-20 13:43:03.596101', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.597912', '2017-05-20 13:43:03.597912', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.597912', '2017-05-20 13:43:03.597912', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.600488', '2017-05-20 13:43:03.600488', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.600488', '2017-05-20 13:43:03.600488', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.610854', '2017-05-20 13:43:03.610854', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.610854', '2017-05-20 13:43:03.610854', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.612696', '2017-05-20 13:43:03.612696', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.612696', '2017-05-20 13:43:03.612696', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.614447', '2017-05-20 13:43:03.614447', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.614447', '2017-05-20 13:43:03.614447', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.624116', '2017-05-20 13:43:03.624116', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.624116', '2017-05-20 13:43:03.624116', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.625879', '2017-05-20 13:43:03.625879', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.625879', '2017-05-20 13:43:03.625879', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.627610', '2017-05-20 13:43:03.627610', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.627610', '2017-05-20 13:43:03.627610', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.638354', '2017-05-20 13:43:03.638354', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.638354', '2017-05-20 13:43:03.638354', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.640271', '2017-05-20 13:43:03.640271', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.640271', '2017-05-20 13:43:03.640271', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.641878', '2017-05-20 13:43:03.641878', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.641878', '2017-05-20 13:43:03.641878', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.649639', '2017-05-20 13:43:03.649639', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.649639', '2017-05-20 13:43:03.649639', 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.650960', '2017-05-20 13:43:03.650960', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.650960', '2017-05-20 13:43:03.650960', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.652204', '2017-05-20 13:43:03.652204', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.652204', '2017-05-20 13:43:03.652204', 298486374)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "projetos"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.663733', '2017-05-20 13:43:03.663733', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "projetos" ("nome", "descricao", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2017-05-20 13:43:03.663733', '2017-05-20 13:43:03.663733', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "prioridade_relativas"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.665907', '2017-05-20 13:43:03.665907', 980190962, 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "prioridade_relativas" ("valor", "created_at", "updated_at", "id", "projeto_id", "alternativa_id", "criterio_id") VALUES (1.5, '2017-05-20 13:43:03.665907', '2017-05-20 13:43:03.665907', 298486374, 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.668111', '2017-05-20 13:43:03.668111', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-05-20 13:43:03.668111', '2017-05-20 13:43:03.668111', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (122.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ahp_test"[0m
+  [1m[35m (677.6ms)[0m  [1m[35mCREATE DATABASE "ahp_test" ENCODING = 'unicode'[0m
+  [1m[35m (174.3ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" serial primary key, "nome" character varying, "codigo" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "projeto_id" integer, "prioridade_global" float)[0m
+  [1m[35m (49.9ms)[0m  [1m[35mCREATE  INDEX  "index_alternativas_on_projeto_id" ON "alternativas"  ("projeto_id")[0m
+  [1m[35m (97.2ms)[0m  [1m[35mCREATE TABLE "criterios" ("id" serial primary key, "nome" character varying, "codigo" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "projeto_id" integer, "criterio_id" integer, "prioridade" float)[0m
+  [1m[35m (62.2ms)[0m  [1m[35mCREATE  INDEX  "index_criterios_on_criterio_id" ON "criterios"  ("criterio_id")[0m
+  [1m[35m (62.3ms)[0m  [1m[35mCREATE  INDEX  "index_criterios_on_projeto_id" ON "criterios"  ("projeto_id")[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE TABLE "grupo_avaliacaos" ("id" serial primary key, "nome" character varying, "peso" float, "projeto_id" integer, "ativo" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_avaliacaos_on_projeto_id" ON "grupo_avaliacaos"  ("projeto_id")[0m
+  [1m[35m (86.6ms)[0m  [1m[35mCREATE TABLE "grupo_criterios" ("id" serial primary key, "nome" character varying, "peso" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (52.6ms)[0m  [1m[35mCREATE TABLE "grupo_usuarios" ("id" serial primary key, "grupo_avaliacao_id" integer, "usuario_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (50.7ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_usuarios_on_grupo_avaliacao_id" ON "grupo_usuarios"  ("grupo_avaliacao_id")[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_usuarios_on_usuario_id" ON "grupo_usuarios"  ("usuario_id")[0m
+  [1m[35m (64.1ms)[0m  [1m[35mCREATE TABLE "julgamento_criterios" ("id" serial primary key, "projeto_id" integer, "criterio_1_id" integer, "criterio_2_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (62.4ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_criterio_1_id" ON "julgamento_criterios"  ("criterio_1_id")[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_criterio_2_id" ON "julgamento_criterios"  ("criterio_2_id")[0m
+  [1m[35m (62.1ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_projeto_id" ON "julgamento_criterios"  ("projeto_id")[0m
+  [1m[35m (43.2ms)[0m  [1m[35mCREATE TABLE "julgamentos" ("id" serial primary key, "usuario_id" integer, "projeto_id" integer, "criterio_id" integer, "alternativa_1_id" integer, "alternativa_2_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (53.8ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_alternativa_1_id" ON "julgamentos"  ("alternativa_1_id")[0m
+  [1m[35m (63.0ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_alternativa_2_id" ON "julgamentos"  ("alternativa_2_id")[0m
+  [1m[35m (72.9ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_criterio_id" ON "julgamentos"  ("criterio_id")[0m
+  [1m[35m (72.7ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_projeto_id" ON "julgamentos"  ("projeto_id")[0m
+  [1m[35m (50.8ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_usuario_id" ON "julgamentos"  ("usuario_id")[0m
+  [1m[35m (52.5ms)[0m  [1m[35mCREATE TABLE "prioridade_relativas" ("id" serial primary key, "projeto_id" integer, "alternativa_id" integer, "criterio_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (194.2ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_alternativa_id" ON "prioridade_relativas"  ("alternativa_id")[0m
+  [1m[35m (53.1ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_criterio_id" ON "prioridade_relativas"  ("criterio_id")[0m
+  [1m[35m (50.1ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_projeto_id" ON "prioridade_relativas"  ("projeto_id")[0m
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE TABLE "projetos" ("id" serial primary key, "nome" character varying, "descricao" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer)[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE  INDEX  "index_projetos_on_user_id" ON "projetos"  ("user_id")[0m

@@ -33,7 +33,6 @@ class JulgamentosController < ApplicationController
           if Julgamento.find_by(:projeto_id => @projeto.id, :criterio => criterio.id, :alternativa_1 => alternativa_1, :alternativa_2 => alternativa_2) == nil
             @julgamento = Julgamento.new
             @julgamento.projeto_id = @projeto.id
-            @julgamento.usuario_id = current_user.id
             @julgamento.criterio_id = criterio.id
             @julgamento.alternativa_1_id = alternativa_1.id
             @julgamento.alternativa_2_id = alternativa_2.id

@@ -1,0 +1,1259 @@
+D, [2017-05-20T12:03:04.139931 #14723] DEBUG -- :   [1m[35m (102.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+D, [2017-05-20T12:03:04.251118 #14723] DEBUG -- :   [1m[35m (95.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:04.253491 #14723] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3718924466567235135);[0m
+D, [2017-05-20T12:03:04.275123 #14723] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2017-05-20T12:03:04.286526 #14723]  INFO -- : Migrating to CreateAlternativas (20161107124255)
+D, [2017-05-20T12:03:04.301688 #14723] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.378869 #14723] DEBUG -- :   [1m[35m (74.5ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" serial primary key, "nome" character varying, "codigo" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:04.384001 #14723] DEBUG -- :   [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161107124255"]]
+D, [2017-05-20T12:03:04.395646 #14723] DEBUG -- :   [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.395793 #14723]  INFO -- : Migrating to CreateCriterios (20161107124455)
+D, [2017-05-20T12:03:04.396642 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.503837 #14723] DEBUG -- :   [1m[35m (106.4ms)[0m  [1m[35mCREATE TABLE "criterios" ("id" serial primary key, "nome" character varying, "codigo" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:04.505092 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161107124455"]]
+D, [2017-05-20T12:03:04.518170 #14723] DEBUG -- :   [1m[35m (12.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.518302 #14723]  INFO -- : Migrating to CreateProjetos (20161108100030)
+D, [2017-05-20T12:03:04.519399 #14723] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.593845 #14723] DEBUG -- :   [1m[35m (73.6ms)[0m  [1m[35mCREATE TABLE "projetos" ("id" serial primary key, "nome" character varying, "descricao" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:04.595559 #14723] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161108100030"]]
+D, [2017-05-20T12:03:04.607562 #14723] DEBUG -- :   [1m[35m (11.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.607700 #14723]  INFO -- : Migrating to AddProjetoToAlternativa (20161110213038)
+D, [2017-05-20T12:03:04.608483 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.609379 #14723] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "alternativas" ADD "projeto_id" integer[0m
+D, [2017-05-20T12:03:04.650114 #14723] DEBUG -- :   [1m[35m (38.1ms)[0m  [1m[35mCREATE  INDEX  "index_alternativas_on_projeto_id" ON "alternativas"  ("projeto_id")[0m
+D, [2017-05-20T12:03:04.652710 #14723] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "alternativas" ADD CONSTRAINT "fk_rails_dc029125bf"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+[0m
+D, [2017-05-20T12:03:04.653935 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161110213038"]]
+D, [2017-05-20T12:03:04.674415 #14723] DEBUG -- :   [1m[35m (20.2ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.674557 #14723]  INFO -- : Migrating to AddProjetoToCriterio (20161111115924)
+D, [2017-05-20T12:03:04.675354 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.676181 #14723] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "criterios" ADD "projeto_id" integer[0m
+D, [2017-05-20T12:03:04.717757 #14723] DEBUG -- :   [1m[35m (39.2ms)[0m  [1m[35mCREATE  INDEX  "index_criterios_on_projeto_id" ON "criterios"  ("projeto_id")[0m
+D, [2017-05-20T12:03:04.719291 #14723] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "criterios" ADD CONSTRAINT "fk_rails_f301f410bb"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+[0m
+D, [2017-05-20T12:03:04.720472 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161111115924"]]
+D, [2017-05-20T12:03:04.741104 #14723] DEBUG -- :   [1m[35m (20.4ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.741266 #14723]  INFO -- : Migrating to AddCriterioToCriterio (20161112213546)
+D, [2017-05-20T12:03:04.742012 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.742931 #14723] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "criterios" ADD "criterio_id" integer[0m
+D, [2017-05-20T12:03:04.785098 #14723] DEBUG -- :   [1m[35m (39.8ms)[0m  [1m[35mCREATE  INDEX  "index_criterios_on_criterio_id" ON "criterios"  ("criterio_id")[0m
+D, [2017-05-20T12:03:04.786483 #14723] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "criterios" ADD CONSTRAINT "fk_rails_656bbc63e1"
+FOREIGN KEY ("criterio_id")
+  REFERENCES "criterios" ("id")
+[0m
+D, [2017-05-20T12:03:04.787703 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161112213546"]]
+D, [2017-05-20T12:03:04.819014 #14723] DEBUG -- :   [1m[35m (31.0ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:04.819155 #14723]  INFO -- : Migrating to DeviseCreateUsuarios (20161113225247)
+D, [2017-05-20T12:03:04.820046 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:04.908950 #14723] DEBUG -- :   [1m[35m (86.7ms)[0m  [1m[35mCREATE TABLE "usuarios" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:04.953685 #14723] DEBUG -- :   [1m[35m (42.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_usuarios_on_email" ON "usuarios"  ("email")[0m
+D, [2017-05-20T12:03:04.987846 #14723] DEBUG -- :   [1m[35m (31.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_usuarios_on_reset_password_token" ON "usuarios"  ("reset_password_token")[0m
+D, [2017-05-20T12:03:04.990018 #14723] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161113225247"]]
+D, [2017-05-20T12:03:05.008615 #14723] DEBUG -- :   [1m[35m (18.0ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.008749 #14723]  INFO -- : Migrating to CreateGrupoAvaliacaos (20161121173639)
+D, [2017-05-20T12:03:05.009559 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.078863 #14723] DEBUG -- :   [1m[35m (68.2ms)[0m  [1m[35mCREATE TABLE "grupo_avaliacaos" ("id" serial primary key, "nome" character varying, "peso" float, "projeto_id" integer, "ativo" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2b72a499e7"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+)[0m
+D, [2017-05-20T12:03:05.111840 #14723] DEBUG -- :   [1m[35m (30.5ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_avaliacaos_on_projeto_id" ON "grupo_avaliacaos"  ("projeto_id")[0m
+D, [2017-05-20T12:03:05.113037 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161121173639"]]
+D, [2017-05-20T12:03:05.131797 #14723] DEBUG -- :   [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.131932 #14723]  INFO -- : Migrating to CreateGrupoUsuarios (20161121180149)
+D, [2017-05-20T12:03:05.132764 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.225102 #14723] DEBUG -- :   [1m[35m (91.1ms)[0m  [1m[35mCREATE TABLE "grupo_usuarios" ("id" serial primary key, "grupo_avaliacao_id" integer, "usuario_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5bf3d7786d"
+FOREIGN KEY ("grupo_avaliacao_id")
+  REFERENCES "grupo_avaliacaos" ("id")
+, CONSTRAINT "fk_rails_421950b1ca"
+FOREIGN KEY ("usuario_id")
+  REFERENCES "usuarios" ("id")
+)[0m
+D, [2017-05-20T12:03:05.257566 #14723] DEBUG -- :   [1m[35m (30.0ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_usuarios_on_grupo_avaliacao_id" ON "grupo_usuarios"  ("grupo_avaliacao_id")[0m
+D, [2017-05-20T12:03:05.291420 #14723] DEBUG -- :   [1m[35m (32.1ms)[0m  [1m[35mCREATE  INDEX  "index_grupo_usuarios_on_usuario_id" ON "grupo_usuarios"  ("usuario_id")[0m
+D, [2017-05-20T12:03:05.292647 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161121180149"]]
+D, [2017-05-20T12:03:05.310360 #14723] DEBUG -- :   [1m[35m (17.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.310501 #14723]  INFO -- : Migrating to CreateJulgamentos (20161121185340)
+D, [2017-05-20T12:03:05.311681 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.379390 #14723] DEBUG -- :   [1m[35m (65.6ms)[0m  [1m[35mCREATE TABLE "julgamentos" ("id" serial primary key, "usuario_id" integer, "projeto_id" integer, "criterio_id" integer, "alternativa_1_id" integer, "alternativa_2_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8b43200ff1"
+FOREIGN KEY ("usuario_id")
+  REFERENCES "usuarios" ("id")
+, CONSTRAINT "fk_rails_869c6ba392"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+, CONSTRAINT "fk_rails_e0882ca864"
+FOREIGN KEY ("criterio_id")
+  REFERENCES "criterios" ("id")
+)[0m
+D, [2017-05-20T12:03:05.416647 #14723] DEBUG -- :   [1m[35m (34.5ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_usuario_id" ON "julgamentos"  ("usuario_id")[0m
+D, [2017-05-20T12:03:05.450574 #14723] DEBUG -- :   [1m[35m (31.4ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_projeto_id" ON "julgamentos"  ("projeto_id")[0m
+D, [2017-05-20T12:03:05.484310 #14723] DEBUG -- :   [1m[35m (32.0ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_criterio_id" ON "julgamentos"  ("criterio_id")[0m
+D, [2017-05-20T12:03:05.518659 #14723] DEBUG -- :   [1m[35m (32.6ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_alternativa_1_id" ON "julgamentos"  ("alternativa_1_id")[0m
+D, [2017-05-20T12:03:05.552764 #14723] DEBUG -- :   [1m[35m (28.9ms)[0m  [1m[35mCREATE  INDEX  "index_julgamentos_on_alternativa_2_id" ON "julgamentos"  ("alternativa_2_id")[0m
+D, [2017-05-20T12:03:05.555333 #14723] DEBUG -- :   [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161121185340"]]
+D, [2017-05-20T12:03:05.566752 #14723] DEBUG -- :   [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.567005 #14723]  INFO -- : Migrating to CreateJulgamentoCriterios (20161129104820)
+D, [2017-05-20T12:03:05.569134 #14723] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.634016 #14723] DEBUG -- :   [1m[35m (61.8ms)[0m  [1m[35mCREATE TABLE "julgamento_criterios" ("id" serial primary key, "projeto_id" integer, "criterio_1_id" integer, "criterio_2_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e57cd67ac0"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+)[0m
+D, [2017-05-20T12:03:05.675743 #14723] DEBUG -- :   [1m[35m (39.3ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_projeto_id" ON "julgamento_criterios"  ("projeto_id")[0m
+D, [2017-05-20T12:03:05.709723 #14723] DEBUG -- :   [1m[35m (31.5ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_criterio_1_id" ON "julgamento_criterios"  ("criterio_1_id")[0m
+D, [2017-05-20T12:03:05.743829 #14723] DEBUG -- :   [1m[35m (32.4ms)[0m  [1m[35mCREATE  INDEX  "index_julgamento_criterios_on_criterio_2_id" ON "julgamento_criterios"  ("criterio_2_id")[0m
+D, [2017-05-20T12:03:05.745150 #14723] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161129104820"]]
+D, [2017-05-20T12:03:05.755650 #14723] DEBUG -- :   [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.755773 #14723]  INFO -- : Migrating to AddPrioridadeToCriterio (20161201120828)
+D, [2017-05-20T12:03:05.756429 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.757824 #14723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "criterios" ADD "prioridade" float[0m
+D, [2017-05-20T12:03:05.760679 #14723] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161201120828"]]
+D, [2017-05-20T12:03:05.766968 #14723] DEBUG -- :   [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.767086 #14723]  INFO -- : Migrating to CreatePrioridadeRelativas (20161207114401)
+D, [2017-05-20T12:03:05.767908 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.813066 #14723] DEBUG -- :   [1m[35m (44.0ms)[0m  [1m[35mCREATE TABLE "prioridade_relativas" ("id" serial primary key, "projeto_id" integer, "alternativa_id" integer, "criterio_id" integer, "valor" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1c06129ab9"
+FOREIGN KEY ("projeto_id")
+  REFERENCES "projetos" ("id")
+, CONSTRAINT "fk_rails_d5035b6d06"
+FOREIGN KEY ("alternativa_id")
+  REFERENCES "alternativas" ("id")
+, CONSTRAINT "fk_rails_17b7bbb666"
+FOREIGN KEY ("criterio_id")
+  REFERENCES "criterios" ("id")
+)[0m
+D, [2017-05-20T12:03:05.845020 #14723] DEBUG -- :   [1m[35m (29.5ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_projeto_id" ON "prioridade_relativas"  ("projeto_id")[0m
+D, [2017-05-20T12:03:05.890115 #14723] DEBUG -- :   [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_alternativa_id" ON "prioridade_relativas"  ("alternativa_id")[0m
+D, [2017-05-20T12:03:05.924207 #14723] DEBUG -- :   [1m[35m (32.3ms)[0m  [1m[35mCREATE  INDEX  "index_prioridade_relativas_on_criterio_id" ON "prioridade_relativas"  ("criterio_id")[0m
+D, [2017-05-20T12:03:05.925614 #14723] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161207114401"]]
+D, [2017-05-20T12:03:05.945638 #14723] DEBUG -- :   [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.945843 #14723]  INFO -- : Migrating to AddPrioridadeGlobalToAlternativa (20161211213259)
+D, [2017-05-20T12:03:05.947176 #14723] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.948593 #14723] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "alternativas" ADD "prioridade_global" float[0m
+D, [2017-05-20T12:03:05.950532 #14723] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161211213259"]]
+D, [2017-05-20T12:03:05.956566 #14723] DEBUG -- :   [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.956731 #14723]  INFO -- : Migrating to AddNomeToUsuario (20161212114604)
+D, [2017-05-20T12:03:05.957668 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:05.958954 #14723] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "usuarios" ADD "nome" character varying[0m
+D, [2017-05-20T12:03:05.960692 #14723] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161212114604"]]
+D, [2017-05-20T12:03:05.970915 #14723] DEBUG -- :   [1m[35m (9.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:05.971109 #14723]  INFO -- : Migrating to DeviseCreateUsers (20170509101811)
+D, [2017-05-20T12:03:05.972493 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:06.047589 #14723] DEBUG -- :   [1m[35m (72.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2017-05-20T12:03:06.103659 #14723] DEBUG -- :   [1m[35m (53.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+D, [2017-05-20T12:03:06.137530 #14723] DEBUG -- :   [1m[35m (31.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+D, [2017-05-20T12:03:06.140880 #14723] DEBUG -- :   [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170509101811"]]
+D, [2017-05-20T12:03:06.156994 #14723] DEBUG -- :   [1m[35m (15.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:06.157131 #14723]  INFO -- : Migrating to AddRoleToUser (20170509102405)
+D, [2017-05-20T12:03:06.157926 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:06.158764 #14723] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "admin_role" boolean[0m
+D, [2017-05-20T12:03:06.159399 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "user_role" boolean[0m
+D, [2017-05-20T12:03:06.160720 #14723] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170509102405"]]
+D, [2017-05-20T12:03:06.168166 #14723] DEBUG -- :   [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:06.168337 #14723]  INFO -- : Migrating to AddNomeToUser (20170509180825)
+D, [2017-05-20T12:03:06.169360 #14723] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:06.170859 #14723] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "nome" character varying[0m
+D, [2017-05-20T12:03:06.172277 #14723] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170509180825"]]
+D, [2017-05-20T12:03:06.179201 #14723] DEBUG -- :   [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T12:03:06.179333 #14723]  INFO -- : Migrating to AddUserToProjeto (20170509183209)
+D, [2017-05-20T12:03:06.180044 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:06.180841 #14723] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "projetos" ADD "user_id" integer[0m
+D, [2017-05-20T12:03:06.350820 #14723] DEBUG -- :   [1m[35m (167.3ms)[0m  [1m[35mCREATE  INDEX  "index_projetos_on_user_id" ON "projetos"  ("user_id")[0m
+D, [2017-05-20T12:03:06.358235 #14723] DEBUG -- :   [1m[35m (6.6ms)[0m  [1m[35mALTER TABLE "projetos" ADD CONSTRAINT "fk_rails_be333f8526"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+D, [2017-05-20T12:03:06.360194 #14723] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170509183209"]]
+D, [2017-05-20T12:03:06.512878 #14723] DEBUG -- :   [1m[35m (152.3ms)[0m  [1m[35mCOMMIT[0m
+D, [2017-05-20T12:03:06.516976 #14723] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+D, [2017-05-20T12:03:06.521167 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:03:06.522560 #14723] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", 2017-05-20 15:03:06 UTC], ["updated_at", 2017-05-20 15:03:06 UTC]]
+D, [2017-05-20T12:03:06.534883 #14723] DEBUG -- :   [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+D, [2017-05-20T12:03:06.535287 #14723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3718924466567235135)[0m
+D, [2017-05-20T12:09:30.376670 #15104] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2017-05-20T12:09:30.393673 #15104] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "julgamento_criterios"[0m
+D, [2017-05-20T12:09:30.396079 #15104] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "criterios"[0m
+D, [2017-05-20T12:09:30.398293 #15104] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "alternativas"[0m
+D, [2017-05-20T12:09:30.403079 #15104] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "julgamentos"[0m
+D, [2017-05-20T12:09:30.404421 #15104] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+D, [2017-05-20T12:09:30.585267 #15104] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T12:09:30.662245 #15104] DEBUG -- :   [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+D, [2017-05-20T12:09:30.667008 #15104] DEBUG -- :   [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "admin_role", "user_role", "nome") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$11$8K2XadZbTuGAhiKDcGUR1OVJRiWjkAD5vSTJ6PstDU29gcU3iwJPa"], ["created_at", 2017-05-20 15:09:30 UTC], ["updated_at", 2017-05-20 15:09:30 UTC], ["admin_role", true], ["user_role", true], ["nome", "Administrador"]]
+D, [2017-05-20T12:09:30.679139 #15104] DEBUG -- :   [1m[35m (11.2ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T15:06:01.074204 #7703]  INFO -- : [de90be89-c879-4692-86a8-44a1afdc2160] Started GET "/" for 127.0.0.1 at 2017-05-20 15:06:01 -0300
+I, [2017-05-20T15:06:01.092671 #7703]  INFO -- : [de90be89-c879-4692-86a8-44a1afdc2160] Processing by ProjetosController#index as HTML
+I, [2017-05-20T15:06:01.110452 #7703]  INFO -- : [de90be89-c879-4692-86a8-44a1afdc2160] Completed 401 Unauthorized in 17ms
+I, [2017-05-20T15:06:01.238842 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea] Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-20 15:06:01 -0300
+I, [2017-05-20T15:06:01.241044 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea] Processing by Users::SessionsController#new as HTML
+I, [2017-05-20T15:06:01.303626 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2017-05-20T15:06:01.311546 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea]   Rendered devise/shared/_links.html.erb (2.0ms)
+I, [2017-05-20T15:06:01.311712 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea]   Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+I, [2017-05-20T15:06:01.315000 #7703]  INFO -- : [961c99df-d2b1-495b-bfc4-b34c7b7ac6ea] Completed 200 OK in 74ms (Views: 17.1ms | ActiveRecord: 11.9ms)
+I, [2017-05-20T15:06:14.930773 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671] Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-20 15:06:14 -0300
+I, [2017-05-20T15:06:14.932069 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671] Processing by Users::SessionsController#create as HTML
+I, [2017-05-20T15:06:14.932240 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"P49rvncDMdRv7Ip3X/DKpfqJTJaPxDV1E6AxIhFS5d9cdkmR+SSG6FpTbcJNm7RBji5EIEvmGMovZAgPVPrw+g==", "user"=>{"email"=>"aaa@bbb.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+D, [2017-05-20T15:06:14.946032 #7703] DEBUG -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "aaa@bbb.com"], ["LIMIT", 1]]
+I, [2017-05-20T15:06:14.947813 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671] Completed 401 Unauthorized in 15ms (ActiveRecord: 3.2ms)
+I, [2017-05-20T15:06:14.951120 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671] Processing by Users::SessionsController#new as HTML
+I, [2017-05-20T15:06:14.951306 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"P49rvncDMdRv7Ip3X/DKpfqJTJaPxDV1E6AxIhFS5d9cdkmR+SSG6FpTbcJNm7RBji5EIEvmGMovZAgPVPrw+g==", "user"=>{"email"=>"aaa@bbb.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+I, [2017-05-20T15:06:15.141963 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2017-05-20T15:06:15.145296 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   Rendered devise/shared/_links.html.erb (0.4ms)
+I, [2017-05-20T15:06:15.145456 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671]   Rendered devise/sessions/new.html.erb within layouts/application (3.3ms)
+I, [2017-05-20T15:06:15.146493 #7703]  INFO -- : [dcf7983e-cc3b-4209-a223-6b54296ff671] Completed 200 OK in 195ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+I, [2017-05-20T15:07:20.248519 #7703]  INFO -- : [6c494814-6adb-4c24-8539-baee561f97c1] Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-20 15:07:20 -0300
+I, [2017-05-20T15:07:20.250262 #7703]  INFO -- : [6c494814-6adb-4c24-8539-baee561f97c1] Processing by Users::SessionsController#create as HTML
+I, [2017-05-20T15:07:20.250426 #7703]  INFO -- : [6c494814-6adb-4c24-8539-baee561f97c1]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"vNw5NNP5bA/5pV3Mebi9zAKwUELXZc4AJkikqA3ytDrfJRsbXd7bM8waunlr08ModhdY9BNH478ajJ2FSFqhHw==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+D, [2017-05-20T15:07:20.255215 #7703] DEBUG -- : [6c494814-6adb-4c24-8539-baee561f97c1]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+D, [2017-05-20T15:07:20.438850 #7703] DEBUG -- : [6c494814-6adb-4c24-8539-baee561f97c1]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-20T15:07:20.443688 #7703] DEBUG -- : [6c494814-6adb-4c24-8539-baee561f97c1]   [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", 2017-05-20 18:07:20 UTC], ["last_sign_in_at", 2017-05-20 18:07:20 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", 2017-05-20 18:07:20 UTC], ["id", 1]]
+D, [2017-05-20T15:07:20.466342 #7703] DEBUG -- : [6c494814-6adb-4c24-8539-baee561f97c1]   [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-20T15:07:20.485247 #7703]  INFO -- : [6c494814-6adb-4c24-8539-baee561f97c1] Redirected to http://localhost/
+I, [2017-05-20T15:07:20.485577 #7703]  INFO -- : [6c494814-6adb-4c24-8539-baee561f97c1] Completed 302 Found in 235ms (ActiveRecord: 23.6ms)
+I, [2017-05-20T15:07:20.489267 #7703]  INFO -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a] Started GET "/" for 127.0.0.1 at 2017-05-20 15:07:20 -0300
+I, [2017-05-20T15:07:20.490204 #7703]  INFO -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:07:20.492481 #7703] DEBUG -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:07:20.517604 #7703]  INFO -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:07:20.522882 #7703] DEBUG -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a]   [1m[36mProjeto Load (3.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:07:20.523602 #7703]  INFO -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a]   Rendered projetos/index.html.erb within layouts/application (5.8ms)
+I, [2017-05-20T15:07:20.525274 #7703]  INFO -- : [1c612ec4-ec24-4c92-8ec0-c4653df9ac6a] Completed 200 OK in 35ms (Views: 5.8ms | ActiveRecord: 7.6ms)
+I, [2017-05-20T15:07:29.564866 #7703]  INFO -- : [d17544c4-3c85-4b30-987a-cf2b7f81dc6b] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:07:29 -0300
+F, [2017-05-20T15:07:29.567449 #7703] FATAL -- : [d17544c4-3c85-4b30-987a-cf2b7f81dc6b]   
+F, [2017-05-20T15:07:29.567675 #7703] FATAL -- : [d17544c4-3c85-4b30-987a-cf2b7f81dc6b] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:07:29.567782 #7703] FATAL -- : [d17544c4-3c85-4b30-987a-cf2b7f81dc6b]   
+F, [2017-05-20T15:07:29.567926 #7703] FATAL -- : [d17544c4-3c85-4b30-987a-cf2b7f81dc6b] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[d17544c4-3c85-4b30-987a-cf2b7f81dc6b] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:07:38.156435 #7703]  INFO -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf] Started GET "/" for 127.0.0.1 at 2017-05-20 15:07:38 -0300
+I, [2017-05-20T15:07:38.157503 #7703]  INFO -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:07:38.160242 #7703] DEBUG -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:07:38.175923 #7703]  INFO -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:07:38.182865 #7703] DEBUG -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf]   [1m[36mProjeto Load (6.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:07:38.183461 #7703]  INFO -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf]   Rendered projetos/index.html.erb within layouts/application (7.3ms)
+I, [2017-05-20T15:07:38.184920 #7703]  INFO -- : [ca790f21-38fe-4dbd-8ab2-6dc06e4523bf] Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 7.1ms)
+I, [2017-05-20T15:07:40.924421 #7703]  INFO -- : [cb94dbc0-3774-4c15-aa2f-2f47eacf281e] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:07:40 -0300
+F, [2017-05-20T15:07:40.925342 #7703] FATAL -- : [cb94dbc0-3774-4c15-aa2f-2f47eacf281e]   
+F, [2017-05-20T15:07:40.925412 #7703] FATAL -- : [cb94dbc0-3774-4c15-aa2f-2f47eacf281e] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:07:40.925453 #7703] FATAL -- : [cb94dbc0-3774-4c15-aa2f-2f47eacf281e]   
+F, [2017-05-20T15:07:40.925515 #7703] FATAL -- : [cb94dbc0-3774-4c15-aa2f-2f47eacf281e] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[cb94dbc0-3774-4c15-aa2f-2f47eacf281e] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:09:01.362830 #7703]  INFO -- : [f8e15d11-253f-426c-a201-c5e380aab9d5] Started GET "/" for 127.0.0.1 at 2017-05-20 15:09:01 -0300
+I, [2017-05-20T15:09:01.363530 #7703]  INFO -- : [f8e15d11-253f-426c-a201-c5e380aab9d5] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:09:01.365302 #7703] DEBUG -- : [f8e15d11-253f-426c-a201-c5e380aab9d5]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:09:01.378866 #7703]  INFO -- : [f8e15d11-253f-426c-a201-c5e380aab9d5]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:09:01.379789 #7703] DEBUG -- : [f8e15d11-253f-426c-a201-c5e380aab9d5]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:09:01.380239 #7703]  INFO -- : [f8e15d11-253f-426c-a201-c5e380aab9d5]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:09:01.381462 #7703]  INFO -- : [f8e15d11-253f-426c-a201-c5e380aab9d5] Completed 200 OK in 18ms (Views: 2.5ms | ActiveRecord: 0.8ms)
+I, [2017-05-20T15:11:27.445856 #7703]  INFO -- : [cd94e811-c457-423c-8293-3a0a0095b3e8] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:11:27 -0300
+F, [2017-05-20T15:11:27.447122 #7703] FATAL -- : [cd94e811-c457-423c-8293-3a0a0095b3e8]   
+F, [2017-05-20T15:11:27.447226 #7703] FATAL -- : [cd94e811-c457-423c-8293-3a0a0095b3e8] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:11:27.447273 #7703] FATAL -- : [cd94e811-c457-423c-8293-3a0a0095b3e8]   
+F, [2017-05-20T15:11:27.447323 #7703] FATAL -- : [cd94e811-c457-423c-8293-3a0a0095b3e8] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[cd94e811-c457-423c-8293-3a0a0095b3e8] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:23:34.303048 #7703]  INFO -- : [a7094800-ef84-42ae-9660-1f2fb94578a9] Started GET "/" for 127.0.0.1 at 2017-05-20 15:23:34 -0300
+I, [2017-05-20T15:23:34.304885 #7703]  INFO -- : [a7094800-ef84-42ae-9660-1f2fb94578a9] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:23:34.309663 #7703] DEBUG -- : [a7094800-ef84-42ae-9660-1f2fb94578a9]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:23:34.330215 #7703]  INFO -- : [a7094800-ef84-42ae-9660-1f2fb94578a9]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:23:34.331464 #7703] DEBUG -- : [a7094800-ef84-42ae-9660-1f2fb94578a9]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:23:34.332044 #7703]  INFO -- : [a7094800-ef84-42ae-9660-1f2fb94578a9]   Rendered projetos/index.html.erb within layouts/application (1.6ms)
+I, [2017-05-20T15:23:34.333621 #7703]  INFO -- : [a7094800-ef84-42ae-9660-1f2fb94578a9] Completed 200 OK in 28ms (Views: 3.2ms | ActiveRecord: 1.6ms)
+I, [2017-05-20T15:23:37.221303 #7703]  INFO -- : [09404fb3-b386-4b4e-9169-c406a79b088a] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:23:37 -0300
+F, [2017-05-20T15:23:37.222300 #7703] FATAL -- : [09404fb3-b386-4b4e-9169-c406a79b088a]   
+F, [2017-05-20T15:23:37.222413 #7703] FATAL -- : [09404fb3-b386-4b4e-9169-c406a79b088a] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:23:37.222464 #7703] FATAL -- : [09404fb3-b386-4b4e-9169-c406a79b088a]   
+F, [2017-05-20T15:23:37.222512 #7703] FATAL -- : [09404fb3-b386-4b4e-9169-c406a79b088a] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[09404fb3-b386-4b4e-9169-c406a79b088a] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[09404fb3-b386-4b4e-9169-c406a79b088a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[09404fb3-b386-4b4e-9169-c406a79b088a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[09404fb3-b386-4b4e-9169-c406a79b088a] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[09404fb3-b386-4b4e-9169-c406a79b088a] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[09404fb3-b386-4b4e-9169-c406a79b088a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[09404fb3-b386-4b4e-9169-c406a79b088a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[09404fb3-b386-4b4e-9169-c406a79b088a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[09404fb3-b386-4b4e-9169-c406a79b088a] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:24:23.562510 #7703]  INFO -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5] Started GET "/" for 127.0.0.1 at 2017-05-20 15:24:23 -0300
+I, [2017-05-20T15:24:23.563436 #7703]  INFO -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:24:23.565576 #7703] DEBUG -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:24:23.581071 #7703]  INFO -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:24:23.581986 #7703] DEBUG -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:24:23.582425 #7703]  INFO -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:24:23.583637 #7703]  INFO -- : [c2483b1a-a7b5-4941-b2ec-043b51ef74e5] Completed 200 OK in 20ms (Views: 2.4ms | ActiveRecord: 0.9ms)
+I, [2017-05-20T15:24:25.806979 #7703]  INFO -- : [476cae2c-52fb-44d5-8b49-143ff7e2530a] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:24:25 -0300
+F, [2017-05-20T15:24:25.807924 #7703] FATAL -- : [476cae2c-52fb-44d5-8b49-143ff7e2530a]   
+F, [2017-05-20T15:24:25.807983 #7703] FATAL -- : [476cae2c-52fb-44d5-8b49-143ff7e2530a] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:24:25.808023 #7703] FATAL -- : [476cae2c-52fb-44d5-8b49-143ff7e2530a]   
+F, [2017-05-20T15:24:25.808078 #7703] FATAL -- : [476cae2c-52fb-44d5-8b49-143ff7e2530a] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[476cae2c-52fb-44d5-8b49-143ff7e2530a] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:25:22.531018 #9920]  INFO -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5] Started GET "/" for 127.0.0.1 at 2017-05-20 15:25:22 -0300
+I, [2017-05-20T15:25:22.551961 #9920]  INFO -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:25:22.602579 #9920] DEBUG -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:25:22.640350 #9920]  INFO -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:25:22.642320 #9920] DEBUG -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:25:22.646415 #9920]  INFO -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5]   Rendered projetos/index.html.erb within layouts/application (5.9ms)
+I, [2017-05-20T15:25:22.648935 #9920]  INFO -- : [9b4101fd-1d72-42d3-8ef9-f67aa5df47f5] Completed 200 OK in 97ms (Views: 9.6ms | ActiveRecord: 17.8ms)
+I, [2017-05-20T15:25:25.561392 #9920]  INFO -- : [a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:25:25 -0300
+F, [2017-05-20T15:25:25.562520 #9920] FATAL -- : [a7ee3f6c-274b-41c6-b7f7-cc53990b1b40]   
+F, [2017-05-20T15:25:25.562639 #9920] FATAL -- : [a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:25:25.562697 #9920] FATAL -- : [a7ee3f6c-274b-41c6-b7f7-cc53990b1b40]   
+F, [2017-05-20T15:25:25.562768 #9920] FATAL -- : [a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[a7ee3f6c-274b-41c6-b7f7-cc53990b1b40] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:26:20.316269 #9920]  INFO -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2] Started GET "/" for 127.0.0.1 at 2017-05-20 15:26:20 -0300
+I, [2017-05-20T15:26:20.317394 #9920]  INFO -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:26:20.320707 #9920] DEBUG -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:26:20.332833 #9920]  INFO -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:26:20.333627 #9920] DEBUG -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:26:20.333976 #9920]  INFO -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2]   Rendered projetos/index.html.erb within layouts/application (1.0ms)
+I, [2017-05-20T15:26:20.334894 #9920]  INFO -- : [223902a7-57e7-4c17-b0f3-57393f7c3cd2] Completed 200 OK in 17ms (Views: 1.9ms | ActiveRecord: 1.0ms)
+I, [2017-05-20T15:26:23.028081 #9920]  INFO -- : [7925d450-f231-411c-a9cc-dfe402bd1fba] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:26:23 -0300
+F, [2017-05-20T15:26:23.029791 #9920] FATAL -- : [7925d450-f231-411c-a9cc-dfe402bd1fba]   
+F, [2017-05-20T15:26:23.029977 #9920] FATAL -- : [7925d450-f231-411c-a9cc-dfe402bd1fba] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:26:23.030090 #9920] FATAL -- : [7925d450-f231-411c-a9cc-dfe402bd1fba]   
+F, [2017-05-20T15:26:23.030199 #9920] FATAL -- : [7925d450-f231-411c-a9cc-dfe402bd1fba] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[7925d450-f231-411c-a9cc-dfe402bd1fba] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:26:28.278930 #9920]  INFO -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561] Started GET "/" for 127.0.0.1 at 2017-05-20 15:26:28 -0300
+I, [2017-05-20T15:26:28.279618 #9920]  INFO -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:26:28.282159 #9920] DEBUG -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:26:28.297465 #9920]  INFO -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:26:28.298571 #9920] DEBUG -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:26:28.299152 #9920]  INFO -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561]   Rendered projetos/index.html.erb within layouts/application (1.5ms)
+I, [2017-05-20T15:26:28.300526 #9920]  INFO -- : [7ede50e3-bf16-47fd-993d-6899ef8a1561] Completed 200 OK in 21ms (Views: 2.9ms | ActiveRecord: 1.4ms)
+I, [2017-05-20T15:26:46.129714 #9920]  INFO -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7] Started GET "/" for 127.0.0.1 at 2017-05-20 15:26:46 -0300
+I, [2017-05-20T15:26:46.130993 #9920]  INFO -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:26:46.133221 #9920] DEBUG -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:26:46.147340 #9920]  INFO -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:26:46.148250 #9920] DEBUG -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:26:46.148693 #9920]  INFO -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:26:46.149855 #9920]  INFO -- : [49fe56a2-8f01-4127-9f74-56f31a6e27d7] Completed 200 OK in 19ms (Views: 2.4ms | ActiveRecord: 1.0ms)
+I, [2017-05-20T15:26:48.662240 #9920]  INFO -- : [092600c1-4397-47f8-8f5e-c6a41f7a3ad4] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:26:48 -0300
+F, [2017-05-20T15:26:48.662882 #9920] FATAL -- : [092600c1-4397-47f8-8f5e-c6a41f7a3ad4]   
+F, [2017-05-20T15:26:48.662994 #9920] FATAL -- : [092600c1-4397-47f8-8f5e-c6a41f7a3ad4] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:26:48.663034 #9920] FATAL -- : [092600c1-4397-47f8-8f5e-c6a41f7a3ad4]   
+F, [2017-05-20T15:26:48.663074 #9920] FATAL -- : [092600c1-4397-47f8-8f5e-c6a41f7a3ad4] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[092600c1-4397-47f8-8f5e-c6a41f7a3ad4] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:27:11.682248 #10455]  INFO -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502] Started GET "/" for 127.0.0.1 at 2017-05-20 15:27:11 -0300
+I, [2017-05-20T15:27:11.700114 #10455]  INFO -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:27:11.749136 #10455] DEBUG -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:27:11.790113 #10455]  INFO -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:27:11.791980 #10455] DEBUG -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:27:11.795197 #10455]  INFO -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502]   Rendered projetos/index.html.erb within layouts/application (4.9ms)
+I, [2017-05-20T15:27:11.798401 #10455]  INFO -- : [9f1ccac7-ac71-42a0-87ee-c54b024c6502] Completed 200 OK in 98ms (Views: 9.1ms | ActiveRecord: 14.7ms)
+I, [2017-05-20T15:27:15.063373 #10455]  INFO -- : [64fa0fcb-381e-4779-adcb-0cdc79abd8e7] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:27:15 -0300
+F, [2017-05-20T15:27:15.064418 #10455] FATAL -- : [64fa0fcb-381e-4779-adcb-0cdc79abd8e7]   
+F, [2017-05-20T15:27:15.064493 #10455] FATAL -- : [64fa0fcb-381e-4779-adcb-0cdc79abd8e7] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:27:15.064537 #10455] FATAL -- : [64fa0fcb-381e-4779-adcb-0cdc79abd8e7]   
+F, [2017-05-20T15:27:15.064601 #10455] FATAL -- : [64fa0fcb-381e-4779-adcb-0cdc79abd8e7] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[64fa0fcb-381e-4779-adcb-0cdc79abd8e7] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:41:02.004359 #10455]  INFO -- : [532b2e90-7ccc-415a-ad72-c16d91be386e] Started GET "/" for 127.0.0.1 at 2017-05-20 15:41:02 -0300
+I, [2017-05-20T15:41:02.005055 #10455]  INFO -- : [532b2e90-7ccc-415a-ad72-c16d91be386e] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:41:02.007832 #10455] DEBUG -- : [532b2e90-7ccc-415a-ad72-c16d91be386e]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:41:02.020635 #10455]  INFO -- : [532b2e90-7ccc-415a-ad72-c16d91be386e]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:41:02.022367 #10455] DEBUG -- : [532b2e90-7ccc-415a-ad72-c16d91be386e]   [1m[36mProjeto Load (1.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:41:02.022872 #10455]  INFO -- : [532b2e90-7ccc-415a-ad72-c16d91be386e]   Rendered projetos/index.html.erb within layouts/application (2.1ms)
+I, [2017-05-20T15:41:02.023962 #10455]  INFO -- : [532b2e90-7ccc-415a-ad72-c16d91be386e] Completed 200 OK in 19ms (Views: 2.6ms | ActiveRecord: 2.0ms)
+I, [2017-05-20T15:41:04.288415 #10455]  INFO -- : [0b40bdcc-a329-4a74-8419-23f52be2048e] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:41:04 -0300
+F, [2017-05-20T15:41:04.290729 #10455] FATAL -- : [0b40bdcc-a329-4a74-8419-23f52be2048e]   
+F, [2017-05-20T15:41:04.290940 #10455] FATAL -- : [0b40bdcc-a329-4a74-8419-23f52be2048e] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:41:04.291047 #10455] FATAL -- : [0b40bdcc-a329-4a74-8419-23f52be2048e]   
+F, [2017-05-20T15:41:04.291170 #10455] FATAL -- : [0b40bdcc-a329-4a74-8419-23f52be2048e] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[0b40bdcc-a329-4a74-8419-23f52be2048e] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:42:28.909708 #24589]  INFO -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067] Started GET "/" for 127.0.0.1 at 2017-05-20 15:42:28 -0300
+I, [2017-05-20T15:42:28.927271 #24589]  INFO -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:42:28.987040 #24589] DEBUG -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067]   [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:42:29.022057 #24589]  INFO -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:42:29.024458 #24589] DEBUG -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:42:29.029672 #24589]  INFO -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067]   Rendered projetos/index.html.erb within layouts/application (7.4ms)
+I, [2017-05-20T15:42:29.033129 #24589]  INFO -- : [f6092e3c-6e82-4e7e-9d87-1b92f7c6c067] Completed 200 OK in 106ms (Views: 12.8ms | ActiveRecord: 26.3ms)
+I, [2017-05-20T15:42:36.652142 #24589]  INFO -- : [86f01948-ff33-4948-a829-55c7522ce5d1] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:42:36 -0300
+F, [2017-05-20T15:42:36.653467 #24589] FATAL -- : [86f01948-ff33-4948-a829-55c7522ce5d1]   
+F, [2017-05-20T15:42:36.653578 #24589] FATAL -- : [86f01948-ff33-4948-a829-55c7522ce5d1] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:42:36.653632 #24589] FATAL -- : [86f01948-ff33-4948-a829-55c7522ce5d1]   
+F, [2017-05-20T15:42:36.653700 #24589] FATAL -- : [86f01948-ff33-4948-a829-55c7522ce5d1] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[86f01948-ff33-4948-a829-55c7522ce5d1] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[86f01948-ff33-4948-a829-55c7522ce5d1] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[86f01948-ff33-4948-a829-55c7522ce5d1] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[86f01948-ff33-4948-a829-55c7522ce5d1] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[86f01948-ff33-4948-a829-55c7522ce5d1] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[86f01948-ff33-4948-a829-55c7522ce5d1] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[86f01948-ff33-4948-a829-55c7522ce5d1] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[86f01948-ff33-4948-a829-55c7522ce5d1] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[86f01948-ff33-4948-a829-55c7522ce5d1] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:45:58.190509 #24589]  INFO -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54] Started GET "/" for 127.0.0.1 at 2017-05-20 15:45:58 -0300
+I, [2017-05-20T15:45:58.191691 #24589]  INFO -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:45:58.194386 #24589] DEBUG -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:45:58.209106 #24589]  INFO -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:45:58.210040 #24589] DEBUG -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:45:58.210505 #24589]  INFO -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:45:58.211860 #24589]  INFO -- : [26124ed9-f6bb-44ea-ad47-18a163c05a54] Completed 200 OK in 20ms (Views: 2.7ms | ActiveRecord: 1.0ms)
+I, [2017-05-20T15:46:00.707174 #24589]  INFO -- : [cc09c42a-cb2d-4372-9ebd-69706315b576] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:46:00 -0300
+F, [2017-05-20T15:46:00.709079 #24589] FATAL -- : [cc09c42a-cb2d-4372-9ebd-69706315b576]   
+F, [2017-05-20T15:46:00.709210 #24589] FATAL -- : [cc09c42a-cb2d-4372-9ebd-69706315b576] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:46:00.709306 #24589] FATAL -- : [cc09c42a-cb2d-4372-9ebd-69706315b576]   
+F, [2017-05-20T15:46:00.709422 #24589] FATAL -- : [cc09c42a-cb2d-4372-9ebd-69706315b576] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[cc09c42a-cb2d-4372-9ebd-69706315b576] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:48:09.958633 #24589]  INFO -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81] Started GET "/" for 127.0.0.1 at 2017-05-20 15:48:09 -0300
+I, [2017-05-20T15:48:09.959572 #24589]  INFO -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:48:09.961721 #24589] DEBUG -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:48:09.983830 #24589]  INFO -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:48:09.984793 #24589] DEBUG -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:48:09.985253 #24589]  INFO -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:48:09.986489 #24589]  INFO -- : [c8324ff2-19af-4445-88f2-88e7e5ab4a81] Completed 200 OK in 27ms (Views: 2.6ms | ActiveRecord: 0.9ms)
+I, [2017-05-20T15:48:12.077357 #24589]  INFO -- : [b25212d9-89c9-432d-92be-e2a035139bf9] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:48:12 -0300
+F, [2017-05-20T15:48:12.078672 #24589] FATAL -- : [b25212d9-89c9-432d-92be-e2a035139bf9]   
+F, [2017-05-20T15:48:12.078793 #24589] FATAL -- : [b25212d9-89c9-432d-92be-e2a035139bf9] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:48:12.078854 #24589] FATAL -- : [b25212d9-89c9-432d-92be-e2a035139bf9]   
+F, [2017-05-20T15:48:12.078940 #24589] FATAL -- : [b25212d9-89c9-432d-92be-e2a035139bf9] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[b25212d9-89c9-432d-92be-e2a035139bf9] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[b25212d9-89c9-432d-92be-e2a035139bf9] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[b25212d9-89c9-432d-92be-e2a035139bf9] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[b25212d9-89c9-432d-92be-e2a035139bf9] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[b25212d9-89c9-432d-92be-e2a035139bf9] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[b25212d9-89c9-432d-92be-e2a035139bf9] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[b25212d9-89c9-432d-92be-e2a035139bf9] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[b25212d9-89c9-432d-92be-e2a035139bf9] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[b25212d9-89c9-432d-92be-e2a035139bf9] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:48:15.128968 #24589]  INFO -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3] Started GET "/" for 127.0.0.1 at 2017-05-20 15:48:15 -0300
+I, [2017-05-20T15:48:15.129946 #24589]  INFO -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:48:15.135845 #24589] DEBUG -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:48:15.149810 #24589]  INFO -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:48:15.150853 #24589] DEBUG -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:48:15.151405 #24589]  INFO -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3]   Rendered projetos/index.html.erb within layouts/application (1.4ms)
+I, [2017-05-20T15:48:15.152883 #24589]  INFO -- : [63a9af4f-449d-4ea0-bade-da65ebb442a3] Completed 200 OK in 23ms (Views: 3.1ms | ActiveRecord: 2.0ms)
+I, [2017-05-20T15:49:01.419940 #24589]  INFO -- : [101afc29-2b19-4f61-a931-ee3c5f899814] Started GET "/" for 127.0.0.1 at 2017-05-20 15:49:01 -0300
+I, [2017-05-20T15:49:01.420889 #24589]  INFO -- : [101afc29-2b19-4f61-a931-ee3c5f899814] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:49:01.423095 #24589] DEBUG -- : [101afc29-2b19-4f61-a931-ee3c5f899814]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:49:01.441353 #24589]  INFO -- : [101afc29-2b19-4f61-a931-ee3c5f899814]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:49:01.442270 #24589] DEBUG -- : [101afc29-2b19-4f61-a931-ee3c5f899814]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:49:01.442738 #24589]  INFO -- : [101afc29-2b19-4f61-a931-ee3c5f899814]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T15:49:01.443949 #24589]  INFO -- : [101afc29-2b19-4f61-a931-ee3c5f899814] Completed 200 OK in 23ms (Views: 2.5ms | ActiveRecord: 0.9ms)
+I, [2017-05-20T15:49:03.449941 #24589]  INFO -- : [fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:49:03 -0300
+F, [2017-05-20T15:49:03.451054 #24589] FATAL -- : [fb03aeb8-f486-4df2-8e27-5c8d258c4dc0]   
+F, [2017-05-20T15:49:03.451200 #24589] FATAL -- : [fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:49:03.451260 #24589] FATAL -- : [fb03aeb8-f486-4df2-8e27-5c8d258c4dc0]   
+F, [2017-05-20T15:49:03.451340 #24589] FATAL -- : [fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[fb03aeb8-f486-4df2-8e27-5c8d258c4dc0] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:51:07.257552 #25650]  INFO -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903] Started GET "/" for 127.0.0.1 at 2017-05-20 15:51:07 -0300
+I, [2017-05-20T15:51:07.270375 #25650]  INFO -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:51:07.318457 #25650] DEBUG -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:51:07.356029 #25650]  INFO -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:51:07.358574 #25650] DEBUG -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:51:07.363368 #25650]  INFO -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903]   Rendered projetos/index.html.erb within layouts/application (7.1ms)
+I, [2017-05-20T15:51:07.366843 #25650]  INFO -- : [9720ed60-06d8-4cb0-a751-ab2bcd2d2903] Completed 200 OK in 96ms (Views: 12.4ms | ActiveRecord: 17.8ms)
+I, [2017-05-20T15:51:11.648364 #25650]  INFO -- : [bb36a0bd-a29c-4344-85ef-284788f75bca] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:51:11 -0300
+F, [2017-05-20T15:51:11.649174 #25650] FATAL -- : [bb36a0bd-a29c-4344-85ef-284788f75bca]   
+F, [2017-05-20T15:51:11.649304 #25650] FATAL -- : [bb36a0bd-a29c-4344-85ef-284788f75bca] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:51:11.649338 #25650] FATAL -- : [bb36a0bd-a29c-4344-85ef-284788f75bca]   
+F, [2017-05-20T15:51:11.649396 #25650] FATAL -- : [bb36a0bd-a29c-4344-85ef-284788f75bca] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[bb36a0bd-a29c-4344-85ef-284788f75bca] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:52:09.274087 #25650]  INFO -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32] Started GET "/" for 127.0.0.1 at 2017-05-20 15:52:09 -0300
+I, [2017-05-20T15:52:09.275102 #25650]  INFO -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:52:09.277534 #25650] DEBUG -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:52:09.299699 #25650]  INFO -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:52:09.300669 #25650] DEBUG -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:52:09.301145 #25650]  INFO -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32]   Rendered projetos/index.html.erb within layouts/application (1.3ms)
+I, [2017-05-20T15:52:09.302369 #25650]  INFO -- : [6b858e83-8bbe-4697-b5a2-074f9d48fe32] Completed 200 OK in 27ms (Views: 2.7ms | ActiveRecord: 0.9ms)
+I, [2017-05-20T15:55:41.201702 #25650]  INFO -- : [4b14cb1f-1221-43fc-a97d-49b5090c0ce4] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:55:41 -0300
+F, [2017-05-20T15:55:41.202935 #25650] FATAL -- : [4b14cb1f-1221-43fc-a97d-49b5090c0ce4]   
+F, [2017-05-20T15:55:41.203054 #25650] FATAL -- : [4b14cb1f-1221-43fc-a97d-49b5090c0ce4] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:55:41.203103 #25650] FATAL -- : [4b14cb1f-1221-43fc-a97d-49b5090c0ce4]   
+F, [2017-05-20T15:55:41.203175 #25650] FATAL -- : [4b14cb1f-1221-43fc-a97d-49b5090c0ce4] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[4b14cb1f-1221-43fc-a97d-49b5090c0ce4] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T15:57:37.484552 #26678]  INFO -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6] Started GET "/" for 127.0.0.1 at 2017-05-20 15:57:37 -0300
+I, [2017-05-20T15:57:37.504309 #26678]  INFO -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6] Processing by ProjetosController#index as HTML
+D, [2017-05-20T15:57:37.558815 #26678] DEBUG -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T15:57:37.596036 #26678]  INFO -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T15:57:37.602864 #26678] DEBUG -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6]   [1m[36mProjeto Load (4.8ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T15:57:37.607807 #26678]  INFO -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6]   Rendered projetos/index.html.erb within layouts/application (11.6ms)
+I, [2017-05-20T15:57:37.612841 #26678]  INFO -- : [5aabf1b6-97de-41e2-b25f-3415e24b85e6] Completed 200 OK in 108ms (Views: 14.1ms | ActiveRecord: 23.1ms)
+I, [2017-05-20T15:57:49.201408 #26678]  INFO -- : [1f840519-cd9c-4a8e-94c4-06baebf6db89] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 15:57:49 -0300
+F, [2017-05-20T15:57:49.202482 #26678] FATAL -- : [1f840519-cd9c-4a8e-94c4-06baebf6db89]   
+F, [2017-05-20T15:57:49.202574 #26678] FATAL -- : [1f840519-cd9c-4a8e-94c4-06baebf6db89] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T15:57:49.202627 #26678] FATAL -- : [1f840519-cd9c-4a8e-94c4-06baebf6db89]   
+F, [2017-05-20T15:57:49.202683 #26678] FATAL -- : [1f840519-cd9c-4a8e-94c4-06baebf6db89] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[1f840519-cd9c-4a8e-94c4-06baebf6db89] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T16:07:01.281439 #26678]  INFO -- : [494f9677-712a-4f31-a8aa-105536389031] Started GET "/" for 127.0.0.1 at 2017-05-20 16:07:01 -0300
+I, [2017-05-20T16:07:01.282409 #26678]  INFO -- : [494f9677-712a-4f31-a8aa-105536389031] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:07:01.284918 #26678] DEBUG -- : [494f9677-712a-4f31-a8aa-105536389031]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:07:01.301159 #26678]  INFO -- : [494f9677-712a-4f31-a8aa-105536389031]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:07:01.302082 #26678] DEBUG -- : [494f9677-712a-4f31-a8aa-105536389031]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:07:01.302525 #26678]  INFO -- : [494f9677-712a-4f31-a8aa-105536389031]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T16:07:01.303714 #26678]  INFO -- : [494f9677-712a-4f31-a8aa-105536389031] Completed 200 OK in 21ms (Views: 2.5ms | ActiveRecord: 1.0ms)
+I, [2017-05-20T16:07:03.978137 #26678]  INFO -- : [20a0cc89-1e3b-4104-a39e-39659d44d40b] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 16:07:03 -0300
+F, [2017-05-20T16:07:03.979503 #26678] FATAL -- : [20a0cc89-1e3b-4104-a39e-39659d44d40b]   
+F, [2017-05-20T16:07:03.979615 #26678] FATAL -- : [20a0cc89-1e3b-4104-a39e-39659d44d40b] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T16:07:03.979676 #26678] FATAL -- : [20a0cc89-1e3b-4104-a39e-39659d44d40b]   
+F, [2017-05-20T16:07:03.979759 #26678] FATAL -- : [20a0cc89-1e3b-4104-a39e-39659d44d40b] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[20a0cc89-1e3b-4104-a39e-39659d44d40b] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T16:07:32.283111 #28882]  INFO -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11] Started GET "/" for 127.0.0.1 at 2017-05-20 16:07:32 -0300
+I, [2017-05-20T16:07:32.308194 #28882]  INFO -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:07:32.355266 #28882] DEBUG -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:07:32.393335 #28882]  INFO -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:07:32.395855 #28882] DEBUG -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:07:32.400697 #28882]  INFO -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11]   Rendered projetos/index.html.erb within layouts/application (7.2ms)
+I, [2017-05-20T16:07:32.404193 #28882]  INFO -- : [5f2fab98-958f-4579-8f5c-1f7c3a0bef11] Completed 200 OK in 96ms (Views: 12.6ms | ActiveRecord: 14.4ms)
+I, [2017-05-20T16:07:37.007842 #28882]  INFO -- : [edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 16:07:37 -0300
+F, [2017-05-20T16:07:37.009046 #28882] FATAL -- : [edc3eeb9-fbe6-4cb9-8b7d-850872bab18e]   
+F, [2017-05-20T16:07:37.009175 #28882] FATAL -- : [edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T16:07:37.009227 #28882] FATAL -- : [edc3eeb9-fbe6-4cb9-8b7d-850872bab18e]   
+F, [2017-05-20T16:07:37.009294 #28882] FATAL -- : [edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[edc3eeb9-fbe6-4cb9-8b7d-850872bab18e] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T16:14:13.737308 #29849]  INFO -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065] Started GET "/" for 127.0.0.1 at 2017-05-20 16:14:13 -0300
+I, [2017-05-20T16:14:13.758679 #29849]  INFO -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:14:13.809474 #29849] DEBUG -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:14:13.850150 #29849]  INFO -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:14:13.852760 #29849] DEBUG -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:14:13.857454 #29849]  INFO -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065]   Rendered projetos/index.html.erb within layouts/application (7.1ms)
+I, [2017-05-20T16:14:13.860071 #29849]  INFO -- : [fdec4ea4-6761-4a6c-ae2c-9c61e6ca6065] Completed 200 OK in 101ms (Views: 11.6ms | ActiveRecord: 14.5ms)
+I, [2017-05-20T16:14:32.015064 #29849]  INFO -- : [a462030c-b131-4c52-92d1-0a5989e1458e] Started GET "/" for 127.0.0.1 at 2017-05-20 16:14:32 -0300
+I, [2017-05-20T16:14:32.016889 #29849]  INFO -- : [a462030c-b131-4c52-92d1-0a5989e1458e] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:14:32.020211 #29849] DEBUG -- : [a462030c-b131-4c52-92d1-0a5989e1458e]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:14:32.041623 #29849]  INFO -- : [a462030c-b131-4c52-92d1-0a5989e1458e]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:14:32.042577 #29849] DEBUG -- : [a462030c-b131-4c52-92d1-0a5989e1458e]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:14:32.043104 #29849]  INFO -- : [a462030c-b131-4c52-92d1-0a5989e1458e]   Rendered projetos/index.html.erb within layouts/application (1.3ms)
+I, [2017-05-20T16:14:32.045161 #29849]  INFO -- : [a462030c-b131-4c52-92d1-0a5989e1458e] Completed 200 OK in 28ms (Views: 3.3ms | ActiveRecord: 0.9ms)
+I, [2017-05-20T16:18:27.368396 #30575]  INFO -- : [c0688e8f-2efc-451f-9037-16c57714ccc4] Started GET "/" for 127.0.0.1 at 2017-05-20 16:18:27 -0300
+I, [2017-05-20T16:18:27.393761 #30575]  INFO -- : [c0688e8f-2efc-451f-9037-16c57714ccc4] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:18:27.451433 #30575] DEBUG -- : [c0688e8f-2efc-451f-9037-16c57714ccc4]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:18:27.496286 #30575]  INFO -- : [c0688e8f-2efc-451f-9037-16c57714ccc4]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:18:27.499662 #30575] DEBUG -- : [c0688e8f-2efc-451f-9037-16c57714ccc4]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:18:27.504483 #30575]  INFO -- : [c0688e8f-2efc-451f-9037-16c57714ccc4]   Rendered projetos/index.html.erb within layouts/application (7.9ms)
+I, [2017-05-20T16:18:27.508001 #30575]  INFO -- : [c0688e8f-2efc-451f-9037-16c57714ccc4] Completed 200 OK in 114ms (Views: 15.2ms | ActiveRecord: 19.5ms)
+I, [2017-05-20T16:20:19.762400 #31118]  INFO -- : [b7bde73f-c533-4484-bab0-e0b8c418a913] Started GET "/" for 127.0.0.1 at 2017-05-20 16:20:19 -0300
+I, [2017-05-20T16:20:19.789000 #31118]  INFO -- : [b7bde73f-c533-4484-bab0-e0b8c418a913] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:20:19.857300 #31118] DEBUG -- : [b7bde73f-c533-4484-bab0-e0b8c418a913]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:20:19.900357 #31118]  INFO -- : [b7bde73f-c533-4484-bab0-e0b8c418a913]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:20:19.903140 #31118] DEBUG -- : [b7bde73f-c533-4484-bab0-e0b8c418a913]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:20:19.908047 #31118]  INFO -- : [b7bde73f-c533-4484-bab0-e0b8c418a913]   Rendered projetos/index.html.erb within layouts/application (7.5ms)
+I, [2017-05-20T16:20:19.911625 #31118]  INFO -- : [b7bde73f-c533-4484-bab0-e0b8c418a913] Completed 200 OK in 122ms (Views: 12.5ms | ActiveRecord: 20.4ms)
+I, [2017-05-20T16:23:03.893416 #31118]  INFO -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015] Started GET "/" for 127.0.0.1 at 2017-05-20 16:23:03 -0300
+I, [2017-05-20T16:23:03.894496 #31118]  INFO -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:23:03.897196 #31118] DEBUG -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:23:03.916742 #31118]  INFO -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:23:03.918558 #31118] DEBUG -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015]   [1m[36mProjeto Load (1.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:23:03.919173 #31118]  INFO -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015]   Rendered projetos/index.html.erb within layouts/application (2.3ms)
+I, [2017-05-20T16:23:03.920215 #31118]  INFO -- : [ce9f5ddb-304e-4f36-bd48-9b258c06d015] Completed 200 OK in 26ms (Views: 2.6ms | ActiveRecord: 1.8ms)
+I, [2017-05-20T16:23:06.372809 #31118]  INFO -- : [fdeea7f5-0d08-4bed-918a-388d572249d6] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 16:23:06 -0300
+F, [2017-05-20T16:23:06.374679 #31118] FATAL -- : [fdeea7f5-0d08-4bed-918a-388d572249d6]   
+F, [2017-05-20T16:23:06.374792 #31118] FATAL -- : [fdeea7f5-0d08-4bed-918a-388d572249d6] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T16:23:06.374870 #31118] FATAL -- : [fdeea7f5-0d08-4bed-918a-388d572249d6]   
+F, [2017-05-20T16:23:06.374972 #31118] FATAL -- : [fdeea7f5-0d08-4bed-918a-388d572249d6] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[fdeea7f5-0d08-4bed-918a-388d572249d6] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T16:23:08.623536 #31118]  INFO -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c] Started GET "/" for 127.0.0.1 at 2017-05-20 16:23:08 -0300
+I, [2017-05-20T16:23:08.624485 #31118]  INFO -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:23:08.626653 #31118] DEBUG -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:23:08.643852 #31118]  INFO -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:23:08.644567 #31118] DEBUG -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c]   [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:23:08.644907 #31118]  INFO -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c]   Rendered projetos/index.html.erb within layouts/application (0.9ms)
+I, [2017-05-20T16:23:08.645876 #31118]  INFO -- : [d7e3acb8-164b-444f-9045-ad13f80bbf3c] Completed 200 OK in 21ms (Views: 1.9ms | ActiveRecord: 0.8ms)
+I, [2017-05-20T16:25:53.467396 #31922]  INFO -- : [0d11b734-2184-468d-b964-5b6919afa63d] Started GET "/" for 127.0.0.1 at 2017-05-20 16:25:53 -0300
+I, [2017-05-20T16:25:53.491816 #31922]  INFO -- : [0d11b734-2184-468d-b964-5b6919afa63d] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:25:53.548026 #31922] DEBUG -- : [0d11b734-2184-468d-b964-5b6919afa63d]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:25:53.613637 #31922]  INFO -- : [0d11b734-2184-468d-b964-5b6919afa63d]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:25:53.616574 #31922] DEBUG -- : [0d11b734-2184-468d-b964-5b6919afa63d]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:25:53.622627 #31922]  INFO -- : [0d11b734-2184-468d-b964-5b6919afa63d]   Rendered projetos/index.html.erb within layouts/application (8.7ms)
+I, [2017-05-20T16:25:53.630816 #31922]  INFO -- : [0d11b734-2184-468d-b964-5b6919afa63d] Completed 200 OK in 139ms (Views: 19.0ms | ActiveRecord: 24.9ms)
+I, [2017-05-20T16:47:46.389388 #31922]  INFO -- : [ce61368e-5c1c-495a-ad89-e168601c86cb] Started GET "/" for 127.0.0.1 at 2017-05-20 16:47:46 -0300
+I, [2017-05-20T16:47:46.390625 #31922]  INFO -- : [ce61368e-5c1c-495a-ad89-e168601c86cb] Processing by ProjetosController#index as HTML
+D, [2017-05-20T16:47:46.393523 #31922] DEBUG -- : [ce61368e-5c1c-495a-ad89-e168601c86cb]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T16:47:46.416821 #31922]  INFO -- : [ce61368e-5c1c-495a-ad89-e168601c86cb]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T16:47:46.417616 #31922] DEBUG -- : [ce61368e-5c1c-495a-ad89-e168601c86cb]   [1m[36mProjeto Load (0.3ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T16:47:46.418180 #31922]  INFO -- : [ce61368e-5c1c-495a-ad89-e168601c86cb]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T16:47:46.419801 #31922]  INFO -- : [ce61368e-5c1c-495a-ad89-e168601c86cb] Completed 200 OK in 29ms (Views: 2.8ms | ActiveRecord: 0.8ms)
+I, [2017-05-20T17:01:01.704339 #2882]  INFO -- : [b2274761-7bc8-40d1-bce2-b570c79a0708] Started GET "/" for 127.0.0.1 at 2017-05-20 17:01:01 -0300
+I, [2017-05-20T17:01:01.716291 #2882]  INFO -- : [b2274761-7bc8-40d1-bce2-b570c79a0708] Processing by ProjetosController#index as HTML
+D, [2017-05-20T17:01:01.764664 #2882] DEBUG -- : [b2274761-7bc8-40d1-bce2-b570c79a0708]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T17:01:01.797897 #2882]  INFO -- : [b2274761-7bc8-40d1-bce2-b570c79a0708]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T17:01:01.800478 #2882] DEBUG -- : [b2274761-7bc8-40d1-bce2-b570c79a0708]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T17:01:01.805302 #2882]  INFO -- : [b2274761-7bc8-40d1-bce2-b570c79a0708]   Rendered projetos/index.html.erb within layouts/application (7.2ms)
+I, [2017-05-20T17:01:01.808757 #2882]  INFO -- : [b2274761-7bc8-40d1-bce2-b570c79a0708] Completed 200 OK in 92ms (Views: 12.5ms | ActiveRecord: 19.2ms)
+I, [2017-05-20T17:01:04.602542 #2882]  INFO -- : [424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 17:01:04 -0300
+F, [2017-05-20T17:01:04.604895 #2882] FATAL -- : [424f3246-81c7-4c6e-9446-fb6f5bc8d0b0]   
+F, [2017-05-20T17:01:04.605143 #2882] FATAL -- : [424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T17:01:04.605248 #2882] FATAL -- : [424f3246-81c7-4c6e-9446-fb6f5bc8d0b0]   
+F, [2017-05-20T17:01:04.605408 #2882] FATAL -- : [424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[424f3246-81c7-4c6e-9446-fb6f5bc8d0b0] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T17:03:38.175084 #2882]  INFO -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096] Started GET "/" for 127.0.0.1 at 2017-05-20 17:03:38 -0300
+I, [2017-05-20T17:03:38.175857 #2882]  INFO -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096] Processing by ProjetosController#index as HTML
+D, [2017-05-20T17:03:38.177711 #2882] DEBUG -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T17:03:38.190112 #2882]  INFO -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T17:03:38.191144 #2882] DEBUG -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T17:03:38.191710 #2882]  INFO -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096]   Rendered projetos/index.html.erb within layouts/application (1.4ms)
+I, [2017-05-20T17:03:38.193123 #2882]  INFO -- : [21a2d749-2d1d-4898-b9b0-4fcc04461096] Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 0.8ms)
+I, [2017-05-20T17:03:46.462535 #2882]  INFO -- : [2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 17:03:46 -0300
+F, [2017-05-20T17:03:46.463397 #2882] FATAL -- : [2c9399da-e382-45e6-ae1f-c7cdeb30c5cc]   
+F, [2017-05-20T17:03:46.463505 #2882] FATAL -- : [2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T17:03:46.463549 #2882] FATAL -- : [2c9399da-e382-45e6-ae1f-c7cdeb30c5cc]   
+F, [2017-05-20T17:03:46.463587 #2882] FATAL -- : [2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[2c9399da-e382-45e6-ae1f-c7cdeb30c5cc] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-20T17:06:03.607273 #2882]  INFO -- : [aa24891a-78bb-4124-a240-252a1ff1e024] Started GET "/" for 127.0.0.1 at 2017-05-20 17:06:03 -0300
+I, [2017-05-20T17:06:03.608167 #2882]  INFO -- : [aa24891a-78bb-4124-a240-252a1ff1e024] Processing by ProjetosController#index as HTML
+D, [2017-05-20T17:06:03.610455 #2882] DEBUG -- : [aa24891a-78bb-4124-a240-252a1ff1e024]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-20T17:06:03.626926 #2882]  INFO -- : [aa24891a-78bb-4124-a240-252a1ff1e024]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-20T17:06:03.627837 #2882] DEBUG -- : [aa24891a-78bb-4124-a240-252a1ff1e024]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-20T17:06:03.628270 #2882]  INFO -- : [aa24891a-78bb-4124-a240-252a1ff1e024]   Rendered projetos/index.html.erb within layouts/application (1.2ms)
+I, [2017-05-20T17:06:03.629464 #2882]  INFO -- : [aa24891a-78bb-4124-a240-252a1ff1e024] Completed 200 OK in 21ms (Views: 2.4ms | ActiveRecord: 1.0ms)
+I, [2017-05-20T17:06:06.111307 #2882]  INFO -- : [4dcd15f9-9304-45bb-ace7-a02ffd315aba] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-20 17:06:06 -0300
+F, [2017-05-20T17:06:06.112203 #2882] FATAL -- : [4dcd15f9-9304-45bb-ace7-a02ffd315aba]   
+F, [2017-05-20T17:06:06.112264 #2882] FATAL -- : [4dcd15f9-9304-45bb-ace7-a02ffd315aba] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-20T17:06:06.112305 #2882] FATAL -- : [4dcd15f9-9304-45bb-ace7-a02ffd315aba]   
+F, [2017-05-20T17:06:06.112353 #2882] FATAL -- : [4dcd15f9-9304-45bb-ace7-a02ffd315aba] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[4dcd15f9-9304-45bb-ace7-a02ffd315aba] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T09:23:07.744931 #5088]  INFO -- : [2fa03d1b-91be-4856-924d-e08f856a906c] Started GET "/" for 127.0.0.1 at 2017-05-21 09:23:07 -0300
+I, [2017-05-21T09:23:07.759660 #5088]  INFO -- : [2fa03d1b-91be-4856-924d-e08f856a906c] Processing by ProjetosController#index as HTML
+I, [2017-05-21T09:23:07.777641 #5088]  INFO -- : [2fa03d1b-91be-4856-924d-e08f856a906c] Completed 401 Unauthorized in 18ms
+I, [2017-05-21T09:23:07.874992 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104] Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-21 09:23:07 -0300
+I, [2017-05-21T09:23:07.876732 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104] Processing by Users::SessionsController#new as HTML
+I, [2017-05-21T09:23:08.006958 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2017-05-21T09:23:08.016777 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104]   Rendered devise/shared/_links.html.erb (1.9ms)
+I, [2017-05-21T09:23:08.016934 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104]   Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+I, [2017-05-21T09:23:08.020132 #5088]  INFO -- : [b9e6d1c2-9fa4-4dde-b2f5-fee8d4b9b104] Completed 200 OK in 143ms (Views: 19.5ms | ActiveRecord: 71.8ms)
+I, [2017-05-21T09:23:22.359553 #5088]  INFO -- : [07d6f9d0-f049-4a2e-afde-25147143471a] Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-21 09:23:22 -0300
+I, [2017-05-21T09:23:22.365599 #5088]  INFO -- : [07d6f9d0-f049-4a2e-afde-25147143471a] Processing by Users::SessionsController#create as HTML
+I, [2017-05-21T09:23:22.365797 #5088]  INFO -- : [07d6f9d0-f049-4a2e-afde-25147143471a]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"67YoeABosZ/yNatltSnEvgxYB2tKawovbnRiiI4lVy4NyCFPIfV0TyB57LI21ggJ6CXGUDX7v3TufkREisEdwg==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+D, [2017-05-21T09:23:22.391836 #5088] DEBUG -- : [07d6f9d0-f049-4a2e-afde-25147143471a]   [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+D, [2017-05-21T09:23:22.604894 #5088] DEBUG -- : [07d6f9d0-f049-4a2e-afde-25147143471a]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-21T09:23:22.612186 #5088] DEBUG -- : [07d6f9d0-f049-4a2e-afde-25147143471a]   [1m[35mSQL (3.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2017-05-21 12:23:22 UTC], ["sign_in_count", 2], ["updated_at", 2017-05-21 12:23:22 UTC], ["id", 1]]
+D, [2017-05-21T09:23:22.633869 #5088] DEBUG -- : [07d6f9d0-f049-4a2e-afde-25147143471a]   [1m[35m (20.9ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-21T09:23:22.638801 #5088]  INFO -- : [07d6f9d0-f049-4a2e-afde-25147143471a] Redirected to http://localhost/
+I, [2017-05-21T09:23:22.639077 #5088]  INFO -- : [07d6f9d0-f049-4a2e-afde-25147143471a] Completed 302 Found in 273ms (ActiveRecord: 26.8ms)
+I, [2017-05-21T09:23:22.643964 #5088]  INFO -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc] Started GET "/" for 127.0.0.1 at 2017-05-21 09:23:22 -0300
+I, [2017-05-21T09:23:22.644673 #5088]  INFO -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc] Processing by ProjetosController#index as HTML
+D, [2017-05-21T09:23:22.646278 #5088] DEBUG -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T09:23:22.660038 #5088]  INFO -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T09:23:22.676088 #5088] DEBUG -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc]   [1m[36mProjeto Load (14.2ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T09:23:22.676701 #5088]  INFO -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc]   Rendered projetos/index.html.erb within layouts/application (16.5ms)
+I, [2017-05-21T09:23:22.678164 #5088]  INFO -- : [0b8f16ae-0fe4-4be8-a293-7a67c131e7dc] Completed 200 OK in 33ms (Views: 5.0ms | ActiveRecord: 15.7ms)
+I, [2017-05-21T09:23:25.155487 #5088]  INFO -- : [bc93ace1-e6df-4964-a93f-944e5439055e] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 09:23:25 -0300
+F, [2017-05-21T09:23:25.157479 #5088] FATAL -- : [bc93ace1-e6df-4964-a93f-944e5439055e]   
+F, [2017-05-21T09:23:25.157624 #5088] FATAL -- : [bc93ace1-e6df-4964-a93f-944e5439055e] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T09:23:25.157691 #5088] FATAL -- : [bc93ace1-e6df-4964-a93f-944e5439055e]   
+F, [2017-05-21T09:23:25.157793 #5088] FATAL -- : [bc93ace1-e6df-4964-a93f-944e5439055e] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[bc93ace1-e6df-4964-a93f-944e5439055e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[bc93ace1-e6df-4964-a93f-944e5439055e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[bc93ace1-e6df-4964-a93f-944e5439055e] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[bc93ace1-e6df-4964-a93f-944e5439055e] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[bc93ace1-e6df-4964-a93f-944e5439055e] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[bc93ace1-e6df-4964-a93f-944e5439055e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[bc93ace1-e6df-4964-a93f-944e5439055e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[bc93ace1-e6df-4964-a93f-944e5439055e] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[bc93ace1-e6df-4964-a93f-944e5439055e] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:07:28.313705 #20543]  INFO -- : [2f11cbae-b770-4a55-8be5-77e398574034] Started GET "/" for 127.0.0.1 at 2017-05-21 10:07:28 -0300
+I, [2017-05-21T10:07:28.331843 #20543]  INFO -- : [2f11cbae-b770-4a55-8be5-77e398574034] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:07:28.385460 #20543] DEBUG -- : [2f11cbae-b770-4a55-8be5-77e398574034]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:07:28.412618 #20543]  INFO -- : [2f11cbae-b770-4a55-8be5-77e398574034]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:07:28.415120 #20543] DEBUG -- : [2f11cbae-b770-4a55-8be5-77e398574034]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:07:28.419791 #20543]  INFO -- : [2f11cbae-b770-4a55-8be5-77e398574034]   Rendered projetos/index.html.erb within layouts/application (7.0ms)
+I, [2017-05-21T10:07:28.424102 #20543]  INFO -- : [2f11cbae-b770-4a55-8be5-77e398574034] Completed 200 OK in 92ms (Views: 13.1ms | ActiveRecord: 20.4ms)
+I, [2017-05-21T10:07:40.774502 #20543]  INFO -- : [55d57c2f-ba47-4bea-8548-258e05b41994] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:07:40 -0300
+F, [2017-05-21T10:07:40.775679 #20543] FATAL -- : [55d57c2f-ba47-4bea-8548-258e05b41994]   
+F, [2017-05-21T10:07:40.775753 #20543] FATAL -- : [55d57c2f-ba47-4bea-8548-258e05b41994] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:07:40.775811 #20543] FATAL -- : [55d57c2f-ba47-4bea-8548-258e05b41994]   
+F, [2017-05-21T10:07:40.775887 #20543] FATAL -- : [55d57c2f-ba47-4bea-8548-258e05b41994] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[55d57c2f-ba47-4bea-8548-258e05b41994] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[55d57c2f-ba47-4bea-8548-258e05b41994] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[55d57c2f-ba47-4bea-8548-258e05b41994] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[55d57c2f-ba47-4bea-8548-258e05b41994] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[55d57c2f-ba47-4bea-8548-258e05b41994] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[55d57c2f-ba47-4bea-8548-258e05b41994] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[55d57c2f-ba47-4bea-8548-258e05b41994] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[55d57c2f-ba47-4bea-8548-258e05b41994] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[55d57c2f-ba47-4bea-8548-258e05b41994] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:23:37.507784 #20543]  INFO -- : [dd7061bc-e1c7-4e44-ad66-730153ca2932] Started GET "/" for 127.0.0.1 at 2017-05-21 10:23:37 -0300
+I, [2017-05-21T10:23:37.508446 #20543]  INFO -- : [dd7061bc-e1c7-4e44-ad66-730153ca2932] Processing by ProjetosController#index as HTML
+I, [2017-05-21T10:23:37.512341 #20543]  INFO -- : [dd7061bc-e1c7-4e44-ad66-730153ca2932] Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+I, [2017-05-21T10:23:37.545758 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4] Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-21 10:23:37 -0300
+I, [2017-05-21T10:23:37.547488 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4] Processing by Users::SessionsController#new as HTML
+I, [2017-05-21T10:23:37.554177 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2017-05-21T10:23:37.561457 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4]   Rendered devise/shared/_links.html.erb (1.2ms)
+I, [2017-05-21T10:23:37.561562 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4]   Rendered devise/sessions/new.html.erb within layouts/application (7.3ms)
+I, [2017-05-21T10:23:37.562403 #20543]  INFO -- : [eab6809c-dc01-4c15-bde3-825335b618c4] Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+I, [2017-05-21T10:23:44.816678 #20543]  INFO -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005] Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-21 10:23:44 -0300
+I, [2017-05-21T10:23:44.817797 #20543]  INFO -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005] Processing by Users::SessionsController#create as HTML
+I, [2017-05-21T10:23:44.817898 #20543]  INFO -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"blTUrkxkARExcXLaIXWcXcF4uyG8bmS5XHU+SaQ0iBcDWN9979+B5Av57eh6UYy8w93ZJdyD5LP0L3DJsh7iJA==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+D, [2017-05-21T10:23:44.827208 #20543] DEBUG -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+D, [2017-05-21T10:23:45.010974 #20543] DEBUG -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-21T10:23:45.014406 #20543] DEBUG -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005]   [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-05-21 13:23:45.010105"], ["last_sign_in_at", "2017-05-21 12:23:22.603776"], ["sign_in_count", 3], ["updated_at", "2017-05-21 13:23:45.011995"], ["id", 1]]
+D, [2017-05-21T10:23:45.032171 #20543] DEBUG -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005]   [1m[35m (17.1ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-21T10:23:45.036898 #20543]  INFO -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005] Redirected to http://localhost/
+I, [2017-05-21T10:23:45.037104 #20543]  INFO -- : [70e9a0c3-06a4-44b1-b2d1-512df8a9d005] Completed 302 Found in 219ms (ActiveRecord: 19.2ms)
+I, [2017-05-21T10:23:45.040269 #20543]  INFO -- : [44b8ec73-80d3-4907-8685-8847dc9c083a] Started GET "/" for 127.0.0.1 at 2017-05-21 10:23:45 -0300
+I, [2017-05-21T10:23:45.040929 #20543]  INFO -- : [44b8ec73-80d3-4907-8685-8847dc9c083a] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:23:45.042597 #20543] DEBUG -- : [44b8ec73-80d3-4907-8685-8847dc9c083a]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:23:45.045194 #20543]  INFO -- : [44b8ec73-80d3-4907-8685-8847dc9c083a]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:23:45.046249 #20543] DEBUG -- : [44b8ec73-80d3-4907-8685-8847dc9c083a]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:23:45.046707 #20543]  INFO -- : [44b8ec73-80d3-4907-8685-8847dc9c083a]   Rendered projetos/index.html.erb within layouts/application (1.4ms)
+I, [2017-05-21T10:23:45.047694 #20543]  INFO -- : [44b8ec73-80d3-4907-8685-8847dc9c083a] Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 1.0ms)
+I, [2017-05-21T10:23:47.490125 #20543]  INFO -- : [eb612573-c2ce-4ef8-9d09-cc6f8678baca] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:23:47 -0300
+F, [2017-05-21T10:23:47.491791 #20543] FATAL -- : [eb612573-c2ce-4ef8-9d09-cc6f8678baca]   
+F, [2017-05-21T10:23:47.492023 #20543] FATAL -- : [eb612573-c2ce-4ef8-9d09-cc6f8678baca] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:23:47.492116 #20543] FATAL -- : [eb612573-c2ce-4ef8-9d09-cc6f8678baca]   
+F, [2017-05-21T10:23:47.492252 #20543] FATAL -- : [eb612573-c2ce-4ef8-9d09-cc6f8678baca] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[eb612573-c2ce-4ef8-9d09-cc6f8678baca] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:34:53.014039 #24691]  INFO -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a] Started GET "/" for 127.0.0.1 at 2017-05-21 10:34:53 -0300
+I, [2017-05-21T10:34:53.042273 #24691]  INFO -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:34:53.100217 #24691] DEBUG -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a]   [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:34:53.124580 #24691]  INFO -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:34:53.126558 #24691] DEBUG -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a]   [1m[36mProjeto Load (0.5ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:34:53.129659 #24691]  INFO -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a]   Rendered projetos/index.html.erb within layouts/application (4.9ms)
+I, [2017-05-21T10:34:53.132245 #24691]  INFO -- : [4f61de6d-adfb-457d-a60b-094ffab32f2a] Completed 200 OK in 90ms (Views: 8.7ms | ActiveRecord: 26.0ms)
+I, [2017-05-21T10:34:57.403658 #24691]  INFO -- : [058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:34:57 -0300
+F, [2017-05-21T10:34:57.404769 #24691] FATAL -- : [058cbcb3-5c47-4a2f-b0b1-017916a7b6f7]   
+F, [2017-05-21T10:34:57.404859 #24691] FATAL -- : [058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:34:57.404909 #24691] FATAL -- : [058cbcb3-5c47-4a2f-b0b1-017916a7b6f7]   
+F, [2017-05-21T10:34:57.404965 #24691] FATAL -- : [058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[058cbcb3-5c47-4a2f-b0b1-017916a7b6f7] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:38:58.130327 #24691]  INFO -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971] Started GET "/" for 127.0.0.1 at 2017-05-21 10:38:58 -0300
+I, [2017-05-21T10:38:58.130949 #24691]  INFO -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:38:58.132692 #24691] DEBUG -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:38:58.135985 #24691]  INFO -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:38:58.137420 #24691] DEBUG -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:38:58.138106 #24691]  INFO -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971]   Rendered projetos/index.html.erb within layouts/application (1.9ms)
+I, [2017-05-21T10:38:58.139015 #24691]  INFO -- : [7e4b95c4-b8bd-4cbc-80ef-3cb2ba2ff971] Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 1.0ms)
+I, [2017-05-21T10:39:00.304962 #24691]  INFO -- : [5f708af5-505a-4d70-bb1f-46dfc338fdfe] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:39:00 -0300
+F, [2017-05-21T10:39:00.305546 #24691] FATAL -- : [5f708af5-505a-4d70-bb1f-46dfc338fdfe]   
+F, [2017-05-21T10:39:00.305589 #24691] FATAL -- : [5f708af5-505a-4d70-bb1f-46dfc338fdfe] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:39:00.305622 #24691] FATAL -- : [5f708af5-505a-4d70-bb1f-46dfc338fdfe]   
+F, [2017-05-21T10:39:00.305658 #24691] FATAL -- : [5f708af5-505a-4d70-bb1f-46dfc338fdfe] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[5f708af5-505a-4d70-bb1f-46dfc338fdfe] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:41:33.813217 #26188]  INFO -- : [4425e504-1253-4b08-aeb6-81ec4fbaa7b8] Started GET "/" for 127.0.0.1 at 2017-05-21 10:41:33 -0300
+I, [2017-05-21T10:41:33.831659 #26188]  INFO -- : [4425e504-1253-4b08-aeb6-81ec4fbaa7b8] Processing by ProjetosController#index as HTML
+I, [2017-05-21T10:41:33.849656 #26188]  INFO -- : [4425e504-1253-4b08-aeb6-81ec4fbaa7b8] Completed 401 Unauthorized in 18ms
+I, [2017-05-21T10:41:33.873532 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc] Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-21 10:41:33 -0300
+I, [2017-05-21T10:41:33.874981 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc] Processing by Users::SessionsController#new as HTML
+I, [2017-05-21T10:41:33.934470 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2017-05-21T10:41:33.944653 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc]   Rendered devise/shared/_links.html.erb (2.4ms)
+I, [2017-05-21T10:41:33.944832 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc]   Rendered devise/sessions/new.html.erb within layouts/application (10.2ms)
+I, [2017-05-21T10:41:33.948038 #26188]  INFO -- : [89508069-2de8-48b1-9bd1-3b31480af6cc] Completed 200 OK in 73ms (Views: 18.8ms | ActiveRecord: 14.1ms)
+I, [2017-05-21T10:41:47.433362 #26188]  INFO -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b] Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-21 10:41:47 -0300
+I, [2017-05-21T10:41:47.436304 #26188]  INFO -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b] Processing by Users::SessionsController#create as HTML
+I, [2017-05-21T10:41:47.436562 #26188]  INFO -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"OkVwrLKJWSBRYbmlZJTG0dQArk8CCb5hlpCfv1Dm8OlrYPtKD741+L0QGW+9+dsDMKBC9k7cbAAQmNjJ69AbPg==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+D, [2017-05-21T10:41:47.451612 #26188] DEBUG -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b]   [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+D, [2017-05-21T10:41:47.676111 #26188] DEBUG -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b]   [1m[35m (6.8ms)[0m  [1m[35mBEGIN[0m
+D, [2017-05-21T10:41:47.679997 #26188] DEBUG -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b]   [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-05-21 13:41:47.668508"], ["last_sign_in_at", "2017-05-21 13:23:45.010105"], ["sign_in_count", 4], ["updated_at", "2017-05-21 13:41:47.677328"], ["id", 1]]
+D, [2017-05-21T10:41:47.701076 #26188] DEBUG -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b]   [1m[35m (20.4ms)[0m  [1m[35mCOMMIT[0m
+I, [2017-05-21T10:41:47.704100 #26188]  INFO -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b] Redirected to http://localhost/
+I, [2017-05-21T10:41:47.704258 #26188]  INFO -- : [e6515d7d-331c-4cff-bd4a-f9d42237995b] Completed 302 Found in 268ms (ActiveRecord: 30.1ms)
+I, [2017-05-21T10:41:47.707585 #26188]  INFO -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04] Started GET "/" for 127.0.0.1 at 2017-05-21 10:41:47 -0300
+I, [2017-05-21T10:41:47.708467 #26188]  INFO -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:41:47.712032 #26188] DEBUG -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:41:47.721601 #26188]  INFO -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:41:47.723688 #26188] DEBUG -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04]   [1m[36mProjeto Load (0.6ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:41:47.724257 #26188]  INFO -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04]   Rendered projetos/index.html.erb within layouts/application (2.5ms)
+I, [2017-05-21T10:41:47.725558 #26188]  INFO -- : [ddbbeec0-16e6-4693-813d-8cdb64f15c04] Completed 200 OK in 17ms (Views: 4.6ms | ActiveRecord: 3.5ms)
+I, [2017-05-21T10:41:50.198862 #26188]  INFO -- : [7864bede-6190-43e3-a544-dad774b898d8] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:41:50 -0300
+F, [2017-05-21T10:41:50.200205 #26188] FATAL -- : [7864bede-6190-43e3-a544-dad774b898d8]   
+F, [2017-05-21T10:41:50.200351 #26188] FATAL -- : [7864bede-6190-43e3-a544-dad774b898d8] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:41:50.200404 #26188] FATAL -- : [7864bede-6190-43e3-a544-dad774b898d8]   
+F, [2017-05-21T10:41:50.200478 #26188] FATAL -- : [7864bede-6190-43e3-a544-dad774b898d8] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[7864bede-6190-43e3-a544-dad774b898d8] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[7864bede-6190-43e3-a544-dad774b898d8] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[7864bede-6190-43e3-a544-dad774b898d8] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[7864bede-6190-43e3-a544-dad774b898d8] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[7864bede-6190-43e3-a544-dad774b898d8] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[7864bede-6190-43e3-a544-dad774b898d8] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[7864bede-6190-43e3-a544-dad774b898d8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[7864bede-6190-43e3-a544-dad774b898d8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[7864bede-6190-43e3-a544-dad774b898d8] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[7864bede-6190-43e3-a544-dad774b898d8] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-05-21T10:42:10.962992 #26188]  INFO -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58] Started GET "/" for 127.0.0.1 at 2017-05-21 10:42:10 -0300
+I, [2017-05-21T10:42:10.963824 #26188]  INFO -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58] Processing by ProjetosController#index as HTML
+D, [2017-05-21T10:42:10.967009 #26188] DEBUG -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2017-05-21T10:42:10.971176 #26188]  INFO -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58]   Rendering projetos/index.html.erb within layouts/application
+D, [2017-05-21T10:42:10.972193 #26188] DEBUG -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58]   [1m[36mProjeto Load (0.4ms)[0m  [1m[34mSELECT "projetos".* FROM "projetos"[0m
+I, [2017-05-21T10:42:10.972729 #26188]  INFO -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58]   Rendered projetos/index.html.erb within layouts/application (1.4ms)
+I, [2017-05-21T10:42:10.973890 #26188]  INFO -- : [8dce1751-a8db-427d-9777-a53ffe1a8c58] Completed 200 OK in 10ms (Views: 2.7ms | ActiveRecord: 1.1ms)
+I, [2017-05-21T10:42:16.368574 #26188]  INFO -- : [dd716255-03ea-487a-9424-fac2bfaf0efb] Started GET "/users/sign_out" for 127.0.0.1 at 2017-05-21 10:42:16 -0300
+F, [2017-05-21T10:42:16.369757 #26188] FATAL -- : [dd716255-03ea-487a-9424-fac2bfaf0efb]   
+F, [2017-05-21T10:42:16.369844 #26188] FATAL -- : [dd716255-03ea-487a-9424-fac2bfaf0efb] ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+F, [2017-05-21T10:42:16.369902 #26188] FATAL -- : [dd716255-03ea-487a-9424-fac2bfaf0efb]   
+F, [2017-05-21T10:42:16.369975 #26188] FATAL -- : [dd716255-03ea-487a-9424-fac2bfaf0efb] actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] railties (5.0.3) lib/rails/engine.rb:522:in `call'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[dd716255-03ea-487a-9424-fac2bfaf0efb] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'

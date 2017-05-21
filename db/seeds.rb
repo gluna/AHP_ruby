@@ -10,12 +10,14 @@ JulgamentoCriterio.delete_all
 Criterio.delete_all
 Alternativa.delete_all
 Julgamento.delete_all
+User.delete_all
 
-Criterio.create(:nome => 'Estilo', :projeto_id => Projeto.first.id)
-Criterio.create(:nome => 'Confiabilidade', :projeto_id => Projeto.first.id)
-Criterio.create(:nome => 'Consumo', :projeto_id => Projeto.first.id)
-
-Alternativa.create(:nome => 'Civic', :projeto_id => Projeto.first.id)
-Alternativa.create(:nome => 'Saturn', :projeto_id => Projeto.first.id)
-Alternativa.create(:nome => 'Escort', :projeto_id => Projeto.first.id)
-Alternativa.create(:nome => 'Miata', :projeto_id => Projeto.first.id)
+User.create(:nome => 'Administrador', :email => 'admin@admin.com', :admin_role => 't', :user_role => 't', :password => '123456')
+# Criterio.create(:nome => 'Estilo', :projeto_id => Projeto.first.id)
+# Criterio.create(:nome => 'Confiabilidade', :projeto_id => Projeto.first.id)
+# Criterio.create(:nome => 'Consumo', :projeto_id => Projeto.first.id)
+#
+# Alternativa.create(:nome => 'Civic', :projeto_id => Projeto.first.id)
+# Alternativa.create(:nome => 'Saturn', :projeto_id => Projeto.first.id)
+# Alternativa.create(:nome => 'Escort', :projeto_id => Projeto.first.id)
+# Alternativa.create(:nome => 'Miata', :projeto_id => Projeto.first.id)

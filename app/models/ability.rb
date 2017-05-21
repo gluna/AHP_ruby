@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     end
     if user.user_role?
-      can :read, Projeto, user_id: user.id
+      can :manage, :all, user_id: user.id
     end
     # Define abilities for the passed in user here. For example:
     #
