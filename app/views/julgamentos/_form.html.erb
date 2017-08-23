@@ -1,6 +1,6 @@
 <%= form_for :julgamento, :url => julgamento_update_all_path(:projeto_id => @projeto.id), :html => { :method => :put } do %>
 
-  <% opcoes = [["1",1.0],["2",2.0],["3",3.0],["4",4.0],["5",5.0],["6",6.0],["7",7.0],["8",8.0],["2",9.0],["1/2",0.5],["1/3",0.333],["1/4",0.25],["1/5",0.25],["1/6",0.167],["1/7",0.143],["1/8",0.125],["1/9",0.111]] %>
+  <% opcoes = [["1",1.0],["2",2.0],["3",3.0],["4",4.0],["5",5.0],["6",6.0],["7",7.0],["8",8.0],["9",9.0],["1/2",0.5],["1/3",0.333],["1/4",0.25],["1/5",0.20],["1/6",0.166],["1/7",0.142],["1/8",0.125],["1/9",0.111]] %>
   <% @alternativas_1 = @projeto.alternativas %>
   <% @alternativas_2 = @projeto.alternativas %>
 
@@ -23,7 +23,7 @@
               <% @alternativas_2.each do |a2| %>
                 <% @jc = @julgamentos.find_by(:alternativa_1_id => a1.id, :alternativa_2_id => a2.id, :criterio_id => c.id) %>
                 <%= fields_for "j[]", @jc do |f| %>
-                  <td><%= f.select :valor, opcoes, :onChange => "alert('teste');" %></td>
+                  <td><%= f.select :valor, opcoes,{}, :onchange => "set_value(this)", :id => c.id.to_s+'_'+a1.id.to_s+'_'+a2.id.to_s %></td>
                 <% end %>
               <% end %>
             </tr>
