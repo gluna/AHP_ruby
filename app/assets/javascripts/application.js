@@ -23,6 +23,9 @@ function set_value(element){
     if(num2 > 1){
       num2 = num2.toFixed(1);
     }
+    if(num == "1"){
+      num2 = "1.0";
+    }
     x.value = num2;
   }else{
     element.value = "1.0";
