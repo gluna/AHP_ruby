@@ -43,7 +43,7 @@
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th colspan="3">Criterios</th>
+          <th colspan="4">Criterios</th>
         </tr>
       </thead>
       <tbody>
@@ -52,10 +52,11 @@
             <td><%= criterio.nome %></td>
             <td><%= link_to 'Editar', edit_criterio_path(criterio, projeto_id: @projeto.id), :class => "btn btn-warning" %></td>
             <td><%= link_to 'Excluir', criterio, method: :delete, data: { confirm: 'Tem certeza de que quer excluir o critério?' }, :class => "btn btn-danger"  %></td>
+            <td><%= link_to 'Sub Critério', new_criterio_path(criterio_id: criterio.id, projeto_id: @projeto.id), :class => "btn btn-primary"  %></td>
           </tr>
         <% end %>
         <tr>
-          <th colspan="3"><%= link_to 'Novo Criterio', new_criterio_path(projeto_id: @projeto.id), :class => "btn btn-primary"   %></th>
+          <th colspan="4"><%= link_to 'Novo Criterio', new_criterio_path(projeto_id: @projeto.id), :class => "btn btn-primary"   %></th>
         </tr>
       </tbody>
     </table>

@@ -21,6 +21,9 @@ class CriteriosController < ApplicationController
   def edit
   end
 
+  def subcriteros
+  end
+
   # POST /criterios
   # POST /criterios.json
   def create
